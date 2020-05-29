@@ -1,0 +1,29 @@
+.main-shell {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: auto 1fr;
+    height: 100%;
+    width: 100%;
+}
+
+.shell-icon {
+   grid-row: 0;
+   grid-column: 0;
+}
+
+
+.shell-toolbar {
+    grid-row: 0;
+    grid-column: 1;
+}
+
+.shell-side-menu {
+    grid-row: 1;
+    grid-column: 0;
+
+}
+
+.shell-screen {
+    grid-row: 1;
+    grid-column: 1;
+}

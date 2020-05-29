@@ -1,0 +1,21 @@
+
+.side-menu {
+    padding: 1em;
+    width: 150px;
+    height: 100%;
+    background-color: beige;
+}
+
+.side-menu-header {
+    height: 10%;
+    background-color: brown;
+}
+
+.side-menu-body {
+    height: 90%;
+}
+
+.side-menu-item {
+    height: 5%;
+    background-color: burlywood;
+}

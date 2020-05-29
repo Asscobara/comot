@@ -1,0 +1,10 @@
+<div class="side-menu">
+    <div class="side-menu-header">
+        {{title}}    
+    </div>
+    <div clas="side-menu-body">
+        <div *ngFor="let item of menuItems" class="side-menu-item">
+            <a routerLink="{{item.path}}" routerLinkActive="active">{{item.title}}</a>
+        </div>
+    </div>    
+</div>
