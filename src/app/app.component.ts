@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { DialogComponent } from './controls/dialog/dialog.component';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +9,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'comot';
+  
+  constructor(private dialogSrv: MatDialog) {
+    // this.dialogSrv.open(ComponentComponent);
+  }
 }
