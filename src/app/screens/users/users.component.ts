@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DataService } from 'src/app/services/data.service';
 import { MatDialog } from '@angular/material/dialog';
 import { UserComponent } from 'src/app/forms/user/user.component';
+import { DialogComponent } from 'src/app/controls/dialog/dialog.component';
 
 @Component({
   selector: 'app-users',
@@ -21,7 +22,7 @@ export class UsersComponent implements OnInit {
   }
 
   public openUser(user: any) {
-    this.dialogSrv.open(UserComponent, { "data": user.firstName } );
+    this.dialogSrv.open(DialogComponent, {"data": {"data": user.firstName, template: UsersComponent} } );
   }
 
 }

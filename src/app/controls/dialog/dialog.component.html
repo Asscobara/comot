@@ -1,6 +1,8 @@
 <div>
     <div>header</div>
-    <div>content</div>
-    <mat-slider min="1" max="100" step="1" value="1"></mat-slider>
-    <div>footer</div>
+    <div #template></div>    
+    <div>
+        <button [mat-dialog-close]="orgData">Cancel</button>
+        <button [mat-dialog-close]="data">OK</button>
+    </div>
 </div>

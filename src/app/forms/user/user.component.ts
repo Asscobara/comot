@@ -1,5 +1,4 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-user',
@@ -8,7 +7,11 @@ import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 })
 export class UserComponent implements OnInit {
 
-  constructor(@Inject(MAT_DIALOG_DATA) public firstName: string) { }
+  public data: string
+
+  constructor() { 
+    
+  }
 
   ngOnInit(): void {
   }
