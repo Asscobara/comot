@@ -6,7 +6,7 @@ import { ValidatorFn, FormControl, NgModel } from '@angular/forms';
   templateUrl: './field.component.html',
   styleUrls: ['./field.component.css']
 })
-export class FieldComponent implements OnChanges, OnInit  {
+export class FieldComponent implements OnInit  {
   
   @Input() public title: string;
   @Input() public placeholder: string;
@@ -19,9 +19,6 @@ export class FieldComponent implements OnChanges, OnInit  {
   public formControl: FormControl;
   
   constructor() { }
-
-  ngOnChanges(changes: SimpleChanges): void {
-  }
   
   ngOnInit(): void {
     this.formControl = new FormControl();
@@ -30,7 +27,7 @@ export class FieldComponent implements OnChanges, OnInit  {
     this.formControl.valueChanges.subscribe(v => {
       this.value = v;
       this.valueChange.emit(this.value);
-    })
+    });
   }
 
 }
