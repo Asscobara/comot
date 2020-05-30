@@ -1,0 +1,17 @@
+{
+    "version 0.0.1": { 
+        "1": "Build data scheme.",
+        "2": "Support update from dialog",
+        "3": "Suppoort new from dialog",
+        "4": "Design UI. Side menu, icons handling",
+        "5": "Design application content for pahse I",
+        "6": "Implement backend - nodeJS, mySQL",
+        "7": "Implement content"
+    },
+    "version 0.0.2": { 
+        "1": "Tests",
+        "2": "Design application content for pahse II",
+        "3": "Implement content",
+        "4": "Implement backend"
+    }
+}

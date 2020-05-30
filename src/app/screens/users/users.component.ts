@@ -3,6 +3,7 @@ import { DataService } from 'src/app/services/data.service';
 import { MatDialog } from '@angular/material/dialog';
 import { UserComponent } from 'src/app/forms/user/user.component';
 import { DialogComponent } from 'src/app/controls/dialog/dialog.component';
+import { IUser } from 'src/shceme/IScheme';
 
 
 @Component({
@@ -12,19 +13,17 @@ import { DialogComponent } from 'src/app/controls/dialog/dialog.component';
 })
 export class UsersComponent implements OnInit {
 
-  users: any = [];
-  @ViewChild("userDialogTemplate")
-  public userDialogTemplate: TemplateRef<any>;
-  
+  users: IUser;
+
   constructor(private dataSrv: DataService, private dialogSrv: MatDialog) {
     
   }
 
   async ngOnInit() {
-     (await this.dataSrv.getUsers()).subscribe(d => this.users = d); 
+     (await this.dataSrv.getUsers()).subscribe( (d: any) => this.users = d ); 
   }
 
-  public openUser(user: any) {
+  public openUser(user: IUser) {
     this.dialogSrv.open(DialogComponent, {"data": { content: UserComponent, instanceContext: user }});
   }
 

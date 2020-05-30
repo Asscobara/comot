@@ -1,5 +1,6 @@
 import { Component, OnInit, Inject, ViewChild, TemplateRef } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { IUser } from 'src/shceme/IScheme';
 
 @Component({
   selector: 'app-user',
@@ -8,7 +9,7 @@ import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 })
 export class UserComponent implements OnInit {
 
-  public context: any
+  public context: IUser
   
   constructor() { 
     
