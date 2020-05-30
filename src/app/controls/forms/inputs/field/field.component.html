@@ -1,0 +1,5 @@
+<div class="field-container">
+    <div>{{title}}</div>
+    <input matInput placeholder="{{placeholder}}" ([value])="value" [formControl]="formControl"/>
+    <div *ngIf="formControl.invalid" class="error">error</div>
+</div>

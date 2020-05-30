@@ -2,13 +2,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatDialogModule, MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-
+import { MatInputModule } from '@angular/material/input';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DialogComponent } from './controls/dialog/dialog.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MainShellComponent } from './shell/main-shell/main-shell.component';
 import { ToolBarComponent } from './shell/tool-bar/tool-bar.component';
 import { SideMenuComponent } from './shell/side-menu/side-menu.component';
@@ -17,6 +17,7 @@ import { ReportsComponent } from './screens/reports/reports.component';
 import { TasksComponent } from './screens/tasks/tasks.component';
 import { DataService } from './services/data.service';
 import { UserComponent } from './forms/user/user.component';
+import { FieldComponent } from './controls/forms/inputs/field/field.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { UserComponent } from './forms/user/user.component';
     ReportsComponent,
     TasksComponent,
     UserComponent,
+    FieldComponent
   ],
   imports: [
     BrowserModule,
@@ -37,7 +39,9 @@ import { UserComponent } from './forms/user/user.component';
     MatSliderModule,
     MatDialogModule, 
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    MatInputModule,
+    ReactiveFormsModule
   ],
   providers: [
     DataService

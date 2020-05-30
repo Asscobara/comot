@@ -3,9 +3,7 @@
         <div #viewport></div>
       </div>    
     <div>
-        <button>Cancel</button>
-        <!-- [mat-dialog-close]="orgData" -->
-        <button>OK</button>
-        <!-- [mat-dialog-close]="data" -->
+        <button [mat-dialog-close]="orgInstanceContext">Cancel</button>
+        <button [mat-dialog-close]="this.data.instanceContext">OK</button>
     </div>
 </div>

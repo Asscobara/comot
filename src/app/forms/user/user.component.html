@@ -1,7 +1,6 @@
-
-<div>
-    <span>
-        First Name    
-        <input type="text" value="{{context.firstName}}"/>
-    </span> 
+<div>    
+    <app-field title="First Name" [(value)]="context.firstName" valueChange="setValue('firstName', $event)"></app-field>
+    <app-field title="Last Name" [(value)]="context.lastName"></app-field>
+    <app-field title="Email" [(value)]="context.email"></app-field>
+    <app-field title="Remark" [(value)]="context.remark" [validators]="required"></app-field>
 </div>

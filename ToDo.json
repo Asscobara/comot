@@ -6,7 +6,8 @@
         "4": "Design UI. Side menu, icons handling",
         "5": "Design application content for pahse I",
         "6": "Implement backend - nodeJS, mySQL",
-        "7": "Implement content"
+        "7": "Implement content",
+        "8": "Localization - lan json"
     },
     "version 0.0.2": { 
         "1": "Tests",

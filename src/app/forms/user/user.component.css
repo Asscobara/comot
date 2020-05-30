@@ -1,0 +1,12 @@
+.field-container {
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+}
+
+.field-title {
+    font-weight: bold;
+}
+
+.field-error {
+    color: red;
+}
