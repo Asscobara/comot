@@ -1,8 +1,12 @@
 <div>
-    <div>header</div>
-    <div #template></div>    
+    <div mat-dialog-content>
+        <p class="dialog-paragraph">{{ data.headerText }}</p>
+        <ng-container [ngTemplateOutlet]="data.template" [ngTemplateOutletContext]="data.context"></ng-container>
+      </div>    
     <div>
-        <button [mat-dialog-close]="orgData">Cancel</button>
-        <button [mat-dialog-close]="data">OK</button>
+        <button>Cancel</button>
+        <!-- [mat-dialog-close]="orgData" -->
+        <button>OK</button>
+        <!-- [mat-dialog-close]="data" -->
     </div>
 </div>

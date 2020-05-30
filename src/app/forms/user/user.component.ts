@@ -1,4 +1,5 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit, Inject, ViewChild, TemplateRef } from '@angular/core';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-user',
@@ -6,14 +7,16 @@ import { Component, OnInit, Inject } from '@angular/core';
   styleUrls: ['./user.component.css']
 })
 export class UserComponent implements OnInit {
+  
+  @ViewChild("userDialogTemplate")
+  public static userDialogTemplate: TemplateRef<any>;
 
-  public data: string
-
-  constructor() { 
-    
+  constructor(@Inject(MAT_DIALOG_DATA) public context: any) { 
+    debugger;
   }
 
   ngOnInit(): void {
+    debugger;
   }
 
 }

@@ -1,22 +1,21 @@
-import { Component, inject, TemplateRef } from '@angular/core';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Component, inject, TemplateRef, Inject } from '@angular/core';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 
 @Component({
-  selector: 'app-dialog',
+  selector: 'esm-dialog',
   templateUrl: './dialog.component.html',
   styleUrls: ['./dialog.component.css']
 })
-export class DialogComponent {
+export class DialogComponent<T> {
   
-   constructor(@inject(MAT_DIALOG_DATA) public data: any) { 
-    //
-    //this.template = this.data.template;
-   // (this.template as any).data = this.data.data;
-   // this.orgData = JSON.parse(JSON.stringify(this.data.data));
-   }
+  constructor(
+    public dialogRef: MatDialogRef<DialogComponent<T>>,
+    @Inject(MAT_DIALOG_DATA)
+    public data: {
+      headerText: string
+      template: TemplateRef<any>
+      context: T
+    }) {
 
-  public orgData: any;
- // public data: any;
-  public template: TemplateRef<any>;
-
+  }
 }
