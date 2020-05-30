@@ -3,7 +3,7 @@ import { DataService } from 'src/app/services/data.service';
 import { MatDialog } from '@angular/material/dialog';
 import { UserComponent } from 'src/app/forms/user/user.component';
 import { DialogComponent } from 'src/app/controls/dialog/dialog.component';
-import { DialogFactoryService } from 'src/app/services/dialog-factory.service';
+
 
 @Component({
   selector: 'app-users',
@@ -16,7 +16,7 @@ export class UsersComponent implements OnInit {
   @ViewChild("userDialogTemplate")
   public userDialogTemplate: TemplateRef<any>;
   
-  constructor(private dataSrv: DataService, private dialogSrv: MatDialog, private dialogFactoryService: DialogFactoryService) {
+  constructor(private dataSrv: DataService, private dialogSrv: MatDialog) {
     
   }
 
@@ -25,10 +25,7 @@ export class UsersComponent implements OnInit {
   }
 
   public openUser(user: any) {
-    this.dialogFactoryService.open( { 
-      headerText: 'Header text',
-      template: this.userDialogTemplate, 
-      context: user.firstName } );
+    this.dialogSrv.open(DialogComponent, {"data": { content: UserComponent, instanceContext: user }});
   }
 
 }

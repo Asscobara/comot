@@ -1,7 +1,6 @@
 <div>
     <div mat-dialog-content>
-        <p class="dialog-paragraph">{{ data.headerText }}</p>
-        <ng-container [ngTemplateOutlet]="data.template" [ngTemplateOutletContext]="data.context"></ng-container>
+        <div #viewport></div>
       </div>    
     <div>
         <button>Cancel</button>

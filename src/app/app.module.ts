@@ -17,8 +17,6 @@ import { ReportsComponent } from './screens/reports/reports.component';
 import { TasksComponent } from './screens/tasks/tasks.component';
 import { DataService } from './services/data.service';
 import { UserComponent } from './forms/user/user.component';
-import { DialogFactoryService } from './services/dialog-factory.service';
-import { DialogService } from './services/dialog.service';
 
 @NgModule({
   declarations: [
@@ -42,8 +40,7 @@ import { DialogService } from './services/dialog.service';
     FormsModule
   ],
   providers: [
-    DataService,
-    DialogFactoryService
+    DataService
   ],
   bootstrap: [AppComponent]
 })
