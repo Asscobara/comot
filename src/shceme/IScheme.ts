@@ -1,12 +1,10 @@
 
 export interface IUser {
-    firstName: string,
-    lastName: string,
-    email: string,
-    id: string,
-    remark: string,
-    createDate: Date,
-    updateDate: Date
+    id: number;
+    email: string;
+    password: string;
+    first_name: string;
+    last_name: string;
 }
 
 export interface IResidant extends IUser {

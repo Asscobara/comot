@@ -20,12 +20,14 @@ export class UsersComponent implements OnInit {
   }
 
   async ngOnInit() {
-     (await this.dataSrv.getUsers()).subscribe( (d: any) => this.users = d ); 
+     (await this.dataSrv.getUsers()).subscribe( (d: any) => this.users = d.data ); 
   }
 
   public openUser(user: IUser) {
     this.dialogSrv.open(DialogComponent, {"data": { content: UserComponent, instanceContext: user }}).afterClosed().subscribe(d => {
-      console.log(`dialog closed with ${JSON.stringify(d)}`)
+      user.password = "12345678";
+      // this.dataSrv.deleteUser(user.id);
+      this.dataSrv.updateUser(user);
     });
   }
 
