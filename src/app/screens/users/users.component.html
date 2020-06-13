@@ -1,6 +1,3 @@
 <div class="screen">
-    <span>MOCK</span>
-    <div *ngFor="let user of users" (click)="openUser(user)">
-        {{user.first_name}} - {{user.last_name}} - {{user.email}}
-    </div>
+    <app-grid [data]="gridData" (rowSelected)="onRowSelected($event)"></app-grid>
 </div>

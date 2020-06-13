@@ -1,0 +1,16 @@
+
+<div class="grid-container">
+    
+    <div class="grid-header" [ngStyle]="{'grid-template-columns': columnsStyleProperty }">
+        <div *ngFor="let column of data?.columns">
+            {{column}}
+        </div>
+    </div> 
+
+    <div class="grid-row" [ngStyle]="{'grid-template-columns': columnsStyleProperty }" *ngFor="let row of data?.rows; index as i;" (click)="onRowSelected(row)">
+        <span *ngFor="let title of row.data;">
+            {{title}}    
+        </span>
+    </div>
+
+</div>

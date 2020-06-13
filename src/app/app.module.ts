@@ -18,6 +18,7 @@ import { TasksComponent } from './screens/tasks/tasks.component';
 import { DataService } from './services/data.service';
 import { UserComponent } from './forms/user/user.component';
 import { FieldComponent } from './controls/forms/inputs/field/field.component';
+import { GridComponent } from './controls/grid/grid.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { FieldComponent } from './controls/forms/inputs/field/field.component';
     ReportsComponent,
     TasksComponent,
     UserComponent,
-    FieldComponent
+    FieldComponent,
+    GridComponent
   ],
   imports: [
     BrowserModule,
