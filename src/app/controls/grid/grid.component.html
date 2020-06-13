@@ -1,13 +1,17 @@
 
 <div class="grid-container">
-    
+    <div class="action-buttons">
+        <button *ngFor="let btn of data?.buttons" class="action-button" (click)="onButtonClick(btn)" >{{btn.title}}</button>
+    </div>
     <div class="grid-header" [ngStyle]="{'grid-template-columns': columnsStyleProperty }">
+        <input type="checkbox" *ngIf="data?.canSelectItem" (click)="onCheckAllRows($event)"/>
         <div *ngFor="let column of data?.columns">
             {{column}}
         </div>
     </div> 
 
-    <div class="grid-row" [ngStyle]="{'grid-template-columns': columnsStyleProperty }" *ngFor="let row of data?.rows; index as i;" (click)="onRowSelected(row)">
+    <div class="grid-row" [ngStyle]="{'grid-template-columns': columnsStyleProperty }" *ngFor="let row of data?.rows; index as i;" (click)="onRowSelected($event, row)">
+        <input type="checkbox" *ngIf="data?.canSelectItem" (click)="onCheckRow($event, row)"/>
         <span *ngFor="let title of row.data;">
             {{title}}    
         </span>

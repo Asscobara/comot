@@ -10,6 +10,7 @@ export class GridComponent implements OnInit, OnChanges {
   @Input() public data: IGridData;
   
   @Output() public rowSelected: EventEmitter<any> = new EventEmitter();
+  @Output() public buttonClicked: EventEmitter<any> = new EventEmitter();
 
   public columnsStyleProperty: string; 
 
@@ -18,7 +19,7 @@ export class GridComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    if (changes.data && changes.currentValue) {
+    if (changes.data && changes.data.currentValue) {
        this.setColumnsStyleProperty(); 
     }
   }
@@ -27,17 +28,39 @@ export class GridComponent implements OnInit, OnChanges {
 
   }
 
-  public onRowSelected($event) {
+  public onRowSelected($event, row) {
+    $event.stopPropagation();
     if(this.rowSelected) {
-      this.rowSelected.emit($event);
+      this.rowSelected.emit(row);
     }
   }
 
+  public onButtonClick($event) {
+    if(this.buttonClicked) {
+      this.buttonClicked.emit($event);
+    }
+  }
+
+  public onCheckRow($event, row) {
+    $event.stopPropagation();
+  }
+
+  public onCheckAllRows($event) {
+    $event.stopPropagation();
+  }
+
   private setColumnsStyleProperty() {
+    
     this.columnsStyleProperty = `auto`;
+
+    if (this.data.canSelectItem ) {
+      this.columnsStyleProperty += ` auto`;  
+    }
+
     for(let i = 1; i < this.data.columns.length; i++) {
       this.columnsStyleProperty += ` 1fr`
     }
+
   }
 }
 
@@ -45,5 +68,10 @@ export interface IGridData {
   columns: string[];
   rows: {
     data: string[]
-  }[]
+  }[];
+  canSelectItem: boolean;
+  buttons: {
+    title: string;
+    action: string;
+  }[];
 }
