@@ -1,0 +1,39 @@
+13/6/2020
+High level product design
+
+--------------- START UP ----------------------
+1. Complete users end-to-end:
+    - Set base class to users screen
+    - Grid UI design
+    - Add confirm message before delete
+    - Add translate support
+    - Add Server code to git - remove old project from git
+    - Dialog UI design - field, buttons, title etc.
+2. Handle server errors
+3. Shell UI design
+    - side menu
+    - top menu
+    - icons
+4. Handle user - signup, login, logout. email support.
+-----------------Milestone-------------------------
+5. New Entity: Task
+    id, description, date, status, category, reportedBy, 
+6. Add user fileds: description, image, role        
+7. New Entity: Badget - Transactions / payments.
+8. New Entity: Supliers - price.  
+-----------------Milestone-------------------------
+9. Define and implement work flows
+    - Register building
+    - Add resident - send email
+    - Enter Task - find suplier - follow task status - done
+10. Add building messages - email and notifications
+-----------------RELEASE 1.0-------------------------
+11. Add building chat / video
+12. Implement supliers adds
+
+
+
+
+
+
+

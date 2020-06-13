@@ -1,8 +1,7 @@
 .grid-container {
     display: grid;
     height: 100vh;
-    overflow-y: auto;
-    grid-template-rows: auto 1fr;
+    overflow-y: auto;   
     gap: 0.5em;
     border: black;
     border-radius: 1%;
@@ -29,6 +28,7 @@
     position: -webkit-sticky;
     top: 0;
     background-color: bisque;
+    align-self: center;
 }
 
 .grid-row {
@@ -36,6 +36,8 @@
     grid-template-columns: auto 1fr 1fr 1fr;
     display: grid;
     gap: 0.5em;
+    align-self: center;
+    cursor: pointer;
 }
 
 .grid-row:hover {

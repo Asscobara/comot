@@ -22,8 +22,7 @@ export class DataService {
 
     async updateUser(user: IUser) {
         this.httpSrv.put(`http://localhost:3000/users/${user.id}/`, user, this.httpOptions).subscribe((u) => {
-          //  user = u as IUser;
-           // console.log(user.first_name);
+            console.log('updated');
         });
     }
 

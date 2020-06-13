@@ -11,7 +11,7 @@
     </div> 
 
     <div class="grid-row" [ngStyle]="{'grid-template-columns': columnsStyleProperty }" *ngFor="let row of data?.rows; index as i;" (click)="onRowSelected($event, row)">
-        <input type="checkbox" *ngIf="data?.canSelectItem" (click)="onCheckRow($event, row)"/>
+        <input type="checkbox" *ngIf="data?.canSelectItem" (click)="onCheckRow($event, row)" [checked]="row.selected"/>
         <span *ngFor="let title of row.data;">
             {{title}}    
         </span>

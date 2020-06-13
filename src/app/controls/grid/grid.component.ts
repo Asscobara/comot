@@ -42,11 +42,14 @@ export class GridComponent implements OnInit, OnChanges {
   }
 
   public onCheckRow($event, row) {
+    row.selected = $event.toElement.checked;
     $event.stopPropagation();
   }
 
   public onCheckAllRows($event) {
     $event.stopPropagation();
+    let selected = $event.toElement.checked;
+    this.data.rows.forEach(r => r.selected = selected);
   }
 
   private setColumnsStyleProperty() {
@@ -67,6 +70,7 @@ export class GridComponent implements OnInit, OnChanges {
 export interface IGridData {
   columns: string[];
   rows: {
+    selected: boolean;
     data: string[]
   }[];
   canSelectItem: boolean;
