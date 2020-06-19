@@ -21,7 +21,7 @@ export class GridComponent implements OnInit, OnChanges {
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes.data && changes.data.currentValue) {
-      this.displayedColumns = this.data.columns.map(col => col.fieldName);
+      this.displayedColumns = ['select', ...this.data.columns.map(col => col.fieldName)];
       this.dataSource = new MatTableDataSource<any>(this.data.rows);
       this.selection = new SelectionModel<any>(true, []);  
    }

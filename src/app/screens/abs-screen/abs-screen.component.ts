@@ -53,7 +53,7 @@ export abstract class AbsScreenComponent<T> implements OnInit {
 
   public onRowSelected($event) {
     this.viewState = ViewState.edit;
-    const data: T = this.getFilledT($event.data);
+    const data: T = this.getFilledT($event);
     this.openDataDialog(data);
   }
 

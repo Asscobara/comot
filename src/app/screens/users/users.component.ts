@@ -18,13 +18,7 @@ export class UsersComponent extends AbsScreenComponent<IUser> {
   }
 
   protected getFilledT(data: any): IUser {
-    return {
-      id: data[0],
-      first_name: data[1],
-      last_name: data[2],
-      email: data[3],
-      password: '11111'
-    };
+    return data as IUser;
   }
 
   protected buildGridData() {
