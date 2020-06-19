@@ -11,14 +11,14 @@ import { ValidatorNames } from 'src/app/validators/validators';
 })
 export class UserComponent extends FormBaseClass<IUser> implements OnInit {
 
-  public unique: FormControl = new FormControl(); 
+  public emailControl: FormControl = new FormControl(); 
   constructor() { 
     super();
-    this.unique.setValidators(Validators.required);
+    this.emailControl.setValidators([Validators.required, Validators.email]);
   }
 
   ngOnInit(): void {
-    this.formGroup.addControl(ValidatorNames.required, this.unique);
+    this.formGroup.addControl(ValidatorNames.required, this.emailControl);
   }
 
 }

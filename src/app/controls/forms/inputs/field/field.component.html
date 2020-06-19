@@ -1,5 +1,15 @@
-<div class="field-container">
+<!--
+<div class="field-container">    
     <div>{{title}} <span *ngIf="isRequried" class="error">*</span></div>
     <input mat-input placeholder="{{placeholder}}" ([value])="value" [formControl]="control"/>
     <div *ngIf="hasError" class="error" i18n="field error|Error text">error</div>
+</div>
+-->
+<div class="field-container">    
+    <mat-form-field class="example-full-width">
+        <mat-label>{{title}} <span *ngIf="isRequried" class="error">*</span></mat-label>
+        <input matInput [formControl]="control" placeholder="{{placeholder}}">
+        <mat-hint>{{hint}}</mat-hint>
+        <mat-error *ngIf="hasError">{{errorMassage}}</mat-error>
+    </mat-form-field>
 </div>

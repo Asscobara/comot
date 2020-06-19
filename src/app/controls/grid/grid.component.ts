@@ -1,4 +1,6 @@
 import { Component, OnInit, Input, OnChanges, SimpleChanges, Output, EventEmitter } from '@angular/core';
+import { MatTableDataSource } from '@angular/material/table';
+import { SelectionModel } from '@angular/cdk/collections';
 
 @Component({
   selector: 'app-grid',
@@ -12,27 +14,21 @@ export class GridComponent implements OnInit, OnChanges {
   @Output() public rowSelected: EventEmitter<any> = new EventEmitter();
   @Output() public buttonClicked: EventEmitter<any> = new EventEmitter();
 
-  public columnsStyleProperty: string; 
-
+  public Object = Object;  
   constructor() { 
   
   }
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes.data && changes.data.currentValue) {
-       this.setColumnsStyleProperty(); 
-    }
+      this.displayedColumns = this.data.columns.map(col => col.fieldName);
+      this.dataSource = new MatTableDataSource<any>(this.data.rows);
+      this.selection = new SelectionModel<any>(true, []);  
+   }
   }
 
   ngOnInit(): void {
 
-  }
-
-  public onRowSelected($event, row) {
-    $event.stopPropagation();
-    if(this.rowSelected) {
-      this.rowSelected.emit(row);
-    }
   }
 
   public onButtonClick($event) {
@@ -52,27 +48,41 @@ export class GridComponent implements OnInit, OnChanges {
     this.data.rows.forEach(r => r.selected = selected);
   }
 
-  private setColumnsStyleProperty() {
-    
-    this.columnsStyleProperty = `auto`;
+  public displayedColumns: string[];
+  public dataSource:  MatTableDataSource<any>;
+  public selection: SelectionModel<any>;
 
-    if (this.data.canSelectItem ) {
-      this.columnsStyleProperty += ` auto`;  
-    }
-
-    for(let i = 1; i < this.data.columns.length; i++) {
-      this.columnsStyleProperty += ` 1fr`
-    }
-
+  /** Whether the number of selected elements matches the total number of rows. */
+  isAllSelected() {
+    const numSelected = this.selection.selected.length;
+    const numRows = this.dataSource.data.length;
+    return numSelected === numRows;
   }
+
+  masterToggle() {
+    this.isAllSelected() ?
+        this.selection.clear() :
+        this.dataSource.data.forEach(row => this.selection.select(row));
+  }
+
+  /** The label for the checkbox on the passed row */
+  checkboxLabel(row?: any): string {
+    if (!row) {
+      return `${this.isAllSelected() ? 'select' : 'deselect'} all`;
+    }
+    return `${this.selection.isSelected(row) ? 'deselect' : 'select'}`;
+  }
+
+}
+
+export interface IGridColumn {
+  displayName: string,
+  fieldName: string
 }
 
 export interface IGridData {
-  columns: string[];
-  rows: {
-    selected: boolean;
-    data: string[]
-  }[];
+  columns: IGridColumn[];
+  rows: any[];
   canSelectItem: boolean;
   buttons: {
     title: string;

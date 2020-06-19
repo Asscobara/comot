@@ -1,20 +1,21 @@
-
-<div class="grid-container">
-    <div class="action-buttons">
-        <button *ngFor="let btn of data?.buttons" class="action-button" (click)="onButtonClick(btn)" >{{btn.title}}</button>
-    </div>
-    <div class="grid-header" [ngStyle]="{'grid-template-columns': columnsStyleProperty }">
-        <input type="checkbox" *ngIf="data?.canSelectItem" (click)="onCheckAllRows($event)"/>
-        <div *ngFor="let column of data?.columns">
-            {{column}}
-        </div>
-    </div> 
-
-    <div class="grid-row" [ngStyle]="{'grid-template-columns': columnsStyleProperty }" *ngFor="let row of data?.rows; index as i;" (click)="onRowSelected($event, row)">
-        <input type="checkbox" *ngIf="data?.canSelectItem" (click)="onCheckRow($event, row)" [checked]="row.selected"/>
-        <span *ngFor="let title of row.data;">
-            {{title}}    
-        </span>
-    </div>
-
+<div>
+    <button *ngFor="let btn of data?.buttons" class="action-button" (click)="onButtonClick(btn)" >{{btn.title}}</button>
 </div>
+
+<mat-table [dataSource]="dataSource" class="grid-container">
+
+    <!--
+    <ng-container>
+        <th mat-header-cell><mat-checkbox></mat-checkbox></th>
+        <td mat-cell *matCellDef="let element"><mat-checkbox></mat-checkbox></td>            
+    </ng-container>  
+    -->
+    <ng-container *ngFor="let col of data?.columns;" matColumnDef="{{col.fieldName}}">
+        <mat-header-cell *matHeaderCellDef>{{col.displayName}}</mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element[col.fieldName]}} </mat-cell>    
+    </ng-container>  
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    
+</mat-table>

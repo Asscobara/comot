@@ -59,6 +59,7 @@ export abstract class AbsScreenComponent<T> implements OnInit {
 
   private openDataDialog(data: T) {
     this.dialogSrv.open(DialogComponent, {
+        "minWidth": 250,
         "data": { 
           content: this.childComponent, 
           instanceContext: data, 

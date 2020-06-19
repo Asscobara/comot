@@ -29,18 +29,18 @@ export class UsersComponent extends AbsScreenComponent<IUser> {
 
   protected buildGridData() {
     this.gridData = {
-      columns: ['#', 'First Name', 'Last Name', 'Email'],
+      columns: [
+        {displayName: '#', fieldName: 'id'},
+        {displayName: 'First Name', fieldName: 'first_name'},
+        {displayName: 'Last Name', fieldName: 'last_name'},
+        {displayName: 'Email', fieldName: 'email'}],
       rows: [],
       buttons: [{ title: 'New', action: 'new' }, { title: 'Delete', action: 'delete' }],
       canSelectItem: true
     }
 
     this.data.forEach( (user: IUser) => {
-      let row = {data: [], selected: false}
-
-      row.data = [];
-      row.data.push(user.id, user.first_name, user.last_name, user.email);
-      this.gridData.rows.push(row);
+      this.gridData.rows.push(user);
     });
   }
 

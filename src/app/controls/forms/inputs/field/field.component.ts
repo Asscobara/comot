@@ -13,12 +13,21 @@ export class FieldComponent implements OnInit, IFieldComponent  {
   @Input() public placeholder: string;
   @Input() public value: any;
   @Input() public control: FormControl;
-
+  @Input() public hint: string;
+  
   @Output()
   public valueChange = new EventEmitter();
 
   constructor() { }
   
+  
+  public get errorMassage(): string {
+      if (this.hasError) {
+        return 'error';        
+      }
+      return '';
+  }
+
   public get isRequried(): boolean{
     if (!this.control || !this.control.validator) {
       return false;
