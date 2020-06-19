@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectorRef } from '@angular/core';
 import { DataService } from 'src/app/services/data.service';
 import { MatDialog } from '@angular/material/dialog';
 import { UserComponent } from 'src/app/forms/user/user.component';
@@ -13,12 +13,8 @@ import { AbsScreenComponent } from '../abs-screen/abs-screen.component';
 })
 export class UsersComponent extends AbsScreenComponent<IUser> {
 
-  constructor(private dataSrv: DataService, dialogSrv: MatDialog) {
-    super(dialogSrv, UserComponent); 
-  }
-
-  protected getFilledT(data: any): IUser {
-    return data as IUser;
+  constructor (private dataSrv: DataService, changeDetect: ChangeDetectorRef, dialogSrv: MatDialog) {
+    super(dialogSrv, changeDetect, UserComponent); 
   }
 
   protected buildGridData() {
@@ -48,11 +44,8 @@ export class UsersComponent extends AbsScreenComponent<IUser> {
     }
   }
 
-  protected async loadData(postload: () => void) {
-    return (await this.dataSrv.getUsers()).subscribe((d: any) => {
-      this.data = d.data;
-      postload();
-    });
+  protected async loadData() {
+    return this.dataSrv.getUsers();
   }
 
   protected update(data: IUser) {
@@ -60,7 +53,7 @@ export class UsersComponent extends AbsScreenComponent<IUser> {
   }
 
   protected create(data: IUser) {
-    return this.dataSrv.updateUser(data);
+    return this.dataSrv.createUser(data);
   }
 
   protected delete(id: number) {

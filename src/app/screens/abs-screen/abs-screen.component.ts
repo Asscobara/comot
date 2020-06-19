@@ -1,8 +1,9 @@
-import { OnInit, Type } from '@angular/core';
+import { OnInit, Type, ChangeDetectorRef } from '@angular/core';
 import { IGridData } from 'src/app/controls/grid/grid.component';
 import { DialogComponent } from 'src/app/controls/dialog/dialog.component';
 import { MatDialog } from '@angular/material/dialog';
 import { Observable } from 'rxjs';
+import { PopupComponent } from 'src/app/popups/popup/popup.component';
 
 export abstract class AbsScreenComponent<T> implements OnInit {
 
@@ -12,7 +13,10 @@ export abstract class AbsScreenComponent<T> implements OnInit {
 
   viewState: ViewState = ViewState.view;
 
-  constructor(private dialogSrv: MatDialog, private childComponent: Type<any>) {
+  constructor(
+    private dialogSrv: MatDialog, 
+    private changeDetect: ChangeDetectorRef, 
+    private childComponent: Type<any>) {
     
   }
 
@@ -21,39 +25,38 @@ export abstract class AbsScreenComponent<T> implements OnInit {
   }
 
   protected abstract buildGridData();
-  protected abstract loadData(postload: () => void);
+  protected abstract async loadData();
   protected abstract async update(data: T);
   protected abstract async create(data: T);
   protected abstract async delete(id: number);          
   protected abstract getEmptyT(): T;
-  protected abstract getFilledT(data: any): T;
-
+  
   public async onButtonClicked($event) {
 
     const data = this.getEmptyT();
 
-    switch($event.action) {
+    switch($event.btn.action) {
       case 'new':
         this.viewState = ViewState.new;
         this.openDataDialog(data);
         break;
       case 'delete':
-        this.gridData.rows.forEach(async r => {
-          if (r.selected) {
-            (data as any).id = parseInt(r.data[0]);
+        this.openConfirmDialog(() => {
+          $event.selected.forEach(async r => {
+            (data as any).id = r.id;
             this.viewState = ViewState.delete;
             await this.handleViewState(data);
             this.viewState = ViewState.view;
-          }
+            this.absLoadData();
+          });        
         });
-        this.absLoadData();
         break;
     }
   }
 
   public onRowSelected($event) {
     this.viewState = ViewState.edit;
-    const data: T = this.getFilledT($event);
+    const data: T = $event;
     this.openDataDialog(data);
   }
 
@@ -67,18 +70,19 @@ export abstract class AbsScreenComponent<T> implements OnInit {
         }
       }).afterClosed().subscribe( async (d: T) =>  {     
       if (d) {
-        await this.handleViewState(d);
-        await this.absLoadData();
+        await this.handleViewState(d).then(() => {
+          this.absLoadData()
+        });
       }
     });
   }
 
   private async absLoadData() {
     this.viewState = ViewState.loading;
-    await this.loadData(() => {
-      this.buildGridData();
-      this.viewState = ViewState.view;
-    });
+    this.data = (await this.loadData()).data;
+    this.buildGridData();
+    this.viewState = ViewState.view;
+    this.changeDetect.detectChanges();
   }
 
   private async handleViewState(data: T) {
@@ -108,6 +112,29 @@ export abstract class AbsScreenComponent<T> implements OnInit {
     return 'UNKOWN';
   }
 
+  private openConfirmDialog(callback: () => void) {
+    const dialogRef = this.dialogSrv.open(PopupComponent,{
+      data:{
+        message: 'Are you sure want to delete?',
+        buttonText: {
+          ok: 'Save',
+          cancel: 'No'
+        }
+      }
+    });
+    // const snack = this.snackBar.open('Snack bar open before dialog');
+
+    dialogRef.afterClosed().subscribe((confirmed: boolean) => {
+      if (confirmed) {
+       // snack.dismiss();
+       callback();
+      //  snack.dismiss();
+       // this.snackBar.open('Closing snack bar in a few seconds', 'Fechar', {
+       //   duration: 2000,
+       // });
+      }
+    });
+  }
 }
 
 export enum ViewState {

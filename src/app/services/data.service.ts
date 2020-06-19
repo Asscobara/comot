@@ -15,27 +15,25 @@ export class DataService {
     constructor(private httpSrv: HttpClient) {
 
     }
+    
+    private get endPoint(): string {
+        return `http://localhost:3000/`;
+    }
 
     async getUsers() {
-        return this.httpSrv.get('http://localhost:3000/users', this.httpOptions);
+        return this.httpSrv.get(`${this.endPoint}users`, this.httpOptions).toPromise();
     }
 
     async updateUser(user: IUser) {
-        this.httpSrv.put(`http://localhost:3000/users/${user.id}/`, user, this.httpOptions).subscribe((u) => {
-            console.log('updated');
-        });
+        this.httpSrv.put(`${this.endPoint}users/${user.id}/`, user, this.httpOptions).toPromise();
     }
 
     async deleteUser(id: number) {
-        return this.httpSrv.delete(`http://localhost:3000/users/${id}`).subscribe(() => {
-            console.log('deleted');
-        });        
+        return this.httpSrv.delete(`${this.endPoint}users/${id}`).toPromise();
     }
 
     async createUser(user: IUser) {
-        return this.httpSrv.post(`http://localhost:3000/users/`, user, this.httpOptions).subscribe(() => {
-            console.log('created');
-        });
+        return this.httpSrv.post(`${this.endPoint}users/`, user, this.httpOptions).toPromise();
     }
 
 }

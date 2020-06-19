@@ -27,6 +27,7 @@ import { registerLocaleData } from '@angular/common';
 import { CdkColumnDef } from '@angular/cdk/table';
 import localeHe from '@angular/common/locales/he';
 import localeHeExtra from '@angular/common/locales/extra/en';
+import { PopupComponent } from './popups/popup/popup.component';
 
 registerLocaleData(localeHe, 'he-IL', localeHeExtra);
 
@@ -42,7 +43,8 @@ registerLocaleData(localeHe, 'he-IL', localeHeExtra);
     TasksComponent,
     UserComponent,
     FieldComponent,
-    GridComponent
+    GridComponent,
+    PopupComponent
   ],
   imports: [
     BrowserModule,

@@ -43,3 +43,8 @@
 .grid-row:hover {
     background-color: yellow;
 }
+
+mat-table tbody tr:hover{
+    cursor: pointer;
+    background: #b4b4b433;
+  }

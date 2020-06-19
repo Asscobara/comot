@@ -33,19 +33,8 @@ export class GridComponent implements OnInit, OnChanges {
 
   public onButtonClick($event) {
     if(this.buttonClicked) {
-      this.buttonClicked.emit($event);
+      this.buttonClicked.emit({btn: $event, selected: this.selection.selected});
     }
-  }
-
-  public onCheckRow($event, row) {
-    row.selected = $event.toElement.checked;
-    $event.stopPropagation();
-  }
-
-  public onCheckAllRows($event) {
-    $event.stopPropagation();
-    let selected = $event.toElement.checked;
-    this.data.rows.forEach(r => r.selected = selected);
   }
 
   public displayedColumns: string[];

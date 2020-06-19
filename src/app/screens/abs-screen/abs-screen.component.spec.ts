@@ -1,10 +1,12 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { AbsScreenComponent } from './abs-screen.component';
+import { IUser } from 'src/shceme/IScheme';
+import { UsersComponent } from '../users/users.component';
 
 describe('AbsScreenComponent', () => {
-  let component: AbsScreenComponent;
-  let fixture: ComponentFixture<AbsScreenComponent>;
+  let component: AbsScreenComponent<IUser>;
+  let fixture: ComponentFixture<AbsScreenComponent<IUser>>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -14,12 +16,12 @@ describe('AbsScreenComponent', () => {
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(AbsScreenComponent);
+    fixture = TestBed.createComponent(UsersComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should create user component', () => {
     expect(component).toBeTruthy();
   });
 });
