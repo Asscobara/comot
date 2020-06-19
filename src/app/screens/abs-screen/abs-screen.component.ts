@@ -58,9 +58,17 @@ export abstract class AbsScreenComponent<T> implements OnInit {
   }
 
   private openDataDialog(data: T) {
-    this.dialogSrv.open(DialogComponent, {"data": { content: this.childComponent, instanceContext: data }}).afterClosed().subscribe( async (d) =>  {     
-      await this.handleViewState(data);
-      await this.absLoadData();
+    this.dialogSrv.open(DialogComponent, {
+        "data": { 
+          content: this.childComponent, 
+          instanceContext: data, 
+          title: this.getDialogTitle()
+        }
+      }).afterClosed().subscribe( async (d: T) =>  {     
+      if (d) {
+        await this.handleViewState(d);
+        await this.absLoadData();
+      }
     });
   }
 
@@ -90,6 +98,15 @@ export abstract class AbsScreenComponent<T> implements OnInit {
         this.viewState = ViewState.view;
     }
   }
+
+  private getDialogTitle() {
+    switch(this.viewState) {
+      case ViewState.edit: return 'Edit';
+      case ViewState.new:  return 'Create';     
+    }
+    return 'UNKOWN';
+  }
+
 }
 
 export enum ViewState {

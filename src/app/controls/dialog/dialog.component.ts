@@ -1,5 +1,6 @@
 import { Component, inject, TemplateRef, Inject, ComponentFactoryResolver, Input, Type, ViewContainerRef, ViewChild, ComponentRef, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'esm-dialog',
@@ -10,6 +11,8 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 export class DialogComponent {
   
   public orgInstanceContext: any;
+  public title: string;
+
   private _content: Type<Component>
   @ViewChild('viewport', {read: ViewContainerRef}) target: ViewContainerRef;
   
@@ -20,14 +23,20 @@ export class DialogComponent {
     let factory = this.componentFactoryResolver.resolveComponentFactory(this._content);
     this.componentRef = this.target.createComponent(factory);
     (this.componentRef.instance as any).context = this.data.instanceContext;
-    this.changeDetect.detectChanges();
+  }
+
+  public get formGroup(): FormGroup {
+      let t = (this.componentRef?.instance as any);
+      return t?.formGroup;
   }
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: any,  private componentFactoryResolver: ComponentFactoryResolver, private changeDetect: ChangeDetectorRef) {
-    this.orgInstanceContext = JSON.parse(JSON.stringify(this.data.instanceContext));
+    this.orgInstanceContext = null;
   }
 
   ngAfterViewInit() {
+    this.title = this.data.title;
     this.content = this.data.content;
+    this.changeDetect.detectChanges();    
   }
 }

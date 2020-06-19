@@ -1,9 +1,15 @@
 <div>
+    <div class="dialog-header">
+        <h2 mat-dialog-title>{{title}}</h2>
+        <button mat-button class="close-button" [mat-dialog-close]="orgInstanceContext">
+            <mat-icon>close</mat-icon>
+        </button>
+    </div>
     <div mat-dialog-content>
         <div #viewport></div>
       </div>    
-    <div>
-        <button [mat-dialog-close]="orgInstanceContext">Cancel</button>
-        <button [mat-dialog-close]="this.data.instanceContext">OK</button>
+    <div class="dialog-buttons-container">
+        <button mat-button [mat-dialog-close]="orgInstanceContext">Cancel</button>
+        <button mat-button [mat-dialog-close]="this.data.instanceContext" [disabled]="formGroup?.status !== 'VALID'">OK</button>
     </div>
 </div>

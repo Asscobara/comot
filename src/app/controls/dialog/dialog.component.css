@@ -1,0 +1,19 @@
+.dialog-header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.dialog-header-title {
+    width: 100%;
+}
+
+.dialog-buttons-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.close-button {
+    float: right;
+    top:-24px;
+    right:-24px;
+}

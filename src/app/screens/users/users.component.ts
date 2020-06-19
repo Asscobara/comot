@@ -1,18 +1,15 @@
-import { Component, OnInit, ViewChild, TemplateRef } from '@angular/core';
+import { Component } from '@angular/core';
 import { DataService } from 'src/app/services/data.service';
 import { MatDialog } from '@angular/material/dialog';
 import { UserComponent } from 'src/app/forms/user/user.component';
 import { DialogComponent } from 'src/app/controls/dialog/dialog.component';
 import { IUser } from 'src/shceme/IScheme';
-import { IGridData } from 'src/app/controls/grid/grid.component';
 import { AbsScreenComponent } from '../abs-screen/abs-screen.component';
-import { of, Observable } from 'rxjs';
-
 
 @Component({
   selector: 'app-users',
   templateUrl: './../abs-screen/abs-screen.component.html',
-  styleUrls: ['./users.component.css']
+  styleUrls: ['./../abs-screen/abs-screen.component.css']
 })
 export class UsersComponent extends AbsScreenComponent<IUser> {
 

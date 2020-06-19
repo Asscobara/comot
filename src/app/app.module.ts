@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatDialogModule, MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { MatInputModule } from '@angular/material/input';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DialogComponent } from './controls/dialog/dialog.component';
@@ -19,6 +21,11 @@ import { DataService } from './services/data.service';
 import { UserComponent } from './forms/user/user.component';
 import { FieldComponent } from './controls/forms/inputs/field/field.component';
 import { GridComponent } from './controls/grid/grid.component';
+import { registerLocaleData } from '@angular/common';
+import localeHe from '@angular/common/locales/he';
+import localeHeExtra from '@angular/common/locales/extra/en';
+
+registerLocaleData(localeHe, 'he-IL', localeHeExtra);
 
 @NgModule({
   declarations: [
@@ -38,7 +45,9 @@ import { GridComponent } from './controls/grid/grid.component';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    MatButtonModule,
     MatSliderModule,
+    MatIconModule,
     MatDialogModule, 
     HttpClientModule,
     FormsModule,

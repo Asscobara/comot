@@ -1,11 +1,11 @@
 
 import { Validators, FormGroup } from '@angular/forms';
 
-export class formBaseClass<T> {
-
-    public required = [Validators.required];
-
+export class FormBaseClass<T> {
     public context: T;
     public formGroup: FormGroup;
 
+    constructor() { 
+        this.formGroup = new FormGroup({});    
+    }
 }

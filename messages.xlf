@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en-US" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="8ab2231449b30c9b4e00c49ad70780c0a205310f" datatype="html">
+        <source>error</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/controls/forms/inputs/field/field.component.html</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+        <note priority="1" from="description">Error text</note>
+        <note priority="1" from="meaning">field error</note>
+        <target>LOL hagay translated text</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

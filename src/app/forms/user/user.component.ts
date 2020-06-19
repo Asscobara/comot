@@ -1,22 +1,24 @@
-import { Component, OnInit, Inject, ViewChild, TemplateRef } from '@angular/core';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Component, OnInit } from '@angular/core';
 import { IUser } from 'src/shceme/IScheme';
-import { Validators } from '@angular/forms';
-import { formBaseClass } from '../../controls/forms/formBaseClass';
+import { Validators, FormGroup, FormControl } from '@angular/forms';
+import { FormBaseClass } from '../../controls/forms/formBaseClass';
+import { ValidatorNames } from 'src/app/validators/validators';
 
 @Component({
   selector: 'app-user',
   templateUrl: './user.component.html',
   styleUrls: ['./user.component.css']
 })
-export class UserComponent extends formBaseClass<IUser> implements OnInit {
+export class UserComponent extends FormBaseClass<IUser> implements OnInit {
 
+  public unique: FormControl = new FormControl(); 
   constructor() { 
     super();
+    this.unique.setValidators(Validators.required);
   }
 
   ngOnInit(): void {
-    
+    this.formGroup.addControl(ValidatorNames.required, this.unique);
   }
 
 }

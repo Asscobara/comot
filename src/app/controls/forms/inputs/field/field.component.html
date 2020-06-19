@@ -1,5 +1,5 @@
 <div class="field-container">
-    <div>{{title}}</div>
-    <input matInput placeholder="{{placeholder}}" ([value])="value" [formControl]="formControl"/>
-    <div *ngIf="formControl.invalid" class="error">error</div>
+    <div>{{title}} <span *ngIf="isRequried" class="error">*</span></div>
+    <input mat-input placeholder="{{placeholder}}" ([value])="value" [formControl]="control"/>
+    <div *ngIf="hasError" class="error" i18n="field error|Error text">error</div>
 </div>

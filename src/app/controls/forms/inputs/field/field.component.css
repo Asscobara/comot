@@ -1,5 +1,11 @@
 .field-container {
     margin: 4px;
+    padding: 1em;
+    border: cadetblue;
+    border-style: solid;
+    border-width: thin;
+    border-radius: 1%;
+    height: 58px;
 }
 
 .error{
