@@ -11,10 +11,10 @@ export class PopupComponent implements OnInit {
   ngOnInit(): void {
     
   }
-  
-  message: string = "Are you sure?"
-  confirmButtonText = "Yes"
-  cancelButtonText = "Cancel"
+
+  message: string = $localize`Are you sure?`;
+  confirmButtonText = $localize`Yes`;
+  cancelButtonText = $localize`Cancel`;
   constructor(
     @Inject(MAT_DIALOG_DATA) private data: any,
     private dialogRef: MatDialogRef<PopupComponent>) {

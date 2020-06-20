@@ -69,12 +69,11 @@ export abstract class AbsScreenComponent<T> implements OnInit {
           title: this.getDialogTitle()
         }
       }).afterClosed().subscribe( async (d: T) =>  {     
-      if (d) {
-        await this.handleViewState(d).then(() => {
-          this.absLoadData()
-        });
-      }
-    });
+        if (d) {
+          await this.handleViewState(d);
+        }
+        this.absLoadData();      
+      });
   }
 
   private async absLoadData() {
@@ -106,8 +105,8 @@ export abstract class AbsScreenComponent<T> implements OnInit {
 
   private getDialogTitle() {
     switch(this.viewState) {
-      case ViewState.edit: return 'Edit';
-      case ViewState.new:  return 'Create';     
+      case ViewState.edit: return $localize`Edit`;
+      case ViewState.new:  return $localize`Create`;     
     }
     return 'UNKOWN';
   }
@@ -115,10 +114,10 @@ export abstract class AbsScreenComponent<T> implements OnInit {
   private openConfirmDialog(callback: () => void) {
     const dialogRef = this.dialogSrv.open(PopupComponent,{
       data:{
-        message: 'Are you sure want to delete?',
+        message: $localize`Are you sure want to delete?`,
         buttonText: {
-          ok: 'Save',
-          cancel: 'No'
+          ok: $localize`Save`,
+          cancel: $localize`No`
         }
       }
     });

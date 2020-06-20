@@ -25,7 +25,7 @@ export class DataService {
     }
 
     async updateUser(user: IUser) {
-        this.httpSrv.put(`${this.endPoint}users/${user.id}/`, user, this.httpOptions).toPromise();
+        return this.httpSrv.put(`${this.endPoint}users/${user.id}/`, user, this.httpOptions).toPromise();
     }
 
     async deleteUser(id: number) {

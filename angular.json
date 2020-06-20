@@ -9,7 +9,13 @@
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
-      "architect": {
+      "i18n": {
+        "sourceLocale": "he-IL",
+        "locales": {
+          "he": "src/locale/messages.xlf"
+        }
+     }, 
+    "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
@@ -30,6 +36,10 @@
             "scripts": []
           },
           "configurations": {
+            "he": {
+              "localize": ["he"],
+              "main": "src/main.ts"              
+            },
             "production": {
               "fileReplacements": [
                 {
@@ -63,7 +73,7 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "comot:build"
+            "browserTarget": "comot:build:he"
           },
           "configurations": {
             "production": {
@@ -74,7 +84,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "comot:build"
+            "browserTarget": "comot:build:he"
           }
         },
         "test": {

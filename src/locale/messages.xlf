@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en-US" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="c83b838d845690bcb897f775f53b5316535306dc" datatype="html">
+        <source>First Name</source>
+        <target>שם פרטי</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/forms/user/user.component.html</context>
+          <context context-type="linenumber">2</context>          
+        </context-group>
+      </trans-unit>
+      <trans-unit id="166b2cc65003221ff5f3ec05d5baca41e6821396" datatype="html">
+        <source>Last Name</source>
+        <target>שם משפחה</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/forms/user/user.component.html</context>
+          <context context-type="linenumber">3</context>          
+        </context-group>
+      </trans-unit>
+      <trans-unit id="244aae9346da82b0922506c2d2581373a15641cc" datatype="html">
+        <source>Email</source>
+        <target>כתובת דואר אלקטרוני</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/forms/user/user.component.html</context>
+          <context context-type="linenumber">4</context>          
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6028371114637047813">
+        <source>First Name</source>
+        <target>שם פרטי</target>
+      </trans-unit>
+      <trans-unit id="4407559560004943843">
+        <source>Last Name</source>
+        <target>שם משפחה</target>
+      </trans-unit>
+      <trans-unit id="4768749765465246664">
+        <source>Email</source>
+        <target>דואר אלקטרוני</target>
+      </trans-unit>
+      <trans-unit id="5280218112746407598">
+        <source>New</source>
+        <target>חדש</target>
+      </trans-unit>
+      <trans-unit id="7022070615528435141">
+        <source>Delete</source>
+        <target>מחק</target>
+      </trans-unit>
+      <trans-unit id="7585826646011739428">
+        <source>Edit</source>
+        <target>עריכה</target>
+      </trans-unit>
+      <trans-unit id="5674286808255988565">
+        <source>Create</source>
+        <target>יצירת חדש</target>
+      </trans-unit>
+      <trans-unit id="6794232093653780685">
+        <source>Are you sure want to delete?</source>
+        <target>האם למחק את הנתונים שנבחרו?</target>
+      </trans-unit>
+      <trans-unit id="3768927257183755959">
+        <source>Save</source>
+        <target>שמירה</target>
+      </trans-unit>
+      <trans-unit id="3542042671420335679">
+        <source>No</source>
+        <target>ביטול</target>
+      </trans-unit>
+      <trans-unit id="7515883357904500238">
+        <source>Are you sure?</source>
+        <target>האם אתה בטוח?</target>
+      </trans-unit>
+      <trans-unit id="2807800733729323332">
+        <source>Yes</source>
+        <target>קבל</target>
+      </trans-unit>
+      <trans-unit id="2159130950882492111">
+        <source>Cancel</source>
+        <target>ביטול</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

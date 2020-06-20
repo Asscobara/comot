@@ -13,7 +13,10 @@ import { AbsScreenComponent } from '../abs-screen/abs-screen.component';
 })
 export class UsersComponent extends AbsScreenComponent<IUser> {
 
-  constructor (private dataSrv: DataService, changeDetect: ChangeDetectorRef, dialogSrv: MatDialog) {
+  constructor (
+    private dataSrv: DataService, 
+    changeDetect: ChangeDetectorRef, 
+    dialogSrv: MatDialog) {
     super(dialogSrv, changeDetect, UserComponent); 
   }
 
@@ -21,11 +24,11 @@ export class UsersComponent extends AbsScreenComponent<IUser> {
     this.gridData = {
       columns: [
         {displayName: '#', fieldName: 'id'},
-        {displayName: 'First Name', fieldName: 'first_name'},
-        {displayName: 'Last Name', fieldName: 'last_name'},
-        {displayName: 'Email', fieldName: 'email'}],
+        {displayName: $localize`First Name`, fieldName: 'first_name'},
+        {displayName: $localize`Last Name`, fieldName: 'last_name'},
+        {displayName: $localize`Email`, fieldName: 'email'}],
       rows: [],
-      buttons: [{ title: 'New', action: 'new' }, { title: 'Delete', action: 'delete' }],
+      buttons: [{ title: $localize`New`, action: 'new' }, { title: $localize`Delete`, action: 'delete' }],
       canSelectItem: true
     }
 

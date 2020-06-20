@@ -14,7 +14,7 @@ export class FieldComponent implements OnInit, IFieldComponent  {
   @Input() public value: any;
   @Input() public control: FormControl;
   @Input() public hint: string;
-  
+
   @Output()
   public valueChange = new EventEmitter();
 
@@ -23,7 +23,7 @@ export class FieldComponent implements OnInit, IFieldComponent  {
   
   public get errorMassage(): string {
       if (this.hasError) {
-        return 'error';        
+        return CustomValidators.getErrorString(this.control);        
       }
       return '';
   }
