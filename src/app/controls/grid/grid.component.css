@@ -1,9 +1,19 @@
+.top-grid-actions-container {
+    gap: 0.5em;
+    border: slategray ;
+    border-width: thin;
+    border-radius: 1em;
+    border-style: solid;
+    margin-left: 6em;
+    margin-right: 6em;
+}
+
 .grid-container {
     height: 90vh;
     overflow-y: auto;   
     gap: 0.5em;
     border: slategray ;
-    border-radius: 1%;
+    border-radius: 1em;
     border-style: solid;
     margin-left: 6em;
     margin-right: 6em;

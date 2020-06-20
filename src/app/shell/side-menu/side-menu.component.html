@@ -1,9 +1,7 @@
 <div class="side-menu">
-    <div class="side-menu-header">
-        {{title}}    
-    </div>
     <div clas="side-menu-body">
         <div *ngFor="let item of menuItems" class="side-menu-item">
+            <mat-icon aria-hidden="false" aria-label="Example home icon">{{item.icon}}</mat-icon>
             <a routerLink="{{item.path}}" routerLinkActive="active">{{item.title}}</a>
         </div>
     </div>    

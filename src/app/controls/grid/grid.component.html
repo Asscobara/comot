@@ -1,5 +1,8 @@
-<div>
-    <button mat-button *ngFor="let btn of data?.buttons" class="action-button" (click)="onButtonClick(btn)" >{{btn.title}}</button>
+<div class="top-grid-actions-container">
+    <button mat-button *ngFor="let btn of data?.buttons" class="action-button" (click)="onButtonClick(btn)">
+        <mat-icon>{{btn.icon}}</mat-icon>
+        {{btn.title}}
+    </button>
 </div>
 
 <mat-table [dataSource]="dataSource" class="grid-container">

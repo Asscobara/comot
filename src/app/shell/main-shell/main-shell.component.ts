@@ -14,9 +14,9 @@ export class MainShellComponent implements OnInit {
   ngOnInit(): void {
     this.menuItems = [];
     
-    this.menuItems.push({ title: 'Users', path: 'users', icon: '' });
-    this.menuItems.push({ title: 'Reports', path: 'reports', icon: '' });
-    this.menuItems.push({ title: 'Tasks', path: 'tasks', icon: '' });
+    this.menuItems.push({ title: $localize`Users`, path: 'users', icon: 'supervisor_account' });
+    this.menuItems.push({ title: $localize`Reports`, path: 'reports', icon: 'poll' });
+    this.menuItems.push({ title: $localize`Tasks`, path: 'tasks', icon: 'fact_check' });
 
   }
 

@@ -28,6 +28,8 @@ import { CdkColumnDef } from '@angular/cdk/table';
 import localeHe from '@angular/common/locales/he';
 import localeHeExtra from '@angular/common/locales/extra/en';
 import { PopupComponent } from './popups/popup/popup.component';
+import { LoginComponent } from './forms/login/login.component';
+import { RegisterComponent } from './forms/register/register.component';
 
 registerLocaleData(localeHe, 'he-IL', localeHeExtra);
 
@@ -44,7 +46,9 @@ registerLocaleData(localeHe, 'he-IL', localeHeExtra);
     UserComponent,
     FieldComponent,
     GridComponent,
-    PopupComponent
+    PopupComponent,
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,

@@ -76,5 +76,6 @@ export interface IGridData {
   buttons: {
     title: string;
     action: string;
+    icon: string;
   }[];
 }

@@ -78,6 +78,33 @@
         <source>Cancel</source>
         <target>ביטול</target>
       </trans-unit>
+      <trans-unit id="4555457172864212828">
+        <source>Users</source>
+        <target>דיירים</target>
+      </trans-unit>
+      <trans-unit id="1868606282505332204">
+        <source>Reports</source>
+        <target>דוחו״ת</target>
+      </trans-unit>
+      <trans-unit id="6904866445262015585">
+        <source>Tasks</source>
+        <target>משימות</target>
+      </trans-unit>
+      <trans-unit id="2454050363478003966">
+        <source>Login</source>
+        <target>התחברות</target>
+      </trans-unit>
+      <trans-unit id="160640128319879431">
+        <source>User Name</source>
+        <target>שם משתמש</target>
+      </trans-unit>
+      <trans-unit id="1431416938026210429">
+        <source>Password</source>
+        <target>סיסמה</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>
+
+
+

@@ -10,3 +10,8 @@ export interface IUser {
 export interface IResidant extends IUser {
     apprtment: number
 }
+
+export interface ILogin {
+    user_name: string;
+    password: string;
+}

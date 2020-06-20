@@ -28,7 +28,10 @@ export class UsersComponent extends AbsScreenComponent<IUser> {
         {displayName: $localize`Last Name`, fieldName: 'last_name'},
         {displayName: $localize`Email`, fieldName: 'email'}],
       rows: [],
-      buttons: [{ title: $localize`New`, action: 'new' }, { title: $localize`Delete`, action: 'delete' }],
+      buttons: [
+        { title: $localize`New`, action: 'new', icon: 'add_circle_outline' }, 
+        { title: $localize`Delete`, action: 'delete', icon: 'remove_circle_outline' }
+      ],
       canSelectItem: true
     }
 

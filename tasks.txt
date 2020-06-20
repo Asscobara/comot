@@ -4,10 +4,10 @@ High level product design
 --------------- START UP ----------------------
 1. Complete users end-to-end:
     - Set base class to users screen [DONE]
-    - Grid UI design
+    - Grid UI design [Done]
     - Add confirm message before delete [DONE]
     - Add translate support [DONE]
-    - Add Server code to git [DONE] - remove old project from git
+    - Add Server code to git [DONE] --> remove old project from git
     - Dialog UI design - field, buttons, title etc.
 2. Handle server errors
 3. Shell UI design

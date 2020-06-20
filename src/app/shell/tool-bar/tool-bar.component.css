@@ -1,0 +1,20 @@
+
+.toolbar-container {
+    padding: 1em;
+    border: gray;
+    border-style: solid;
+    border-width: thin;
+    border-radius: 1em;
+    padding: 1em;
+    margin: 1em;
+}
+
+.toolbar-item {
+    display: flex;
+    width: fit-content;
+    background-color: burlywood;
+    padding: 1em;
+    border: rgb(158, 158, 147);
+    border-style: solid;
+    border-radius: 1em;
+}

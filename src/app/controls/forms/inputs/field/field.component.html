@@ -8,7 +8,7 @@
 <div class="field-container">    
     <mat-form-field class="example-full-width">
         <mat-label>{{title}} <span *ngIf="isRequried" class="error">*</span></mat-label>
-        <input matInput [formControl]="control" placeholder="{{placeholder}}">
+        <input matInput [type]="type" [formControl]="control" placeholder="{{placeholder}}">
         <mat-hint>{{hint}}</mat-hint>
         <mat-error *ngIf="hasError">{{errorMassage}}</mat-error>
     </mat-form-field>
