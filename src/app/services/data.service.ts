@@ -36,4 +36,15 @@ export class DataService {
         return this.httpSrv.post(`${this.endPoint}users/`, user, this.httpOptions).toPromise();
     }
 
+    async register(user: IUser) {
+       return this.httpSrv.post(`${this.endPoint}signup/`, user, this.httpOptions).toPromise();
+    }
+
+    async login(user: IUser) {
+       return this.httpSrv.post(`${this.endPoint}login/`, user, this.httpOptions).toPromise();
+    }
+
+    async logout(user: IUser) {
+       return this.httpSrv.post(`${this.endPoint}logout/`, user, this.httpOptions).toPromise();
+    }
 }

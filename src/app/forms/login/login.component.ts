@@ -2,14 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { FormBaseClass } from 'src/app/controls/forms/formBaseClass';
 import { ValidatorNames } from 'src/app/validators/validators';
-import { ILogin } from 'src/shceme/IScheme';
+import { IUser } from 'src/shceme/IScheme';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent extends FormBaseClass<ILogin> implements OnInit {
+export class LoginComponent extends FormBaseClass<IUser> implements OnInit {
 
   public passwordControl: FormControl = new FormControl(); 
   public userNameControl: FormControl = new FormControl();

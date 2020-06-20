@@ -46,7 +46,8 @@ export class UsersComponent extends AbsScreenComponent<IUser> {
       first_name: '',
       last_name: '',
       email: '',
-      password: ''
+      password: '',
+      is_looged_in: false
     }
   }
 

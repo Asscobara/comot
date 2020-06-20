@@ -5,13 +5,9 @@ export interface IUser {
     password: string;
     first_name: string;
     last_name: string;
+    is_looged_in: boolean;
 }
 
 export interface IResidant extends IUser {
     apprtment: number
-}
-
-export interface ILogin {
-    user_name: string;
-    password: string;
 }
