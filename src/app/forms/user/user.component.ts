@@ -3,6 +3,7 @@ import { IUser } from 'src/shceme/IScheme';
 import { Validators, FormGroup, FormControl } from '@angular/forms';
 import { FormBaseClass } from '../../controls/forms/formBaseClass';
 import { ValidatorNames } from 'src/app/validators/validators';
+import { SessionServiceService } from 'src/app/services/session-service.service';
 
 @Component({
   selector: 'app-user',
@@ -12,7 +13,7 @@ import { ValidatorNames } from 'src/app/validators/validators';
 export class UserComponent extends FormBaseClass<IUser> implements OnInit {
 
   public emailControl: FormControl = new FormControl(); 
-  constructor() { 
+  constructor(public sessionSrv: SessionServiceService) { 
     super();
     this.emailControl.setValidators([Validators.required, Validators.email]);
   }

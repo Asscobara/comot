@@ -1,7 +1,7 @@
 <div class="main-shell">
-    <div>icon</div>    
-    <app-tool-bar></app-tool-bar>
-    <app-side-menu [title]="'Title'" [menuItems]="menuItems"></app-side-menu>
+    <div *ngIf="sessionSrv.user != null">icon</div>    
+    <app-tool-bar *ngIf="sessionSrv.user != null"></app-tool-bar>
+    <app-side-menu *ngIf="sessionSrv.user != null" [title]="'Title'" [menuItems]="menuItems"></app-side-menu>
     <div>
         <router-outlet></router-outlet>
     </div>    

@@ -30,6 +30,7 @@ import localeHeExtra from '@angular/common/locales/extra/en';
 import { PopupComponent } from './popups/popup/popup.component';
 import { LoginComponent } from './forms/login/login.component';
 import { RegisterComponent } from './forms/register/register.component';
+import { LoginScreenComponent } from './screens/login-screen/login-screen.component';
 
 registerLocaleData(localeHe, 'he-IL', localeHeExtra);
 
@@ -48,7 +49,8 @@ registerLocaleData(localeHe, 'he-IL', localeHeExtra);
     GridComponent,
     PopupComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    LoginScreenComponent
   ],
   imports: [
     BrowserModule,

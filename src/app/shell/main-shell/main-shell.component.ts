@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ISideMenuItem } from '../side-menu/side-menu.component';
+import { SessionServiceService } from 'src/app/services/session-service.service';
 
 @Component({
   selector: 'app-main-shell',
@@ -8,7 +9,7 @@ import { ISideMenuItem } from '../side-menu/side-menu.component';
 })
 export class MainShellComponent implements OnInit {
 
-  constructor() { }
+  constructor(public sessionSrv: SessionServiceService) { }
   
   public menuItems: ISideMenuItem[];
   ngOnInit(): void {

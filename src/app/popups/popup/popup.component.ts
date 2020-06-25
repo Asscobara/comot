@@ -15,15 +15,16 @@ export class PopupComponent implements OnInit {
   message: string = $localize`Are you sure?`;
   confirmButtonText = $localize`Yes`;
   cancelButtonText = $localize`Cancel`;
+  
   constructor(
     @Inject(MAT_DIALOG_DATA) private data: any,
     private dialogRef: MatDialogRef<PopupComponent>) {
       if(data){
-    this.message = data.message || this.message;
-    if (data.buttonText) {
-      this.confirmButtonText = data.buttonText.ok || this.confirmButtonText;
-      this.cancelButtonText = data.buttonText.cancel || this.cancelButtonText;
-    }
+        this.message = data.message || this.message;
+        if (data.buttonText) {
+          this.confirmButtonText = data.buttonText.ok || this.confirmButtonText;
+          this.cancelButtonText = data.buttonText.cancel || this.cancelButtonText;
+        }
       }
   }
 

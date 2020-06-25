@@ -11,14 +11,7 @@ export class DataService {
           'Access-Control-Allow-Origin':'*'
         })
       };
-      /*Access-Control-Allow-Origin: *
-Connection: keep-alive
-Content-Length: 192
-Content-Type: application/json; charset=utf-8
-Date: Sat, 20 Jun 2020 22:14:04 GMT
-ETag: W/"c0-i7aamNUQ7+Np9T14n5DyiJbhVnk"
-Set-Cookie: Authorization=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNTkyNjkxMjQ0LCJleHAiOjE1OTI2OTQ4NDR9.f1TCYoyFUI8jdpk2JVlQwGq4vY0i-OoDDBLa5q9yQEk; HttpOnly; Max-Age=3600;
-X-Powered-By: Express*/
+   
     constructor(private httpSrv: HttpClient) {
 
     }

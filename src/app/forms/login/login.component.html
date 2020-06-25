@@ -1,4 +1,9 @@
 <div>     
-    <app-field i18n-title title="User Name" [(value)]="context.email" [control]="userNameControl"></app-field>
-    <app-field i18n-title title="Password" type="password" [(value)]="context.password" [control]="passwordControl"></app-field>    
+    <app-field i18n-title title="User Name" [(value)]="context.user.email" [control]="userNameControl"></app-field>
+    <app-field i18n-title title="Password" type="password" [(value)]="context.user.password" [control]="passwordControl"></app-field>    
 </div>
+<div>
+    <button mat-button i18n (click)="openRegisterDialog()">Register</button>
+    <!--<button mat-button i18n>Forget Password</button> -->
+</div>
+<span *ngIf="context.errors" class="error">{{context.errors}}</span>

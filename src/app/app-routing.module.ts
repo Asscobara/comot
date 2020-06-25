@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { UsersComponent } from './screens/users/users.component';
 import { ReportsComponent } from './screens/reports/reports.component';
 import { TasksComponent } from './screens/tasks/tasks.component';
+import { LoginScreenComponent } from './screens/login-screen/login-screen.component';
 
 
 const routes: Routes = [{
@@ -14,8 +15,10 @@ const routes: Routes = [{
   }, {
     path: 'tasks',
     component: TasksComponent    
+  }, {
+    path: '',
+    component: LoginScreenComponent    
   }
-
 ];
 
 @NgModule({

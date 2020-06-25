@@ -1,11 +1,19 @@
 
+export interface ILogin {
+    user: IUser,
+    errors: any;
+}
+
 export interface IUser {
     id: number;
     email: string;
     password: string;
     first_name: string;
     last_name: string;
-    is_looged_in: boolean;
+    is_logged_in: boolean;
+    role_id: number;
+    phone: string;
+    remark: string;
 }
 
 export interface IResidant extends IUser {

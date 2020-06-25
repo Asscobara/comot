@@ -8,13 +8,24 @@ High level product design
     - Add confirm message before delete [DONE]
     - Add translate support [DONE]
     - Add Server code to git [DONE] --> remove old project from git
-    - Dialog UI design - field, buttons, title etc.
+    - Dialog UI design - field, buttons, title etc. [On Going]
 2. Handle server errors
 3. Shell UI design
     - side menu
     - top menu
     - icons
 4. Handle user - signup, login, logout. email support.
+
+
+Page load -> login page -> if registered -> show users (apllication is up)
+               |                        |no
+               v                        v
+               -> register  as manager -> send email with link -> verify (code time limited) -> set registered -> define building -> show users 
+
+Add user -> set name, email, phone, address -> register as user -> send user an email -> verify (code time limited) -> set registered
+
+
+
 -----------------Milestone-------------------------
 5. New Entity: Task
     id, description, date, status, category, reportedBy, 
