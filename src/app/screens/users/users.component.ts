@@ -26,7 +26,8 @@ export class UsersComponent extends AbsScreenComponent<IUser> {
         {displayName: '#', fieldName: 'id'},
         {displayName: $localize`First Name`, fieldName: 'first_name'},
         {displayName: $localize`Last Name`, fieldName: 'last_name'},
-        {displayName: $localize`Email`, fieldName: 'email'}],
+        {displayName: $localize`Email`, fieldName: 'email'},
+        {displayName: $localize`Phone`, fieldName: 'phone'}],
       rows: [],
       buttons: [
         { title: $localize`New`, action: 'new', icon: 'add_circle_outline' }, 
@@ -50,7 +51,8 @@ export class UsersComponent extends AbsScreenComponent<IUser> {
       is_logged_in: false, 
       remark: '',
       role_id: 0,
-      phone: ''
+      phone: '',
+      address_id: 0
     }
   }
 

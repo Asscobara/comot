@@ -41,10 +41,8 @@ export class LoginComponent extends FormBaseClass<ILogin> implements OnInit {
       if (d) {
         try {
           const u = await this.dataSrv.register(d);
-          debugger;
           // TODO: Show message
         } catch(err) {
-          debugger;
           // d= err.statusText;          
           // this.openLoginDialog(d);
         }

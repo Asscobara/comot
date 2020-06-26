@@ -1,4 +1,5 @@
 <div class="toolbar-container">
     <span i18n class="toolbar-item" *ngIf="sessionSrv.user != null">Hello {{sessionSrv.user.first_name}}</span>
+    <span i18n class="toolbar-item" (click)="setAddres()" *ngIf="sessionSrv.user != null">Address</span>
     <span i18n class="toolbar-item" (click)="logout()">Logout</span>
 </div>

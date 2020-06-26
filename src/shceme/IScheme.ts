@@ -14,8 +14,18 @@ export interface IUser {
     role_id: number;
     phone: string;
     remark: string;
+    address_id: number;
 }
 
 export interface IResidant extends IUser {
     apprtment: number
+}
+
+
+export interface IAddress {
+    id: number;
+    title: string;
+    description: string;
+    street: string;
+    city: string;
 }

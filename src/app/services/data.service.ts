@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { IUser } from 'src/shceme/IScheme';
+import { IUser, IAddress } from 'src/shceme/IScheme';
 
 @Injectable()
 export class DataService {
@@ -16,6 +16,7 @@ export class DataService {
 
     }
     
+    //#region  Users
     private get endPoint(): string {
         return `http://localhost:3000/`;
     }
@@ -47,4 +48,21 @@ export class DataService {
     async logout(user: IUser) {
        return this.httpSrv.post(`${this.endPoint}logout/`, user, this.httpOptions).toPromise();
     }
+
+    //#endregion
+
+    //#region Address
+    async getUserAddress(userId: number) {
+        return this.httpSrv.get(`${this.endPoint}address/${userId}/`, this.httpOptions).toPromise();
+    }
+
+    async createAddress(address: IAddress) {
+        return this.httpSrv.post(`${this.endPoint}address/`, address, this.httpOptions).toPromise();
+    }
+
+    async updateAddress(address: IAddress) {
+        return this.httpSrv.put(`${this.endPoint}address/${address.id}/`, address, this.httpOptions).toPromise();
+    }
+    //#endregion
+
 }

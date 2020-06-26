@@ -10,3 +10,8 @@
 .field-error {
     color: red;
 }
+
+.user-form-container {
+    display: grid;
+    grid-template-columns: 2fr 2fr;
+}

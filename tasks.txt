@@ -24,6 +24,10 @@ Page load -> login page -> if registered -> show users (apllication is up)
 
 Add user -> set name, email, phone, address -> register as user -> send user an email -> verify (code time limited) -> set registered
 
+TODO:
+
+define building
+CRUD resident
 
 
 -----------------Milestone-------------------------

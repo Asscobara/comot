@@ -30,7 +30,7 @@ export class LoginScreenComponent implements OnInit {
       "minWidth": 250,
       "data": { 
         content: LoginComponent, 
-        instanceContext: context ? context : { user: { id: 0, first_name: '1', last_name: '1', email: '', password: '', is_logged_in: false }, errors: null}, 
+        instanceContext: context ? context : { user: { id: 0, first_name: '1', last_name: '1', email: '', password: '', is_logged_in: false, address_id: null }, errors: null}, 
         title: $localize`Login`
       }
     }).afterClosed().subscribe( async (d: ILogin) =>  {     

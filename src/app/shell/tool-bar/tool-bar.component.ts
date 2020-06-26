@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { SessionServiceService } from 'src/app/services/session-service.service';
-import {  Router } from '@angular/router';
+import { DataService } from 'src/app/services/data.service';
+import { MatDialog } from '@angular/material/dialog';
+import { DialogComponent } from 'src/app/controls/dialog/dialog.component';
+import { AddressComponent } from 'src/app/forms/address/address.component';
 
 @Component({
   selector: 'app-tool-bar',
@@ -10,16 +13,20 @@ import {  Router } from '@angular/router';
 export class ToolBarComponent implements OnInit {
 
   public loginUser: string;
-  constructor (public sessionSrv: SessionServiceService, private route: Router) { 
-    
+  constructor (
+    public sessionSrv: SessionServiceService, 
+    private dataSrv: DataService) { 
+
   }
 
   ngOnInit(): void {
   }
 
   public logout() { 
-    this.sessionSrv.user = null;
-    this.route.navigate(['/']);
+    this.sessionSrv.logOut();
   }
-    
+
+  public setAddres() {
+    this.sessionSrv.setAddres();  
+  }
 }
