@@ -17,18 +17,31 @@ High level product design
 4. Handle user - signup, login, logout. email support.
 
 
-Page load -> login page -> if registered -> show users (apllication is up)
+[DONE] Page load -> login page -> if registered -> show users (apllication is up)
                |                        |no
                v                        v
                -> register  as manager -> send email with link -> verify (code time limited) -> set registered -> define building -> show users 
 
-Add user -> set name, email, phone, address -> register as user -> send user an email -> verify (code time limited) -> set registered
+Add user -> set name, email, phone, address ->
+ register as user -> send user an email -> verify (code time limited) -> set registered
+
 
 TODO:
+- Tests
 
-define building
-CRUD resident
-
+small issues:
+-------------
+- Format email
+- Translate missitng titles
+- When to show - hide password field 
+- Add confirm email field (?)
+- Login - set in local storage for refresh? what about db flag?
+ 
+- User Login -> 
+ - Table is view only
+ - No reports, only tasks
+ - No add user
+ - 
 
 -----------------Milestone-------------------------
 5. New Entity: Task
@@ -38,8 +51,8 @@ CRUD resident
 8. New Entity: Supliers - price.  
 -----------------Milestone-------------------------
 9. Define and implement work flows
-    - Register building
-    - Add resident - send email
+    - Register building [DONE]
+    - Add resident - send email [DONE]
     - Enter Task - find suplier - follow task status - done
 10. Add building messages - email and notifications
 -----------------RELEASE 1.0-------------------------

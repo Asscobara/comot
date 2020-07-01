@@ -4,6 +4,7 @@
     grid-template-rows: auto 1fr;
     height: 100%;
     width: 100%;
+    background-color: snow;
 }
 
 .shell-icon {
@@ -26,4 +27,20 @@
 .shell-screen {
     grid-row: 1;
     grid-column: 1;
+}
+
+.app-info-container {
+    margin: 1.5em;
+}
+
+.app-name {
+    font-size: smaller;
+}
+
+.app-version {
+    font-size: x-small;
+}
+
+.app-contact {
+    font-size: x-small;
 }

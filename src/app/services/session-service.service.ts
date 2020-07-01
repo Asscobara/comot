@@ -11,6 +11,10 @@ import { DialogComponent } from '../controls/dialog/dialog.component';
 })
 export class SessionServiceService {
   
+  public readonly version: string = "0.0.1";
+  public readonly contactEmail: string = "comot@gmail.com";
+  public readonly appName: string = $localize`ComOt`;
+    
   private _user: IUser; 
   private _address: IAddress;
 
@@ -37,6 +41,13 @@ export class SessionServiceService {
 
   public register: boolean = false;
   
+  public readonly roles: IRoleMap = {
+      1: { dbName: 'admin', displayName: $localize`Admin` },
+      2: { dbName: 'manager', displayName: $localize`Manager` },
+      3: { dbName: 'user', displayName: $localize`User` },
+      4: { dbName: 'guest', displayName: $localize`Guest` },
+  }
+
   constructor(
     private route: Router, 
     private dialogSrv: MatDialog, 
@@ -75,4 +86,13 @@ export class SessionServiceService {
     });
   }
  
+}
+
+export interface IRole {
+  dbName: string, 
+  displayName: string
+}
+
+export interface IRoleMap {
+  [name: string]: IRole
 }

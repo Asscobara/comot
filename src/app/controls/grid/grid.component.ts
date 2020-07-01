@@ -66,7 +66,8 @@ export class GridComponent implements OnInit, OnChanges {
 
 export interface IGridColumn {
   displayName: string,
-  fieldName: string
+  fieldName: string,
+  fieldNameSource? : (id) => string
 }
 
 export interface IGridData {

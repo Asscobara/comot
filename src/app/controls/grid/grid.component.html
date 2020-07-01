@@ -27,7 +27,7 @@
         
     <ng-container *ngFor="let col of data?.columns;" matColumnDef="{{col.fieldName}}">
         <mat-header-cell *matHeaderCellDef>{{col.displayName}}</mat-header-cell>
-        <mat-cell *matCellDef="let element"> {{element[col.fieldName]}} </mat-cell>    
+        <mat-cell *matCellDef="let element">{{ col.fieldNameSource ? col.fieldNameSource(element[col.fieldName]) :  element[col.fieldName] }}</mat-cell>    
     </ng-container>  
 
     <mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></mat-header-row>

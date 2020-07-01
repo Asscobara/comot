@@ -4,20 +4,24 @@ import { UsersComponent } from './screens/users/users.component';
 import { ReportsComponent } from './screens/reports/reports.component';
 import { TasksComponent } from './screens/tasks/tasks.component';
 import { LoginScreenComponent } from './screens/login-screen/login-screen.component';
+import { IsLoggedInGuard } from './guards/is-logged-in.guard';
 
 
 const routes: Routes = [{
     path: 'users',
-    component: UsersComponent    
+    component: UsersComponent,
+    canActivate: [IsLoggedInGuard]    
   }, {
     path: 'reports',
-    component: ReportsComponent    
+    component: ReportsComponent,
+    canActivate: [IsLoggedInGuard]    
   }, {
     path: 'tasks',
-    component: TasksComponent    
+    component: TasksComponent, 
+    canActivate: [IsLoggedInGuard]         
   }, {
     path: '',
-    component: LoginScreenComponent    
+    component: LoginScreenComponent,        
   }
 ];
 

@@ -21,7 +21,6 @@ export interface IResidant extends IUser {
     apprtment: number
 }
 
-
 export interface IAddress {
     id: number;
     title: string;

@@ -30,6 +30,9 @@ export class LoginComponent extends FormBaseClass<ILogin> implements OnInit {
   }
 
   openRegisterDialog() {
+    
+    this.context.user.role_id = 2;
+
     this.dialogSrv.open(DialogComponent, {
       "minWidth": 250,
       "data": { 

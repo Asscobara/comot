@@ -10,7 +10,7 @@
     margin: 1em;
 }
 
-.toolbar-item {
+span.toolbar-item {
     display: flex;
     width: fit-content;
     background-color: burlywood;
@@ -21,3 +21,14 @@
     border-width: thin;
     border-radius: 1em;
 }
+
+span.toolbar-item:hover {
+    background-color: gray;
+    border: darkgoldenrod;
+    cursor: pointer;
+}
+
+span.toolbar-item.to-right {
+    margin-left: auto
+}
+

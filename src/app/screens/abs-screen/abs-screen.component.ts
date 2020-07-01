@@ -2,7 +2,6 @@ import { OnInit, Type, ChangeDetectorRef } from '@angular/core';
 import { IGridData } from 'src/app/controls/grid/grid.component';
 import { DialogComponent } from 'src/app/controls/dialog/dialog.component';
 import { MatDialog } from '@angular/material/dialog';
-import { Observable } from 'rxjs';
 import { PopupComponent } from 'src/app/popups/popup/popup.component';
 
 export abstract class AbsScreenComponent<T> implements OnInit {

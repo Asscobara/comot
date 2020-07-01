@@ -5,6 +5,7 @@ import { UserComponent } from 'src/app/forms/user/user.component';
 import { DialogComponent } from 'src/app/controls/dialog/dialog.component';
 import { IUser } from 'src/shceme/IScheme';
 import { AbsScreenComponent } from '../abs-screen/abs-screen.component';
+import { SessionServiceService } from 'src/app/services/session-service.service';
 
 @Component({
   selector: 'app-users',
@@ -15,6 +16,7 @@ export class UsersComponent extends AbsScreenComponent<IUser> {
 
   constructor (
     private dataSrv: DataService, 
+    private sessionSrv: SessionServiceService,    
     changeDetect: ChangeDetectorRef, 
     dialogSrv: MatDialog) {
     super(dialogSrv, changeDetect, UserComponent); 
@@ -27,7 +29,8 @@ export class UsersComponent extends AbsScreenComponent<IUser> {
         {displayName: $localize`First Name`, fieldName: 'first_name'},
         {displayName: $localize`Last Name`, fieldName: 'last_name'},
         {displayName: $localize`Email`, fieldName: 'email'},
-        {displayName: $localize`Phone`, fieldName: 'phone'}],
+        {displayName: $localize`Phone`, fieldName: 'phone'},
+        {displayName: $localize`Role`, fieldName: 'role_id', fieldNameSource: (roleId) => this.sessionSrv.roles[roleId].displayName }],
       rows: [],
       buttons: [
         { title: $localize`New`, action: 'new', icon: 'add_circle_outline' }, 
@@ -50,7 +53,7 @@ export class UsersComponent extends AbsScreenComponent<IUser> {
       password: '',
       is_logged_in: false, 
       remark: '',
-      role_id: 0,
+      role_id: 3,
       phone: '',
       address_id: 0
     }
