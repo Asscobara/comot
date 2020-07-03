@@ -21,8 +21,8 @@ export class DataService {
         return `http://localhost:3000/`;
     }
 
-    async getUsers() {
-        return this.httpSrv.get(`${this.endPoint}users`, this.httpOptions).toPromise();
+    async getUsers(user: IUser) {
+        return this.httpSrv.get(`${this.endPoint}usersById/${user.id}/`, this.httpOptions).toPromise();
     }
 
     async updateUser(user: IUser) {
@@ -47,6 +47,10 @@ export class DataService {
 
     async logout(user: IUser) {
        return this.httpSrv.post(`${this.endPoint}logout/`, user, this.httpOptions).toPromise();
+    }
+
+    async updatePassword(user: IUser) {
+        return this.httpSrv.post(`${this.endPoint}password/`, user, this.httpOptions).toPromise();
     }
 
     //#endregion

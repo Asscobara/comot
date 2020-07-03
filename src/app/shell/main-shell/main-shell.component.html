@@ -1,8 +1,7 @@
 <div class="main-shell">
     <div class="app-info-container" *ngIf="sessionSrv.user != null">
+        <img src="../../../assets/images/logo.jpg" class="logo"/>
         <div class="app-name">{{sessionSrv.appName}}</div>
-        <div class="app-version">Version: {{sessionSrv.version}}</div>
-        <div class="app-contact">Contact: {{sessionSrv.contactEmail}}</div>
     </div>    
     <app-tool-bar *ngIf="sessionSrv.user != null"></app-tool-bar>
     <app-side-menu *ngIf="sessionSrv.user != null" [title]="'Title'" [menuItems]="menuItems"></app-side-menu>

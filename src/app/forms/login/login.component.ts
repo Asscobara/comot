@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { FormBaseClass } from 'src/app/controls/forms/formBaseClass';
-import { ValidatorNames } from 'src/app/validators/validators';
+import { ValidatorNames, CustomValidators } from 'src/app/validators/validators';
 import { ILogin, IUser } from 'src/shceme/IScheme';
 import { MatDialog } from '@angular/material/dialog';
 import { DataService } from 'src/app/services/data.service';
 import { UserComponent } from '../user/user.component';
 import { DialogComponent } from 'src/app/controls/dialog/dialog.component';
+import { RegisterComponent } from '../register/register.component';
 
 @Component({
   selector: 'app-login',
@@ -21,7 +22,7 @@ export class LoginComponent extends FormBaseClass<ILogin> implements OnInit {
   constructor(private dialogSrv: MatDialog, private dataSrv: DataService) { 
     super();
     this.userNameControl.setValidators([Validators.required]);
-    this.passwordControl.setValidators([Validators.required]);
+    this.passwordControl.setValidators([CustomValidators.passwordValidator, Validators.required]);
   }
 
   ngOnInit(): void {
@@ -29,6 +30,10 @@ export class LoginComponent extends FormBaseClass<ILogin> implements OnInit {
     this.formGroup.addControl(`${ValidatorNames.required}_2`, this.passwordControl);
   }
 
+  forgotPassword() {
+    // TODO: send new email woth temp password
+  }
+  
   openRegisterDialog() {
     
     this.context.user.role_id = 2;
@@ -36,7 +41,7 @@ export class LoginComponent extends FormBaseClass<ILogin> implements OnInit {
     this.dialogSrv.open(DialogComponent, {
       "minWidth": 250,
       "data": { 
-        content: UserComponent, 
+        content: RegisterComponent, 
         instanceContext: this.context.user, 
         title: $localize`Register`
       }

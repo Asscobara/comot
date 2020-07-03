@@ -15,7 +15,8 @@ export class FieldComponent implements OnInit, IFieldComponent  {
   @Input() public control: FormControl;
   @Input() public hint: string;
   @Input() public type: string = 'text';
-
+  @Input() public disabled: boolean;
+  
   @Output()
   public valueChange = new EventEmitter();
 

@@ -23,6 +23,7 @@ export class DialogComponent {
     let factory = this.componentFactoryResolver.resolveComponentFactory(this._content);
     this.componentRef = this.target.createComponent(factory);
     (this.componentRef.instance as any).context = this.data.instanceContext;
+    (this.componentRef.instance as any).disabled = this.data.disabled;
   }
 
   public get formGroup(): FormGroup {

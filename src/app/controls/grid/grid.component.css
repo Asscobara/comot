@@ -4,19 +4,19 @@
     border-width: thin;
     border-radius: 1em;
     border-style: solid;
-    margin-left: 6em;
-    margin-right: 6em;
+    margin-left: 22em;
+    margin-right: 22em;
 }
 
 .grid-container {
-    height: 90vh;
+    height: 80vh;
     overflow-y: auto;   
     gap: 0.5em;
     border: slategray ;
     border-radius: 1em;
     border-style: solid;
-    margin-left: 6em;
-    margin-right: 6em;
+    margin-left: 22em;
+    margin-right: 22em;
 }
 
 .action-button {

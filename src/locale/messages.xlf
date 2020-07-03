@@ -102,9 +102,126 @@
         <source>Password</source>
         <target>סיסמה</target>
       </trans-unit>
+      <trans-unit id="8156526526725995942">
+        <source>Email already exists</source>
+        <target>כתובת המייל כבר קיימת במערכת</target>
+      </trans-unit>
+      <trans-unit id="1156971894059521185">
+        <source>Email not found</source>
+        <target>כתובת המייל לא נמצאת במערכת</target>
+      </trans-unit>
+      <trans-unit id="6594549486144347518">
+        <source>Incorrect password</source>
+        <target>סיסמה לא נכונה</target>
+      </trans-unit>
+      <trans-unit id="3262236020277300799">
+        <source>Phone</source>
+        <target>טלפון</target>
+      </trans-unit>
+      <trans-unit id="4145496584631696119">
+        <source>Role</source>
+        <target>תפקיד</target>
+      </trans-unit>
+      <trans-unit id="3797778920049399855">
+        <source>Logout</source>
+        <target>התנתק</target>
+      </trans-unit>
+      <trans-unit id="6304432362546770951">
+        <source>Address</source>
+        <target>כתובת</target>
+      </trans-unit>
+      <trans-unit id="3241357959735682038">
+        <source>Confirm Password</source>
+        <target>ודא סיסמה</target>
+      </trans-unit>
+      <trans-unit id="3301086086650990787">
+        <source>Register</source>
+        <target>רישום</target>
+      </trans-unit>
+      <trans-unit id="5701618810648052610">
+        <source>Title</source>
+        <target>כותרת</target>
+      </trans-unit>
+      <trans-unit id="4902817035128594900">
+        <source>Description</source>
+        <target>תאור</target>
+      </trans-unit>
+      <trans-unit id="1847047605496409443">
+        <source>Street</source>
+        <target>רחוב</target>
+      </trans-unit>
+      <trans-unit id="5041354590769758251">
+        <source>Admin</source>
+        <target>מנהל מערכת</target>
+      </trans-unit>
+      <trans-unit id="1540281436321485610">
+        <source>Manager</source>
+        <target>וועד הבית</target>
+      </trans-unit>
+     <trans-unit id="2392488717875840729">
+        <source>User</source>
+        <target>דייר</target>
+      </trans-unit>
+      <trans-unit id="268369328039605234">
+        <source>Guest</source>
+        <target>אורח</target>
+      </trans-unit>
+      <trans-unit id="8035280614643172424">
+        <source>New address</source>
+        <target>כתובת חדשה</target>
+      </trans-unit>
+      <trans-unit id="2851229319453359442">
+        <source>Edit address</source>
+        <target>עריכת כתובת</target>
+      </trans-unit>
+      <trans-unit id="4541605066224999720">
+        <source>Missing required field</source>
+        <target>חסר שדה חובה</target>
+      </trans-unit>
+      <trans-unit id="7337328392037298832">
+        <source>Email field incorrect</source>
+        <target>כתובת המייל איננה תקינה</target>
+      </trans-unit>
+      <trans-unit id="1824388213664199175">
+        <source>Value does not match</source>
+        <target>הערך אינו תואם</target>
+      </trans-unit>
+      <trans-unit id="7258923541158462890">
+        <source>Password does match rules</source>
+        <target>סיסמה לא חוקית  </target>
+      </trans-unit>
+      <trans-unit id="2314075913167237221">
+        <source>City</source>
+        <target>עיר</target>
+      </trans-unit>
+      <trans-unit id="5485072068199666072">
+        <source>Hello </source>
+        <target>שלום </target>
+      </trans-unit>
+      <trans-unit id="8998179362936748717">
+        <source>OK</source>
+        <target>אישור</target>
+      </trans-unit>
+      <trans-unit id="6149875809221974120">
+        <source>Floor</source>
+        <target>קומה</target>
+      </trans-unit>
+       <trans-unit id="7556937968060189947">
+        <source>Apartment</source>
+        <target>דירה</target>
+      </trans-unit>
+      <trans-unit id="102408375548589662">
+        <source>Update password</source>
+        <target>עדכון סיסמה</target>
+      </trans-unit>
+      <trans-unit id="5031925686034924029">
+        <source>Forget Password</source>
+        <target>שחזור סיסמה</target>
+      </trans-unit>
+      <trans-unit id="3277520558587299577">
+        <source>Update Password</source>
+        <target>עדכון סיסמה</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>
-
-
-

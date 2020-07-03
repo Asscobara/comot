@@ -6,6 +6,7 @@ import { DialogComponent } from 'src/app/controls/dialog/dialog.component';
 import { IUser } from 'src/shceme/IScheme';
 import { AbsScreenComponent } from '../abs-screen/abs-screen.component';
 import { SessionServiceService } from 'src/app/services/session-service.service';
+import { RegisterComponent } from 'src/app/forms/register/register.component';
 
 @Component({
   selector: 'app-users',
@@ -16,10 +17,10 @@ export class UsersComponent extends AbsScreenComponent<IUser> {
 
   constructor (
     private dataSrv: DataService, 
-    private sessionSrv: SessionServiceService,    
+    sessionSrv: SessionServiceService,    
     changeDetect: ChangeDetectorRef, 
     dialogSrv: MatDialog) {
-    super(dialogSrv, changeDetect, UserComponent); 
+    super(dialogSrv, changeDetect, UserComponent, sessionSrv); 
   }
 
   protected buildGridData() {
@@ -30,13 +31,15 @@ export class UsersComponent extends AbsScreenComponent<IUser> {
         {displayName: $localize`Last Name`, fieldName: 'last_name'},
         {displayName: $localize`Email`, fieldName: 'email'},
         {displayName: $localize`Phone`, fieldName: 'phone'},
+        {displayName: $localize`Floor`, fieldName: 'floor_number'},
+        {displayName: $localize`Apartment`, fieldName: 'apartment_number'},
         {displayName: $localize`Role`, fieldName: 'role_id', fieldNameSource: (roleId) => this.sessionSrv.roles[roleId].displayName }],
       rows: [],
       buttons: [
         { title: $localize`New`, action: 'new', icon: 'add_circle_outline' }, 
         { title: $localize`Delete`, action: 'delete', icon: 'remove_circle_outline' }
       ],
-      canSelectItem: true
+      canEditData: this.sessionSrv.user?.role_id == 2
     }
 
     this.data.forEach( (user: IUser) => {
@@ -55,12 +58,14 @@ export class UsersComponent extends AbsScreenComponent<IUser> {
       remark: '',
       role_id: 3,
       phone: '',
-      address_id: 0
+      address_id: 0,
+      floor_number: 0,
+      apartment_number: 0
     }
   }
 
   protected async loadData() {
-    return this.dataSrv.getUsers();
+    return this.dataSrv.getUsers(this.sessionSrv.user);
   }
 
   protected update(data: IUser) {
@@ -68,6 +73,7 @@ export class UsersComponent extends AbsScreenComponent<IUser> {
   }
 
   protected create(data: IUser) {
+    data.address_id = this.sessionSrv.user.address_id;
     return this.dataSrv.createUser(data);
   }
 

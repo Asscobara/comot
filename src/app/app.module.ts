@@ -32,6 +32,7 @@ import { LoginComponent } from './forms/login/login.component';
 import { RegisterComponent } from './forms/register/register.component';
 import { LoginScreenComponent } from './screens/login-screen/login-screen.component';
 import { AddressComponent } from './forms/address/address.component';
+import { PasswordComponent } from './forms/password/password.component';
 
 registerLocaleData(localeHe, 'he-IL', localeHeExtra);
 
@@ -52,7 +53,8 @@ registerLocaleData(localeHe, 'he-IL', localeHeExtra);
     LoginComponent,
     RegisterComponent,
     LoginScreenComponent,
-    AddressComponent
+    AddressComponent,
+    PasswordComponent
   ],
   imports: [
     BrowserModule,

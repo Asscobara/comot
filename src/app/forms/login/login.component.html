@@ -4,6 +4,6 @@
 </div>
 <div>
     <button mat-button i18n (click)="openRegisterDialog()">Register</button>
-    <!--<button mat-button i18n>Forget Password</button> -->
+    <button mat-button i18n (click)="forgotPassword()" [disabled]="userNameControl.status != 'VALID'">Forget Password</button>
 </div>
 <span *ngIf="context.errors" class="error">{{context.errors}}</span>

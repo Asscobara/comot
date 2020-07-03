@@ -1,7 +1,11 @@
 <div class="user-form-container">     
-    <app-field i18n-title title="First Name" [(value)]="context.first_name"></app-field>
-    <app-field i18n-title title="Last Name" [(value)]="context.last_name"></app-field>
-    <app-field i18n-title title="Email" [(value)]="context.email" [control]="emailControl"></app-field>
-    <app-field i18n-title title="Phone" [(value)]="context.phone"></app-field>
-    <app-field i18n-title title="Password" type="password" [(value)]="context.password"></app-field>
+    <app-field i18n-title title="First Name" [(value)]="context.first_name" [disabled]="disabled"></app-field>
+    <app-field i18n-title title="Last Name" [(value)]="context.last_name" [disabled]="disabled"></app-field>
+    <app-field i18n-title title="Email" [(value)]="context.email" [control]="emailControl" [disabled]="disabled"></app-field>
+    <app-field i18n-title title="Phone" [(value)]="context.phone" [disabled]="disabled"></app-field>
+    <app-field i18n-title title="Floor" [(value)]="context.floor_number" [disabled]="disabled"></app-field>
+    <app-field i18n-title title="Apartment" [(value)]="context.apartment_number" [disabled]="disabled"></app-field>
+    <div>
+        <button mat-button i18n [disabled]="disabled" (click)="updatePassword()">Update password</button>
+    </div>
 </div>

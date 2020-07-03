@@ -1,20 +1,22 @@
 13/6/2020
+
+
 High level product design
 
 --------------- START UP ----------------------
 1. Complete users end-to-end:
-    - Set base class to users screen [DONE]
-    - Grid UI design [Done]
-    - Add confirm message before delete [DONE]
-    - Add translate support [DONE]
-    - Add Server code to git [DONE] --> remove old project from git
-    - Dialog UI design - field, buttons, title etc. [On Going]
-2. Handle server errors
-3. Shell UI design
+    - Set base class to users screen                                                    [DONE]
+    - Grid UI design                                                                    [DONE]
+    - Add confirm message before delete                                                 [DONE]
+    - Add translate support                                                             [DONE]
+    - Add Server code to git  --> remove old project from git                           [DONE]
+    - Dialog UI design - field, buttons, title etc.                                     [On Going]
+2. Handle server errors                                                                 [DONE]
+3. Shell UI design                                                                      [On Going]
     - side menu
     - top menu
     - icons
-4. Handle user - signup, login, logout. email support.
+4. Handle user - signup, login, logout. email support                                   [DONE].
 
 
 [DONE] Page load -> login page -> if registered -> show users (apllication is up)
@@ -23,7 +25,7 @@ High level product design
                -> register  as manager -> send email with link -> verify (code time limited) -> set registered -> define building -> show users 
 
 Add user -> set name, email, phone, address ->
- register as user -> send user an email -> verify (code time limited) -> set registered
+ register as user -> send user an email -> verify (code time limited) -> set registered [DONE]
 
 
 TODO:
@@ -33,14 +35,14 @@ small issues:
 -------------
 - Format email
 - Translate missitng titles
-- When to show - hide password field 
-- Add confirm email field (?)
-- Login - set in local storage for refresh? what about db flag?
- 
+- Login - set in local storage for refresh? what about db flag? 
 - User Login -> 
  - Table is view only
  - No reports, only tasks
  - No add user
+ ;
+ - Remove OK in dialog when readonly
+ - Add floor and apartment # to user
  - 
 
 -----------------Milestone-------------------------
@@ -53,11 +55,20 @@ small issues:
 9. Define and implement work flows
     - Register building [DONE]
     - Add resident - send email [DONE]
-    - Enter Task - find suplier - follow task status - done
+    - Enter Task - find suplier - follow task status -->
 10. Add building messages - email and notifications
+
+
+- Add feature permissions 
+ 
 -----------------RELEASE 1.0-------------------------
+UI re-design
+
+
 11. Add building chat / video
 12. Implement supliers adds
+13. Add building Calander
+14. add setting - notifications  / emails  
 
 
 

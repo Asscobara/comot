@@ -73,7 +73,7 @@ export interface IGridColumn {
 export interface IGridData {
   columns: IGridColumn[];
   rows: any[];
-  canSelectItem: boolean;
+  canEditData: boolean;
   buttons: {
     title: string;
     action: string;

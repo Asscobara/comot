@@ -5,6 +5,7 @@ import { DialogComponent } from 'src/app/controls/dialog/dialog.component';
 import { LoginComponent } from 'src/app/forms/login/login.component';
 import { IUser, ILogin } from 'src/shceme/IScheme';
 import { SessionServiceService } from 'src/app/services/session-service.service';
+import { ServerErrors } from 'src/app/utils/ServerErrors';
 
 @Component({
   selector: 'app-login-screen',
@@ -39,7 +40,7 @@ export class LoginScreenComponent implements OnInit {
           const u = await this.dataSrv.login(d.user);
           this.sessionSrv.user = (u as any)?.data;
         } catch(err) {
-          d.errors = err.statusText;          
+          d.errors = ServerErrors.errors[err.error.code] ? ServerErrors.errors[err.error.code] : err.statusText;          
           this.openLoginDialog(d);
         }
       }

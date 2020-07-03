@@ -3,6 +3,7 @@ import { IGridData } from 'src/app/controls/grid/grid.component';
 import { DialogComponent } from 'src/app/controls/dialog/dialog.component';
 import { MatDialog } from '@angular/material/dialog';
 import { PopupComponent } from 'src/app/popups/popup/popup.component';
+import { SessionServiceService } from 'src/app/services/session-service.service';
 
 export abstract class AbsScreenComponent<T> implements OnInit {
 
@@ -15,7 +16,8 @@ export abstract class AbsScreenComponent<T> implements OnInit {
   constructor(
     private dialogSrv: MatDialog, 
     private changeDetect: ChangeDetectorRef, 
-    private childComponent: Type<any>) {
+    private childComponent: Type<any>, 
+    protected sessionSrv: SessionServiceService) {
     
   }
 
@@ -65,6 +67,7 @@ export abstract class AbsScreenComponent<T> implements OnInit {
         "data": { 
           content: this.childComponent, 
           instanceContext: data, 
+          disabled: this.sessionSrv.user?.role_id != 2,
           title: this.getDialogTitle()
         }
       }).afterClosed().subscribe( async (d: T) =>  {     

@@ -13,7 +13,7 @@ export class SessionServiceService {
   
   public readonly version: string = "0.0.1";
   public readonly contactEmail: string = "comot@gmail.com";
-  public readonly appName: string = $localize`ComOt`;
+  public readonly appName: string = `ComOt`;
     
   private _user: IUser; 
   private _address: IAddress;

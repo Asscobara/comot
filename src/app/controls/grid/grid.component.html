@@ -1,5 +1,5 @@
 <div class="top-grid-actions-container">
-    <button mat-button *ngFor="let btn of data?.buttons" class="action-button" (click)="onButtonClick(btn)">
+    <button [disabled]="!data?.canEditData" mat-button *ngFor="let btn of data?.buttons" class="action-button" (click)="onButtonClick(btn)">
         <mat-icon>{{btn.icon}}</mat-icon>
         {{btn.title}}
     </button>
@@ -10,14 +10,16 @@
   <!-- Checkbox Column -->
     <ng-container matColumnDef="select">
         <mat-header-cell *matHeaderCellDef>
-        <mat-checkbox (change)="$event ? masterToggle() : null"
+        <mat-checkbox  [disabled]="!data?.canEditData"
+                        (change)="$event ? masterToggle() : null"
                         [checked]="selection.hasValue() && isAllSelected()"
                         [indeterminate]="selection.hasValue() && !isAllSelected()"
                         [aria-label]="checkboxLabel()">
         </mat-checkbox>
         </mat-header-cell>
         <mat-cell *matCellDef="let row">
-        <mat-checkbox (click)="$event.stopPropagation()"
+        <mat-checkbox  [disabled]="!data?.canEditData"
+                        (click)="$event.stopPropagation()"
                         (change)="$event ? selection.toggle(row) : null"
                         [checked]="selection.isSelected(row)"
                         [aria-label]="checkboxLabel(row)">
@@ -27,10 +29,10 @@
         
     <ng-container *ngFor="let col of data?.columns;" matColumnDef="{{col.fieldName}}">
         <mat-header-cell *matHeaderCellDef>{{col.displayName}}</mat-header-cell>
-        <mat-cell *matCellDef="let element">{{ col.fieldNameSource ? col.fieldNameSource(element[col.fieldName]) :  element[col.fieldName] }}</mat-cell>    
+        <mat-cell  *matCellDef="let element">{{ col.fieldNameSource ? col.fieldNameSource(element[col.fieldName]) :  element[col.fieldName] }}</mat-cell>    
     </ng-container>  
 
     <mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></mat-header-row>
-    <mat-row *matRowDef="let row; columns: displayedColumns;" (click)="rowSelected.emit(row)"></mat-row>
+    <mat-row  *matRowDef="let row; columns: displayedColumns;" (click)="rowSelected.emit(row)"></mat-row>
     
 </mat-table>
