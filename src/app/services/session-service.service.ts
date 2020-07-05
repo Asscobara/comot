@@ -17,6 +17,15 @@ export class SessionServiceService {
     
   private _user: IUser; 
   private _address: IAddress;
+  private _users: IUser[];
+
+  public get users(): IUser[] {
+    return this._users;
+  }
+
+  public set users(value: IUser[]) { 
+    this._users = value;
+  }
 
   public get user(): IUser {
     return this._user;
@@ -37,15 +46,25 @@ export class SessionServiceService {
   
   public set address(value: IAddress) {
     this._address = value;
+    if (this.address) {
+      this.dataSrv.getUsers(this.user).then( (a: any) => {
+        this.users = a.data;
+      });
+    }
   }
 
   public register: boolean = false;
   
-  public readonly roles: IRoleMap = {
+  public readonly roles: IDBDefaultMap = {
       1: { dbName: 'admin', displayName: $localize`Admin` },
       2: { dbName: 'manager', displayName: $localize`Manager` },
       3: { dbName: 'user', displayName: $localize`User` },
       4: { dbName: 'guest', displayName: $localize`Guest` },
+  }
+
+  public readonly transactions: IDBDefaultMap = {
+    1: {dbName: 'income', displayName: $localize`Income`},
+    2: {dbName: 'expense', displayName: $localize`Expense`}
   }
 
   constructor(
@@ -88,11 +107,11 @@ export class SessionServiceService {
  
 }
 
-export interface IRole {
+export interface IDBDEfault {
   dbName: string, 
   displayName: string
 }
 
-export interface IRoleMap {
-  [name: string]: IRole
+export interface IDBDefaultMap {
+  [name: string]: IDBDEfault
 }

@@ -5,13 +5,18 @@ import { ReportsComponent } from './screens/reports/reports.component';
 import { TasksComponent } from './screens/tasks/tasks.component';
 import { LoginScreenComponent } from './screens/login-screen/login-screen.component';
 import { IsLoggedInGuard } from './guards/is-logged-in.guard';
+import { TransactionsComponent } from './screens/transactions/transactions.component';
 
 
 const routes: Routes = [{
     path: 'users',
     component: UsersComponent,
     canActivate: [IsLoggedInGuard]    
-  }, {
+  },{
+    path: 'transactions',
+    component: TransactionsComponent,
+    canActivate: [IsLoggedInGuard]
+  },{
     path: 'reports',
     component: ReportsComponent,
     canActivate: [IsLoggedInGuard]    

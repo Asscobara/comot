@@ -16,7 +16,8 @@ export class FieldComponent implements OnInit, IFieldComponent  {
   @Input() public hint: string;
   @Input() public type: string = 'text';
   @Input() public disabled: boolean;
-  
+  @Input() public options: IOption[];
+
   @Output()
   public valueChange = new EventEmitter();
 
@@ -60,4 +61,9 @@ export class FieldComponent implements OnInit, IFieldComponent  {
 
 export interface IFieldComponent {
   control: FormControl;
+}
+
+export interface IOption {
+  value: any;
+  displayValue: string;
 }

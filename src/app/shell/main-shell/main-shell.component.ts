@@ -16,6 +16,7 @@ export class MainShellComponent implements OnInit {
     this.menuItems = [];
     
     this.menuItems.push({ title: $localize`Users`, path: 'users', icon: 'supervisor_account' });
+    this.menuItems.push({ title: $localize`Transactions`, path: 'transactions', icon: 'payment' });
     this.menuItems.push({ title: $localize`Reports`, path: 'reports', icon: 'poll' });
     this.menuItems.push({ title: $localize`Tasks`, path: 'tasks', icon: 'fact_check' });
 

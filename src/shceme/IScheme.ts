@@ -19,10 +19,6 @@ export interface IUser {
     apartment_number: number;
 }
 
-export interface IResidant extends IUser {
-    apprtment: number
-}
-
 export interface IAddress {
     id: number;
     title: string;
@@ -30,3 +26,12 @@ export interface IAddress {
     street: string;
     city: string;
 }
+
+export interface ITransaction {
+    id: number;
+    amount: number;
+    transaction_type: number;
+    date_time: any;
+    user_id: number;
+    remark: string;
+  }

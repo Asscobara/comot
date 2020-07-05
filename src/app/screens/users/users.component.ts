@@ -65,6 +65,9 @@ export class UsersComponent extends AbsScreenComponent<IUser> {
   }
 
   protected async loadData() {
+    if (this.sessionSrv.users) {
+      return new Promise((resolve) => resolve( {data: this.sessionSrv.users }));
+    }
     return this.dataSrv.getUsers(this.sessionSrv.user);
   }
 

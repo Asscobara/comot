@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { IUser, IAddress } from 'src/shceme/IScheme';
+import { IUser, IAddress, ITransaction } from 'src/shceme/IScheme';
 
 @Injectable()
 export class DataService {
@@ -19,6 +19,10 @@ export class DataService {
     //#region  Users
     private get endPoint(): string {
         return `http://localhost:3000/`;
+    }
+
+    async getUser(userId: number) {
+        return this.httpSrv.get<IUser>(`${this.endPoint}users/${userId}/`, this.httpOptions).toPromise<IUser>();
     }
 
     async getUsers(user: IUser) {
@@ -69,4 +73,15 @@ export class DataService {
     }
     //#endregion
 
+
+    //#region Transaction
+    async createTransaction(transaction: ITransaction) {
+        return this.httpSrv.post(`${this.endPoint}transactions/`, transaction, this.httpOptions).toPromise();
+    }
+
+    async getAddressTransaction(addressId: number) { 
+        return this.httpSrv.get(`${this.endPoint}transactions/${addressId}/`, this.httpOptions).toPromise();
+    }
+    //#endregion
 }
+    
