@@ -12,7 +12,7 @@ import { Format } from 'src/app/utils/format';
   templateUrl: './../abs-screen/abs-screen.component.html',
   styleUrls: ['./../abs-screen/abs-screen.component.css']
 })
-export class TransactionsComponent  extends AbsScreenComponent<ITransaction>  {
+export class TransactionsComponent extends AbsScreenComponent<ITransaction>  {
 
   constructor (
     private dataSrv: DataService, 

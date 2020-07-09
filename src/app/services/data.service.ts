@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { IUser, IAddress, ITransaction } from 'src/shceme/IScheme';
+import { IUser, IAddress, ITransaction, ICategory } from 'src/shceme/IScheme';
 
 @Injectable()
 export class DataService {
@@ -87,5 +87,24 @@ export class DataService {
         return this.httpSrv.put(`${this.endPoint}transactions/${transaction.id}/`, transaction, this.httpOptions).toPromise();
     }
     //#endregion
+
+    //#region Category
+    async createCategoy(category: ICategory) {
+        return this.httpSrv.post(`${this.endPoint}categories/`, category, this.httpOptions).toPromise();
+    }
+
+    async getCategories() { 
+        return this.httpSrv.get(`${this.endPoint}categories/`, this.httpOptions).toPromise();
+    }
+
+    async updateCategory(category: ITransaction) { 
+        return this.httpSrv.put(`${this.endPoint}transactions/${category.id}/`, category, this.httpOptions).toPromise();
+    }
+
+    async deleteCategory(category: ITransaction) { 
+        return this.httpSrv.put(`${this.endPoint}transactions/${category.id}/`, this.httpOptions).toPromise();
+    }
+    //#endregion
+
 }
     

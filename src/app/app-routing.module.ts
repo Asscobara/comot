@@ -6,6 +6,7 @@ import { TasksComponent } from './screens/tasks/tasks.component';
 import { LoginScreenComponent } from './screens/login-screen/login-screen.component';
 import { IsLoggedInGuard } from './guards/is-logged-in.guard';
 import { TransactionsComponent } from './screens/transactions/transactions.component';
+import { SuppliersComponent } from './screens/suppliers/suppliers.component';
 
 
 const routes: Routes = [{
@@ -23,6 +24,10 @@ const routes: Routes = [{
   }, {
     path: 'tasks',
     component: TasksComponent, 
+    canActivate: [IsLoggedInGuard]         
+  }, {
+    path: 'suppliers',
+    component: SuppliersComponent, 
     canActivate: [IsLoggedInGuard]         
   }, {
     path: '',

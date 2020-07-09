@@ -50,15 +50,25 @@ small issues:
 - Translate missitng titles
 - fix update in server - check why no remak to Transactions         [DONE]
 - fix db install
-- Add recipt + Date to Transactions (new db field)
-- Add send recipt email checkbox to Transactions
+- Add recipt + Date to Transactions (new db field)  ?
+- Add send recipt email checkbox to Transactions                    [DONE]
 - 
+
+
+
+Add Categories route to server. 
+Add Categories support in data service (ui)
+
+UI update categories in session as a map upon user set.
+Add suppliers support in data service (ui)
+
+
 
 -----------------Milestone-------------------------
 5. New Entity: Task
     id, description, date, status, category, reportedBy, 
-6. Add user fileds: description, image, role        
-7. New Entity: Badget - Transactions / payments.
+6. Add user fileds: description, image, role                        [IMAGE TBD]        
+7. New Entity: Badget - Transactions / payments.                    [DONE]
 8. New Entity: Supliers - price.  
 
 - Add feature permissions 

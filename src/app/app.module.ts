@@ -39,6 +39,8 @@ import { MatSelectModule } from '@angular/material/select';
 import { UnderConstrcutionComponent } from './screens/under-constrcution/under-constrcution.component';
 import { MatSortModule } from '@angular/material/sort';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { SuppliersComponent } from './screens/suppliers/suppliers.component';
+import { SupplierComponent } from './forms/supplier/supplier.component';
 
 registerLocaleData(localeHe, 'he-IL', localeHeExtra);
 
@@ -63,7 +65,9 @@ registerLocaleData(localeHe, 'he-IL', localeHeExtra);
     PasswordComponent,
     TransactionsComponent,
     TransactionComponent,
-    UnderConstrcutionComponent
+    UnderConstrcutionComponent,
+    SuppliersComponent,
+    SupplierComponent
   ],
   imports: [
     BrowserModule,

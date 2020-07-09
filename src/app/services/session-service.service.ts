@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { IUser, IAddress } from 'src/shceme/IScheme';
+import { IUser, IAddress, ICategory } from 'src/shceme/IScheme';
 import { Router } from '@angular/router';
 import { DataService } from './data.service';
 import { MatDialog } from '@angular/material/dialog';
@@ -18,6 +18,15 @@ export class SessionServiceService {
   private _user: IUser; 
   private _address: IAddress;
   private _users: IUser[];
+  private _categories: ICategory[];
+
+  public get categories(): ICategory[] {
+    return this._categories;
+  }
+
+  public set categories(value: ICategory[]) { 
+    this._categories = value;
+  }
 
   public get users(): IUser[] {
     return this._users;
@@ -37,6 +46,12 @@ export class SessionServiceService {
       this.dataSrv.getUserAddress(this.user.id).then( (a: any) => {
         this.address = a.data;
       });
+
+      /* TODO: 
+      this.dataSrv.getCategories(this.user.id).then( (a: any) => {
+        this.categories = a.data;
+      });
+      */
     }
   }
 
