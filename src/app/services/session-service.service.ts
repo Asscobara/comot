@@ -63,8 +63,8 @@ export class SessionServiceService {
   }
 
   public readonly transactions: IDBDefaultMap = {
-    1: {dbName: 'income', displayName: $localize`Income`},
-    2: {dbName: 'expense', displayName: $localize`Expense`}
+    1: {dbId: 1, dbName: 'income', displayName: $localize`Income`},
+    2: {dbId: 2, dbName: 'expense', displayName: $localize`Expense`}
   }
 
   constructor(
@@ -108,8 +108,9 @@ export class SessionServiceService {
 }
 
 export interface IDBDEfault {
+  dbId?: number;
   dbName: string, 
-  displayName: string
+  displayName: string,
 }
 
 export interface IDBDefaultMap {

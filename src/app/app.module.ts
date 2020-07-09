@@ -36,6 +36,9 @@ import { PasswordComponent } from './forms/password/password.component';
 import { TransactionsComponent } from './screens/transactions/transactions.component';
 import { TransactionComponent } from './forms/transaction/transaction.component';
 import { MatSelectModule } from '@angular/material/select';
+import { UnderConstrcutionComponent } from './screens/under-constrcution/under-constrcution.component';
+import { MatSortModule } from '@angular/material/sort';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 registerLocaleData(localeHe, 'he-IL', localeHeExtra);
 
@@ -59,7 +62,8 @@ registerLocaleData(localeHe, 'he-IL', localeHeExtra);
     AddressComponent,
     PasswordComponent,
     TransactionsComponent,
-    TransactionComponent
+    TransactionComponent,
+    UnderConstrcutionComponent
   ],
   imports: [
     BrowserModule,
@@ -75,7 +79,9 @@ registerLocaleData(localeHe, 'he-IL', localeHeExtra);
     MatTableModule,
     MatCheckboxModule,
     ReactiveFormsModule,
-    MatSelectModule
+    MatSelectModule,
+    MatSortModule,
+    MatFormFieldModule
   ],
   providers: [
     DataService,

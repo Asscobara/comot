@@ -35,4 +35,12 @@
 mat-row:hover{
     cursor: pointer;
     background: #b4b4b433;
-  }
+}
+
+.mat-column-select {
+    flex: 0 0 35px;
+}
+
+th.mat-sort-header-sorted {
+    color: black;
+}

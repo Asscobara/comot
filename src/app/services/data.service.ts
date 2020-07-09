@@ -82,6 +82,10 @@ export class DataService {
     async getAddressTransaction(addressId: number) { 
         return this.httpSrv.get(`${this.endPoint}transactions/${addressId}/`, this.httpOptions).toPromise();
     }
+
+    async updateTransaction(transaction: ITransaction) { 
+        return this.httpSrv.put(`${this.endPoint}transactions/${transaction.id}/`, transaction, this.httpOptions).toPromise();
+    }
     //#endregion
 }
     

@@ -222,6 +222,44 @@
         <source>Update Password</source>
         <target>עדכון סיסמה</target>
       </trans-unit>
+      <trans-unit id="6706529972132030418">
+        <source>Transaction Type</source>
+        <target>סוג פעולה</target>
+      </trans-unit>
+      <trans-unit id="6533918067030990396">
+        <source>Amount</source>
+        <target>סכום</target>
+      </trans-unit>
+      <trans-unit id="7721988664027512739">
+        <source>Income</source>
+        <target>הכנסה</target>
+      </trans-unit>
+      <trans-unit id="4338847763858464063">
+        <source>Expense</source>
+        <target>הוצאה</target>
+      </trans-unit>
+      <trans-unit id="2611475427610660053">
+        <source>Transactions</source>
+        <target>חשבון הבניין</target>
+      </trans-unit>
+      <trans-unit id="8435663454441740233">
+        <source>Remark</source>
+        <target>הערה</target>
+      </trans-unit>
+      <trans-unit id="3973931101896534797">
+        <source>Date</source>
+        <target>תאריך</target>
+      </trans-unit>
+      <trans-unit id="6064816831160752892">
+        <source>Tenant's Name</source>
+        <target>שם</target>
+      </trans-unit>
+      <trans-unit id="4864429477699787308">
+        <source>Unkown</source>
+        <target>לא ידוע</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>
+
+

@@ -46,10 +46,13 @@ small issues:
 - Add log to server 
 
  
-- Date Format
+- Date Format                                                       [DONE]
 - Translate missitng titles
-- fix update in server - check why no remak to Transactions
-
+- fix update in server - check why no remak to Transactions         [DONE]
+- fix db install
+- Add recipt + Date to Transactions (new db field)
+- Add send recipt email checkbox to Transactions
+- 
 
 -----------------Milestone-------------------------
 5. New Entity: Task

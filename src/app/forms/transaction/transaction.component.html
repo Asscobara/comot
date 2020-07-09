@@ -1,6 +1,8 @@
-<div>     
-    <app-field i18n-title title="Transaction Type" [type]="'select'" [options]="options" [(value)]="context.transaction_type"></app-field>
+<div class="transaction-form-container">     
+    <app-field i18n-title title="Transaction Type" [type]="'select'" [options]="transactionsOptions" [(value)]="context.transaction_type"></app-field>
     <app-field i18n-title title="Amount" [(value)]="context.amount"></app-field>
     <app-field i18n-title title="User" [type]="'select'" [options]="usersOptions" [(value)]="context.user_id"></app-field>
+    <app-field i18n-title title="Date" [type]="'date'" [(value)]="date_time"></app-field>
     <app-field i18n-title title="Remark" [(value)]="context.remark"></app-field>
+    <app-field i18n-title title="Send email recipt" [type]="'check'" [(value)]="context.send_recipt"></app-field>
 </div>

@@ -1,11 +1,15 @@
 import { Component, OnInit, Input, Output, EventEmitter, OnChanges, SimpleChanges } from '@angular/core';
 import { ValidatorFn, FormControl, NgModel, Validators } from '@angular/forms';
 import { ValidatorNames, CustomValidators } from 'src/app/validators/validators';
+import { MatFormFieldControl } from '@angular/material/form-field';
 
 @Component({
   selector: 'app-field',
   templateUrl: './field.component.html',
-  styleUrls: ['./field.component.css']
+  styleUrls: ['./field.component.css'],
+  providers: [
+    { provide: MatFormFieldControl, useExisting: FieldComponent }   
+  ]
 })
 export class FieldComponent implements OnInit, IFieldComponent  {
   
@@ -23,13 +27,14 @@ export class FieldComponent implements OnInit, IFieldComponent  {
 
   constructor() { }
   
-  
   public get errorMassage(): string {
       if (this.hasError) {
         return CustomValidators.getErrorString(this.control);        
       }
       return '';
   }
+
+  public checked: boolean;
 
   public get isRequried(): boolean{
     if (!this.control || !this.control.validator) {
@@ -50,6 +55,7 @@ export class FieldComponent implements OnInit, IFieldComponent  {
     if (!this.control) {
       this.control = new FormControl();
     }
+
     this.control.setValue(this.value);    
     this.control.valueChanges.subscribe(v => {
       this.value = v;

@@ -5,6 +5,7 @@ import { DataService } from 'src/app/services/data.service';
 import { SessionServiceService } from 'src/app/services/session-service.service';
 import { MatDialog } from '@angular/material/dialog';
 import { TransactionComponent } from 'src/app/forms/transaction/transaction.component';
+import { Format } from 'src/app/utils/format';
 
 @Component({
   selector: 'app-transactions',
@@ -27,7 +28,7 @@ export class TransactionsComponent  extends AbsScreenComponent<ITransaction>  {
         {displayName: '#', fieldName: 'id'},
         {displayName: $localize`Amount`, fieldName: 'amount'},
         {displayName: $localize`Transaction Type`, fieldName: 'transaction_type', fieldNameSource: (transactionTypeId) => this.sessionSrv.transactions[transactionTypeId].displayName },
-        {displayName: $localize`Date`, fieldName: 'date_time'},
+        {displayName: $localize`Date`, fieldName: 'date_time', fieldNameSource: (date) => Format.formatDate(new Date(date))},
         {displayName: $localize`Tenant's Name`, fieldName: 'user_id', fieldNameSource:  (userId) => {
           const user = this.sessionSrv.users.find(u => u.id == userId);
           if(user) {
@@ -57,7 +58,8 @@ export class TransactionsComponent  extends AbsScreenComponent<ITransaction>  {
       transaction_type: 0,
       date_time: Date.now(),
       user_id: 0,
-      remark: ''
+      remark: '',
+      send_recipt: false
     }
   }
 
@@ -68,7 +70,7 @@ export class TransactionsComponent  extends AbsScreenComponent<ITransaction>  {
   }
 
   protected update(data: ITransaction) {
-    return {};
+    return this.dataSrv.updateTransaction(data);
   }
 
   protected create(data: ITransaction) {
@@ -77,7 +79,7 @@ export class TransactionsComponent  extends AbsScreenComponent<ITransaction>  {
   }
 
   protected delete(id: number) {
-    return this.dataSrv.deleteUser(id);
+    return  {}; // this.dataSrv.tra(id);
   }
 
 }

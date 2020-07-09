@@ -1,6 +1,7 @@
-import { Component, OnInit, Input, OnChanges, SimpleChanges, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, OnChanges, SimpleChanges, Output, EventEmitter, ViewChild } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { SelectionModel } from '@angular/cdk/collections';
+import { MatSort } from '@angular/material/sort';
 
 @Component({
   selector: 'app-grid',
@@ -14,6 +15,8 @@ export class GridComponent implements OnInit, OnChanges {
   @Output() public rowSelected: EventEmitter<any> = new EventEmitter();
   @Output() public buttonClicked: EventEmitter<any> = new EventEmitter();
 
+  @ViewChild(MatSort, {static: true}) sort: MatSort;
+  
   public Object = Object;  
   constructor() { 
   
@@ -24,11 +27,12 @@ export class GridComponent implements OnInit, OnChanges {
       this.displayedColumns = ['select', ...this.data.columns.map(col => col.fieldName)];
       this.dataSource = new MatTableDataSource<any>(this.data.rows);
       this.selection = new SelectionModel<any>(true, []);  
+      this.dataSource.sort = this.sort;
    }
   }
 
   ngOnInit(): void {
-
+    
   }
 
   public onButtonClick($event) {

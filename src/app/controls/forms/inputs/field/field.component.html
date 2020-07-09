@@ -1,6 +1,11 @@
 
 <div class="field-container">    
-    <mat-form-field class="example-full-width">
+
+    <div *ngIf="type == 'check'">
+      <mat-checkbox [disabled]="disabled" [formControl]="control">{{title}}</mat-checkbox>
+    </div>
+
+    <mat-form-field *ngIf="type != 'check'" class="example-full-width">
         <mat-label>{{title}} <span *ngIf="isRequried" class="error">*</span></mat-label>
         
         <div [ngSwitch]="type">
@@ -8,14 +13,15 @@
             <input *ngSwitchDefault [readonly]="disabled" matInput [type]="type" [formControl]="control" placeholder="{{placeholder}}">
         
             <mat-select *ngSwitchCase="'select'" name="select" [formControl]="control" placeholder="{{placeholder}}">
-                <mat-option *ngFor="let option of options" [value]="option.value">
-                  {{option.displayValue}}
-                </mat-option>
-              </mat-select>
+              <mat-option *ngFor="let option of options" [value]="option.value">
+                {{option.displayValue}}
+              </mat-option>
+            </mat-select>
 
         </div>
 
         <mat-hint>{{hint}}</mat-hint>
         <mat-error *ngIf="hasError">{{errorMassage}}</mat-error>
     </mat-form-field>
+
 </div>
