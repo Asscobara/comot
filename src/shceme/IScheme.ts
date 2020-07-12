@@ -17,6 +17,7 @@ export interface IUser {
     address_id: number;
     floor_number: number;
     apartment_number: number;
+    registered: boolean;
 }
 
 export interface IAddress {
@@ -25,6 +26,8 @@ export interface IAddress {
     description: string;
     street: string;
     city: string;
+    payment_day_in_month: number;
+    payment_amount: number;
 }
 
 export interface ITransaction {
@@ -64,7 +67,7 @@ export interface ICategory {
     user_id: IUser;
     remark: string;
     category_id: number;
-    sub_categories_id: number[];
+    sub_categories_id: string;
   }
   
   export interface IPrice {

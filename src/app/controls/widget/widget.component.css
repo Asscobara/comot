@@ -1,0 +1,21 @@
+.widget-container {
+    background-color: burlywood;
+    width: 12em;
+    height: 12em;
+    display: flex;
+    flex-direction: column;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 12px;    
+}
+
+.widget-header {
+    border-color: burlywood;
+    border-style: solid;
+    border-width: 1px;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;    
+    background-color: steelblue;
+    height: 2em;
+    text-align: center;
+}

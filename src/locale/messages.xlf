@@ -258,8 +258,30 @@
         <source>Unkown</source>
         <target>לא ידוע</target>
       </trans-unit>
+      <trans-unit id="1806667489382256324">
+        <source>Category</source>
+        <target>תחום עיסוק</target>
+      </trans-unit>
+      <trans-unit id="5112140214805944566">
+        <source>Suppliers</source>
+        <target>ספקים</target>
+      </trans-unit>
+      <trans-unit id="3549956231219936368">
+        <source>Reports page is under construction</source>
+        <target>עמוד הדוחו״ת נמצא בבניה</target>
+      </trans-unit>
+      <trans-unit id="6700273928944278126">
+        <source>Tasks page is under construction</source>
+        <target>עמוד המשימות נמצא בבניה</target>
+      </trans-unit>
+      <trans-unit id="2914984669291208682">
+        <source>Send email recipt</source>
+        <target>שלח קבלה במייל</target>
+      </trans-unit>
+      <trans-unit id="4348920359154187664">
+        <source>Supplier</source>
+        <target>ספק</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>
-
-

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { IUser, IAddress, ITransaction, ICategory } from 'src/shceme/IScheme';
+import { IUser, IAddress, ITransaction, ICategory, ISupplier } from 'src/shceme/IScheme';
 
 @Injectable()
 export class DataService {
@@ -98,11 +98,29 @@ export class DataService {
     }
 
     async updateCategory(category: ITransaction) { 
-        return this.httpSrv.put(`${this.endPoint}transactions/${category.id}/`, category, this.httpOptions).toPromise();
+        return this.httpSrv.put(`${this.endPoint}categories/${category.id}/`, category, this.httpOptions).toPromise();
     }
 
     async deleteCategory(category: ITransaction) { 
-        return this.httpSrv.put(`${this.endPoint}transactions/${category.id}/`, this.httpOptions).toPromise();
+        return this.httpSrv.delete(`${this.endPoint}categories/${category.id}/`, this.httpOptions).toPromise();
+    }
+    //#endregion
+
+     //#region Category
+     async createSupplier(supplier: ISupplier) {
+        return this.httpSrv.post(`${this.endPoint}suppliers/`, supplier, this.httpOptions).toPromise();
+    }
+
+    async getSuppliers(userId: number) { 
+        return this.httpSrv.get(`${this.endPoint}suppliers/${userId}/`, this.httpOptions).toPromise();
+    }
+
+    async updateSupplier(supplier: ISupplier) { 
+        return this.httpSrv.put(`${this.endPoint}suppliers/${supplier.id}/`, supplier, this.httpOptions).toPromise();
+    }
+
+    async deleteSupplier(supplierId: number) { 
+        return this.httpSrv.delete(`${this.endPoint}suppliers/${supplierId}/`, this.httpOptions).toPromise();
     }
     //#endregion
 

@@ -7,7 +7,6 @@ import { SessionServiceService } from 'src/app/services/session-service.service'
 
 export abstract class AbsScreenComponent<T> implements OnInit {
 
-
   data: T[];
   gridData: IGridData;
 

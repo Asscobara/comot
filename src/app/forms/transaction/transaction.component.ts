@@ -10,7 +10,7 @@ import { Format } from 'src/app/utils/format';
   templateUrl: './transaction.component.html',
   styleUrls: ['./transaction.component.css']
 })
-export class TransactionComponent  extends FormBaseClass<ITransaction> implements OnInit {
+export class TransactionComponent extends FormBaseClass<ITransaction> implements OnInit {
 
   public transactionsOptions: IOption[];
   public usersOptions: IOption[];

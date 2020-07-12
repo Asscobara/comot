@@ -41,6 +41,8 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { SuppliersComponent } from './screens/suppliers/suppliers.component';
 import { SupplierComponent } from './forms/supplier/supplier.component';
+import { PriceListComponent } from './forms/price-list/price-list.component';
+import { WidgetComponent } from './controls/widget/widget.component';
 
 registerLocaleData(localeHe, 'he-IL', localeHeExtra);
 
@@ -67,7 +69,9 @@ registerLocaleData(localeHe, 'he-IL', localeHeExtra);
     TransactionComponent,
     UnderConstrcutionComponent,
     SuppliersComponent,
-    SupplierComponent
+    SupplierComponent,
+    PriceListComponent,
+    WidgetComponent
   ],
   imports: [
     BrowserModule,

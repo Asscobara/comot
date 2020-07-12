@@ -8,10 +8,10 @@ import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-suppliers',
-  templateUrl: './suppliers.component.html',
-  styleUrls: ['./suppliers.component.css']
+  templateUrl: './../abs-screen/abs-screen.component.html',
+  styleUrls: ['./../abs-screen/abs-screen.component.css']
 })
-export class SuppliersComponent extends AbsScreenComponent<ISupplier> implements OnInit {
+export class SuppliersComponent extends AbsScreenComponent<ISupplier> {
   
   constructor (
     private dataSrv: DataService, 
@@ -21,18 +21,15 @@ export class SuppliersComponent extends AbsScreenComponent<ISupplier> implements
     super(dialogSrv, changeDetect, SupplierComponent, sessionSrv); 
   }
 
-
-  async ngOnInit() {
-  }
-
   protected buildGridData() {
     this.gridData = {
       columns: [
         {displayName: '#', fieldName: 'id'},
-        {displayName: $localize`Name`, fieldName: 'user_id', fieldNameSource: (user: IUser) => `${user.first_name} ${user.last_name}` },
-        {displayName: $localize`Phone`, fieldName: 'user_id', fieldNameSource: (user: IUser) => `${user.phone}` },
-        {displayName: $localize`Email`, fieldName: 'user_id', fieldNameSource: (user: IUser) => `${user.email}` },
-        {displayName: $localize`Category`, fieldName: 'category_id', fieldNameSource: (categoryId) => this.sessionSrv.categories[categoryId].name }],
+        {displayName: $localize`First Name`, fieldName: 'first_name' },
+        {displayName: $localize`Last Name`, fieldName: 'last_name' },
+        {displayName: $localize`Phone`, fieldName: 'phone' },
+        {displayName: $localize`Email`, fieldName: 'email' },
+        {displayName: $localize`Category`, fieldName: 'category_id', fieldNameSource: (categoryId) => this.sessionSrv.categories[categoryId].displayName }],
       rows: [],
       buttons: [
         { title: $localize`New`, action: 'new', icon: 'add_circle_outline' }, 
@@ -42,7 +39,12 @@ export class SuppliersComponent extends AbsScreenComponent<ISupplier> implements
     }
 
     this.data.forEach( (supplier: ISupplier) => {
-      this.gridData.rows.push(supplier);
+      this.gridData.rows.push({ 
+        ...supplier, 
+        first_name: supplier.user_id.first_name, 
+        last_name: supplier.user_id.last_name, 
+        phone: supplier.user_id.phone,
+        email: supplier.user_id.email});
     });
   }
 
@@ -51,28 +53,41 @@ export class SuppliersComponent extends AbsScreenComponent<ISupplier> implements
     return {
       id: 0,
       category_id: 0,
-      sub_categories_id: [],
+      sub_categories_id: '',
       remark: '',
-      user_id: null
+      user_id: {
+        first_name: '',
+        last_name: '',
+        email: '',
+        phone: '',
+        id: 0,
+        is_logged_in: false,
+        password: '',
+        role_id: 5,
+        remark: '',
+        address_id: this.sessionSrv.address.id,
+        apartment_number: 0,
+        floor_number: 0,
+        registered: false
+      }
     }
   }
 
   protected async loadData() {
     if (this.sessionSrv.address) {
-      return this.dataSrv.getAddressTransaction(this.sessionSrv.address.id);
+      return this.dataSrv.getSuppliers(this.sessionSrv.address.id);
     }    
   }
 
   protected update(data: ISupplier) {
-    return null; // this.dataSrv.updateTransaction(data);
+    return this.dataSrv.updateSupplier(data);
   }
 
   protected create(data: ISupplier) {
-    // data.user_id = this.sessionSrv.user.id; // TODO: 
-    return null; // this.dataSrv.createTransaction(data);
+    return this.dataSrv.createSupplier(data);
   }
 
   protected delete(id: number) {
-    return  {}; // this.dataSrv.tra(id);
+    return this.dataSrv.deleteSupplier(id);
   }
 }

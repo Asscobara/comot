@@ -18,13 +18,13 @@ export class SessionServiceService {
   private _user: IUser; 
   private _address: IAddress;
   private _users: IUser[];
-  private _categories: ICategory[];
+  private _categories: IDBDefaultMap;
 
-  public get categories(): ICategory[] {
+  public get categories(): IDBDefaultMap {
     return this._categories;
   }
 
-  public set categories(value: ICategory[]) { 
+  public set categories(value: IDBDefaultMap) { 
     this._categories = value;
   }
 
@@ -47,11 +47,13 @@ export class SessionServiceService {
         this.address = a.data;
       });
 
-      /* TODO: 
-      this.dataSrv.getCategories(this.user.id).then( (a: any) => {
-        this.categories = a.data;
+      this.dataSrv.getCategories().then( (a: any) => {
+        this.categories = {};
+        a.data.forEach( (category: ICategory) => {
+          this.categories[category.id] = { dbId: category.id, dbName: category.name, displayName: category.name };  
+        });        
       });
-      */
+      
     }
   }
 
@@ -75,6 +77,7 @@ export class SessionServiceService {
       2: { dbName: 'manager', displayName: $localize`Manager` },
       3: { dbName: 'user', displayName: $localize`User` },
       4: { dbName: 'guest', displayName: $localize`Guest` },
+      5: { dbName: 'supplier', displayName: $localize`Supplier` }
   }
 
   public readonly transactions: IDBDefaultMap = {
@@ -110,9 +113,9 @@ export class SessionServiceService {
         this.address = d;
         if (isNew) {
           const address = await this.dataSrv.createAddress(this.address);
-          debugger;
           this.user.address_id = (address as any)?.data?.insertId;
-          await this.dataSrv.updateUser(this.user);
+          this.address.id = this.user.address_id;
+          await this.dataSrv.updateUser(this.user);           
         } else {
           await this.dataSrv.updateAddress(this.address);
         }        

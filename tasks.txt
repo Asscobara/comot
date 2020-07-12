@@ -56,11 +56,33 @@ small issues:
 
 
 
-Add Categories route to server. 
-Add Categories support in data service (ui)
+Add Categories route to server.                                     [DONE]
+Add Categories support in data service (ui)                         [DONE]
 
-UI update categories in session as a map upon user set.
-Add suppliers support in data service (ui)
+UI update categories in session as a map upon user set.             [DONE]
+Add suppliers support in data service (ui)                          [DONE]
+
+11/7/2020
+---------
+Bugs:
+1. Add user does not update grid.
+2. Create supplier does not save details                            [FIXED]
+3. 
+
+
+add landing page
+
+TODO: reports
+-------
+create widget for general info
+total residents
+total suppliers - pie chat by category
+current month transactions - pie chat - payed, not payed, 
+
+in future:
+tasks - pie chart by status by month
+in progrees, new, done
+
 
 
 
@@ -87,13 +109,12 @@ Add suppliers support in data service (ui)
 -----------------RELEASE 1.0-------------------------
 UI re-design
 
-
 11. Add building chat / video
 12. Implement supliers adds
-13. Add building Calander - meeting
+13. Add building Calander - meetings
 14. add setting - notifications  / emails  
 
-
+-----------------RELEASE 2.0-------------------------
 
 
 
