@@ -73,11 +73,11 @@ export class SessionServiceService {
   public register: boolean = false;
   
   public readonly roles: IDBDefaultMap = {
-      1: { dbName: 'admin', displayName: $localize`Admin` },
-      2: { dbName: 'manager', displayName: $localize`Manager` },
-      3: { dbName: 'user', displayName: $localize`User` },
-      4: { dbName: 'guest', displayName: $localize`Guest` },
-      5: { dbName: 'supplier', displayName: $localize`Supplier` }
+     // 1: { dbName: 'admin', displayName: $localize`Admin` },
+      2: {dbId: 2, dbName: 'manager', displayName: $localize`Manager` },
+      3: {dbId: 3, dbName: 'user', displayName: $localize`User` },
+      4: {dbId: 4, dbName: 'guest', displayName: $localize`Guest` },
+      5: {dbId: 5, dbName: 'supplier', displayName: $localize`Supplier` }
   }
 
   public readonly transactions: IDBDefaultMap = {

@@ -57,6 +57,10 @@ export class DataService {
         return this.httpSrv.post(`${this.endPoint}password/`, user, this.httpOptions).toPromise();
     }
 
+    async updateRole(user: IUser) {
+        return this.httpSrv.put(`${this.endPoint}users/role/${user.id}/`, user, this.httpOptions).toPromise();
+    }
+
     //#endregion
 
     //#region Address

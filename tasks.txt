@@ -65,9 +65,25 @@ Add suppliers support in data service (ui)                          [DONE]
 11/7/2020
 ---------
 Bugs:
-1. Add user does not update grid.
+1. Add user does not update grid.                                   [FIXED]
 2. Create supplier does not save details                            [FIXED]
-3. 
+3. Register does not save phone
+4. 
+
+
+
+
+
+Manager role ->
+    Change manager. 
+    Add / remove manager.
+
+Task - list, new, edit, delete
+ - Add status: New, InProggress, Done, Removed
+ - 
+
+
+
 
 
 add landing page

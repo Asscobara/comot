@@ -1,7 +1,7 @@
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { ISupplier, IUser } from 'src/shceme/IScheme';
 import { SupplierComponent } from 'src/app/forms/supplier/supplier.component';
-import { AbsScreenComponent } from '../abs-screen/abs-screen.component';
+import { AbsScreenComponent, ButtonActions } from '../abs-screen/abs-screen.component';
 import { DataService } from 'src/app/services/data.service';
 import { SessionServiceService } from 'src/app/services/session-service.service';
 import { MatDialog } from '@angular/material/dialog';
@@ -32,8 +32,8 @@ export class SuppliersComponent extends AbsScreenComponent<ISupplier> {
         {displayName: $localize`Category`, fieldName: 'category_id', fieldNameSource: (categoryId) => this.sessionSrv.categories[categoryId].displayName }],
       rows: [],
       buttons: [
-        { title: $localize`New`, action: 'new', icon: 'add_circle_outline' }, 
-        { title: $localize`Delete`, action: 'delete', icon: 'remove_circle_outline' }
+        { title: $localize`New`, action: ButtonActions.new, icon: 'add_circle_outline' }, 
+        { title: $localize`Delete`, action: ButtonActions.delete, icon: 'remove_circle_outline' }
       ],
       canEditData: this.sessionSrv.user?.role_id == 2
     }

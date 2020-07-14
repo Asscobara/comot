@@ -1,6 +1,6 @@
 import { Component, ChangeDetectorRef } from '@angular/core';
 import { ITransaction } from 'src/shceme/IScheme';
-import { AbsScreenComponent } from '../abs-screen/abs-screen.component';
+import { AbsScreenComponent, ButtonActions } from '../abs-screen/abs-screen.component';
 import { DataService } from 'src/app/services/data.service';
 import { SessionServiceService } from 'src/app/services/session-service.service';
 import { MatDialog } from '@angular/material/dialog';
@@ -39,8 +39,8 @@ export class TransactionsComponent extends AbsScreenComponent<ITransaction>  {
         {displayName: $localize`Remark`, fieldName: 'remark'}],
       rows: [],
       buttons: [
-        { title: $localize`New`, action: 'new', icon: 'add_circle_outline' }, 
-        { title: $localize`Delete`, action: 'delete', icon: 'remove_circle_outline' }
+        { title: $localize`New`, action: ButtonActions.new, icon: 'add_circle_outline' }, 
+        { title: $localize`Delete`, action: ButtonActions.delete, icon: 'remove_circle_outline' }
       ],
       canEditData: this.sessionSrv.user?.role_id == 2
     }

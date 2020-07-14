@@ -8,6 +8,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { DialogComponent } from 'src/app/controls/dialog/dialog.component';
 import { PasswordComponent } from '../password/password.component';
 import { DataService } from 'src/app/services/data.service';
+import { RoleComponent } from '../role/role.component';
 
 @Component({
   selector: 'app-user',
@@ -40,7 +41,29 @@ export class UserComponent extends FormBaseClass<IUser> implements OnInit {
     }).afterClosed().subscribe( async (d: IUser) =>  {     
       if (d) {
         try {
-          const u = await this.dataSrv.updatePassword(d);
+          this.context = d;
+          // const u = await this.dataSrv.updatePassword(d);
+          // TODO: Show message
+        } catch(err) {
+          // d= err.statusText;          
+          // this.openLoginDialog(d);
+        }
+      }
+    });
+  }
+
+  updateRole() {
+    this.dialogSrv.open(DialogComponent, {
+      "minWidth": 250,
+      "data": { 
+        content: RoleComponent, 
+        instanceContext: this.context, 
+        title: $localize`Update Role`
+      }
+    }).afterClosed().subscribe( async (d: IUser) =>  {     
+      if (d) {
+        try {
+          const u = await this.dataSrv.updateRole(d);
           // TODO: Show message
         } catch(err) {
           // d= err.statusText;          

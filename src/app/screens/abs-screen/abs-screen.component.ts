@@ -36,11 +36,11 @@ export abstract class AbsScreenComponent<T> implements OnInit {
     const data = this.getEmptyT();
 
     switch($event.btn.action) {
-      case 'new':
+      case ButtonActions.new:
         this.viewState = ViewState.new;
         this.openDataDialog(data);
         break;
-      case 'delete':
+      case ButtonActions.delete:
         this.openConfirmDialog(() => {
           $event.selected.forEach(async r => {
             (data as any).id = r.id;
@@ -145,4 +145,9 @@ export enum ViewState {
   loading,
   updating,
   deleting
+}
+
+export enum ButtonActions {
+  new = 'new',
+  delete = 'delete'
 }

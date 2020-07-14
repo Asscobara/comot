@@ -1,6 +1,6 @@
-import { Component, OnInit, Input, Output, EventEmitter, OnChanges, SimpleChanges } from '@angular/core';
-import { ValidatorFn, FormControl, NgModel, Validators } from '@angular/forms';
-import { ValidatorNames, CustomValidators } from 'src/app/validators/validators';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { FormControl } from '@angular/forms';
+import { CustomValidators } from 'src/app/validators/validators';
 import { MatFormFieldControl } from '@angular/material/form-field';
 
 @Component({

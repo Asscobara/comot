@@ -43,6 +43,7 @@ import { SuppliersComponent } from './screens/suppliers/suppliers.component';
 import { SupplierComponent } from './forms/supplier/supplier.component';
 import { PriceListComponent } from './forms/price-list/price-list.component';
 import { WidgetComponent } from './controls/widget/widget.component';
+import { RoleComponent } from './forms/role/role.component';
 
 registerLocaleData(localeHe, 'he-IL', localeHeExtra);
 
@@ -71,7 +72,8 @@ registerLocaleData(localeHe, 'he-IL', localeHeExtra);
     SuppliersComponent,
     SupplierComponent,
     PriceListComponent,
-    WidgetComponent
+    WidgetComponent,
+    RoleComponent
   ],
   imports: [
     BrowserModule,
