@@ -76,3 +76,27 @@ export interface ICategory {
     supplier_id: ISupplier;
     price: number;
   }
+
+
+export interface ISchedule {
+  id: number;
+  start_date: any;
+  end_date: any;
+  recuring: boolean;
+  recuring_every_in_days: number;  
+}
+
+export interface ITask {
+  id: number;
+  category_id: number;
+  user_id: number;
+  sipplier_id: number;
+  create_date: any;
+  status_id: number;
+  update_date: any;
+  grade: number;
+  price: number;
+  description: string;
+  schedule_id: ISchedule;
+  address_id: number;
+}

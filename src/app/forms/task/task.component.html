@@ -1,0 +1,8 @@
+<div class="task-form-container">     
+    <app-field i18n-title title="Category" (valueChange)="onCategoryChange($event)" [type]="'select'" [options]="categoriesOptions" [(value)]="context.category_id"></app-field>
+    <app-field i18n-title title="Description" [type]="'textarea'" [(value)]="context.description"></app-field>
+    <app-field i18n-title title="Status" [type]="'select'" [options]="taskStatusesOptions" [(value)]="context.status_id"></app-field>
+    <app-field i18n-title title="Assigned to" [type]="'select'" [(value)]="context.sipplier_id" [options]="suplierOptions"></app-field>
+    <app-field i18n-title title="Grade" [(value)]="context.grade"></app-field>
+    <app-field i18n-title title="Price" [(value)]="context.price"></app-field>
+</div>

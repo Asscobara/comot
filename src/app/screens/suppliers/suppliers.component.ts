@@ -75,7 +75,7 @@ export class SuppliersComponent extends AbsScreenComponent<ISupplier> {
 
   protected async loadData() {
     if (this.sessionSrv.address) {
-      return this.dataSrv.getSuppliers(this.sessionSrv.address.id);
+      return this.dataSrv.getSuppliers(this.sessionSrv.address.id); // USER ID?????
     }    
   }
 

@@ -11,7 +11,9 @@
         <div [ngSwitch]="type">
             
             <input *ngSwitchDefault [readonly]="disabled" matInput [type]="type" [formControl]="control" placeholder="{{placeholder}}">
-        
+
+            <textarea *ngSwitchCase="'textarea'" matInput [formControl]="control" placeholder="{{placeholder}}"></textarea>
+            
             <mat-select *ngSwitchCase="'select'" name="select" [formControl]="control" placeholder="{{placeholder}}">
               <mat-option *ngFor="let option of options" [value]="option.value">
                 {{option.displayValue}}

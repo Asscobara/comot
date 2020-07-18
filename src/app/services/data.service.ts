@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { IUser, IAddress, ITransaction, ICategory, ISupplier } from 'src/shceme/IScheme';
+import { IUser, IAddress, ITransaction, ICategory, ISupplier, ITask } from 'src/shceme/IScheme';
 
 @Injectable()
 export class DataService {
@@ -128,5 +128,23 @@ export class DataService {
     }
     //#endregion
 
+
+    //#region Task
+    async getTasks(address: IAddress) {
+        return this.httpSrv.get(`${this.endPoint}tasks/${address.id}/`, this.httpOptions).toPromise();
+    }
+    
+    async  updateTask(task: ITask) {
+        return this.httpSrv.put(`${this.endPoint}tasks/${task.id}/`, task, this.httpOptions).toPromise();
+    }
+    
+    async createTask(task: ITask) {    
+        return this.httpSrv.post(`${this.endPoint}tasks/`, task, this.httpOptions).toPromise();
+    }
+    
+    async deleteTask(taskId: number) {
+        return this.httpSrv.delete(`${this.endPoint}tasks/${taskId}/`, this.httpOptions).toPromise();
+    }
+    //#endregion 
 }
     

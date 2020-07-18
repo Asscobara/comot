@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { IUser, IAddress, ICategory } from 'src/shceme/IScheme';
+import { IUser, IAddress, ICategory, ISupplier } from 'src/shceme/IScheme';
 import { Router } from '@angular/router';
 import { DataService } from './data.service';
 import { MatDialog } from '@angular/material/dialog';
@@ -19,6 +19,15 @@ export class SessionServiceService {
   private _address: IAddress;
   private _users: IUser[];
   private _categories: IDBDefaultMap;
+  private _supliers: ISupplier[];
+
+  public get supliers(): ISupplier[] {
+    return this._supliers;
+  }
+
+  public set supliers(value: ISupplier[]) { 
+    this._supliers = value;
+  }
 
   public get categories(): IDBDefaultMap {
     return this._categories;
@@ -53,7 +62,10 @@ export class SessionServiceService {
           this.categories[category.id] = { dbId: category.id, dbName: category.name, displayName: category.name };  
         });        
       });
-      
+
+      this.dataSrv.getSuppliers(this.user.id).then((s: any) => {
+        this.supliers = s.data;
+      });      
     }
   }
 
@@ -83,6 +95,14 @@ export class SessionServiceService {
   public readonly transactions: IDBDefaultMap = {
     1: {dbId: 1, dbName: 'income', displayName: $localize`Income`},
     2: {dbId: 2, dbName: 'expense', displayName: $localize`Expense`}
+  }
+
+  public readonly taskStatuses: IDBDefaultMap = {
+    1: {dbId: 1, dbName: 'new', displayName: $localize`New`},
+    2: {dbId: 2, dbName: 'inProgress', displayName: $localize`In Progress`},
+    3: {dbId: 3, dbName: 'pending', displayName: $localize`In Progress`},
+    4: {dbId: 4, dbName: 'done', displayName: $localize`Done`},
+    5: {dbId: 5, dbName: 'aborted', displayName: $localize`Aborted`}
   }
 
   constructor(

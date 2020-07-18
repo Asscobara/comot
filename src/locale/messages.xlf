@@ -282,6 +282,78 @@
         <source>Supplier</source>
         <target>ספק</target>
       </trans-unit>
+      <trans-unit id="2094482842294328906">
+        <source>Started By</source>
+        <target>נוצר על ידי</target>
+      </trans-unit>      
+      <trans-unit id="4419255670681936886">
+        <source>Created Date</source>
+        <target>תאריך יצירה</target>
+      </trans-unit>
+      <trans-unit id="5611592591303869712">
+        <source>Status</source>
+        <target>סטאטוס</target>
+      </trans-unit>
+      <trans-unit id="8235419386075820707">
+        <source>Assigned to</source>
+        <target>מבצע</target>
+      </trans-unit>
+      <trans-unit id="4089509911694721896">
+        <source>Last Updated</source>
+        <target>תאריך עדכון</target>
+      </trans-unit>
+      <trans-unit id="6346357924377938019">
+        <source>Grade</source>
+        <target>ציון</target>
+      </trans-unit>
+      <trans-unit id="8894377483833272091">
+        <source>Price</source>
+        <target>מחיר</target>
+      </trans-unit>
+      <trans-unit id="3064017367453287050">
+        <source>Is recurring</source>
+        <target>קבוע</target>
+      </trans-unit>
+      <trans-unit id="8423119760363236013">
+        <source>Reported by</source>
+        <target>דווח על ידי</target>
+      </trans-unit>
+      <trans-unit id="4573672792356781465">
+        <source>Update Role</source>
+        <target>עדכון תפקיד</target>
+      </trans-unit>
+      <trans-unit id="1801901268621267089">
+        <source>Payment Amout</source>
+        <target>סכום תשלום</target>
+      </trans-unit>
+      <trans-unit id="8548643978496015587">
+        <source>Payment Day in Month</source>
+        <target>יום בחודש לתשלום</target>
+      </trans-unit>
+      <trans-unit id="3375154641881152516">
+        <source>Price List</source>
+        <target>מחירון</target>
+      </trans-unit>
+      <trans-unit id="4935364572600308046">
+        <source>Do by</source>
+        <target>יעשה על ידי</target>
+      </trans-unit>
+      <trans-unit id="1780950485960518731">
+        <source>In Progress</source>
+        <target>בתהליך</target>
+      </trans-unit>
+      <trans-unit id="397098723873502323">
+        <source>Done</source>
+        <target>הסתיים</target>
+      </trans-unit>
+      <trans-unit id="9135780517563211822">
+        <source>Aborted</source>
+        <target>בוטל</target>
+      </trans-unit>
+       <trans-unit id="3363584487333954929">
+        <source>User was not verifies by email</source>
+        <target>המשתמש עדיין לא אישור את הרישום באמצעות המייל</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

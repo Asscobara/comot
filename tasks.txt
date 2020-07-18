@@ -80,7 +80,7 @@ Manager role ->
 
 Task - list, new, edit, delete
  - Add status: New, InProggress, Done, Removed
- - 
+ - Add Do date field
 
 
 
