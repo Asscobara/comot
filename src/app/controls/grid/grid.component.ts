@@ -82,5 +82,6 @@ export interface IGridData {
     title: string;
     action: string;
     icon: string;
+    actionData?: any;
   }[];
 }

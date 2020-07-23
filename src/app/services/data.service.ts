@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { IUser, IAddress, ITransaction, ICategory, ISupplier, ITask } from 'src/shceme/IScheme';
+import { IUser, IAddress, ITransaction, ICategory, ISupplier, ITask, ISendEmail } from 'src/shceme/IScheme';
 
 @Injectable()
 export class DataService {
@@ -146,5 +146,11 @@ export class DataService {
         return this.httpSrv.delete(`${this.endPoint}tasks/${taskId}/`, this.httpOptions).toPromise();
     }
     //#endregion 
+
+    //#region Email
+    async sendEmail(sendEmailData: ISendEmail) {
+        return this.httpSrv.post(`${this.endPoint}mail/`, sendEmailData, this.httpOptions).toPromise();
+    }
+    //#endregion
 }
     

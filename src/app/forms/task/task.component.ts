@@ -17,10 +17,7 @@ export class TaskComponent extends FormBaseClass<ITask> implements OnInit, OnCha
   public taskStatusesOptions: IOption[];
   public suplierOptions: IOption[]; 
 
-  constructor(
-    private dialogSrv: MatDialog, 
-    private dataSrv: DataService, 
-    private sessionSrv: SessionServiceService) { 
+  constructor(private sessionSrv: SessionServiceService) { 
       super();
   }
 

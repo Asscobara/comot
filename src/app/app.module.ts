@@ -45,6 +45,7 @@ import { PriceListComponent } from './forms/price-list/price-list.component';
 import { WidgetComponent } from './controls/widget/widget.component';
 import { RoleComponent } from './forms/role/role.component';
 import { TaskComponent } from './forms/task/task.component';
+import { SendEmailComponent } from './forms/send-email/send-email.component';
 
 registerLocaleData(localeHe, 'he-IL', localeHeExtra);
 
@@ -75,7 +76,8 @@ registerLocaleData(localeHe, 'he-IL', localeHeExtra);
     PriceListComponent,
     WidgetComponent,
     RoleComponent,
-    TaskComponent
+    TaskComponent,
+    SendEmailComponent
   ],
   imports: [
     BrowserModule,

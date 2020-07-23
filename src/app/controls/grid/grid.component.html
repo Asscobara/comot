@@ -28,8 +28,8 @@
     </ng-container>
         
     <ng-container *ngFor="let col of data?.columns;" matColumnDef="{{col.fieldName}}">
-        <mat-header-cell *matHeaderCellDef mat-sort-header>{{col.displayName}}</mat-header-cell>
-        <mat-cell  *matCellDef="let element">{{ col.fieldNameSource ? col.fieldNameSource(element[col.fieldName]) :  element[col.fieldName] }}</mat-cell>    
+        <mat-header-cell *matHeaderCellDef mat-sort-header class="column">{{col.displayName}}</mat-header-cell>
+        <mat-cell class="column"  *matCellDef="let element">{{ col.fieldNameSource ? col.fieldNameSource(element[col.fieldName]) :  element[col.fieldName] }}</mat-cell>    
     </ng-container>  
 
     <mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></mat-header-row>

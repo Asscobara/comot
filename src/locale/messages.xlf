@@ -354,6 +354,16 @@
         <source>User was not verifies by email</source>
         <target>המשתמש עדיין לא אישור את הרישום באמצעות המייל</target>
       </trans-unit>
+      </trans-unit>
+       <trans-unit id="1370541376892647862">
+        <source>Send Mail</source>
+        <target>שלח מייל</target>
+      </trans-unit>
+      </trans-unit>
+       <trans-unit id="4416413576346763682">
+        <source>Pending</source>
+        <target>בהמתנה</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

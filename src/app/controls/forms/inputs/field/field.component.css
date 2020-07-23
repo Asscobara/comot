@@ -6,8 +6,13 @@
     border-width: thin;
     border-radius: 1%;
     height: 58px;
+    width: -webkit-fill-available;
 }
 
 .error{
     color: red;
 } 
+
+.field-item {
+    width: -webkit-fill-available;
+}

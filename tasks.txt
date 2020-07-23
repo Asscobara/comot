@@ -72,16 +72,15 @@ Bugs:
 
 
 
-
-
-Manager role ->
-    Change manager. 
-    Add / remove manager.
+Manager role -> Change manager. Add / remove manager.               [DONE]
 
 Task - list, new, edit, delete
- - Add status: New, InProggress, Done, Removed
+ - Add status: New, InProggress, Done, Removed                      [DONE]
  - Add Do date field
 
+Meetings === tasks ?
+
+Handle: You're email aaa@aaa.com already exists
 
 
 
@@ -114,8 +113,8 @@ in progrees, new, done
 
 -----------------Milestone-------------------------
 9. Define and implement work flows
-    - Register building [DONE]
-    - Add resident - send email [DONE]
+    - Register building                                             [DONE]
+    - Add resident - send email                                     [DONE]
     - Enter Task - find suplier - follow task status -->
 10. Add building messages - email and notifications 
 

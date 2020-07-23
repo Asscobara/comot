@@ -41,6 +41,10 @@ mat-row:hover{
     flex: 0 0 35px;
 }
 
+.column {
+    width: fit-content;
+}
+
 th.mat-sort-header-sorted {
     color: black;
 }

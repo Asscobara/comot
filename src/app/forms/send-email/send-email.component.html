@@ -1,0 +1,9 @@
+<div>
+    <div class="send-to-containet">
+        <span class="send-to" *ngFor="let email of context.emails">{{email}}</span>
+    </div>
+
+    <div class="send-to-containet">
+        <app-field i18n-title title="Message" [type]="'textarea'" [(value)]="context.message" class="full-width"></app-field>
+    </div>
+</div>

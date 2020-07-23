@@ -1,0 +1,26 @@
+.send-to-containet {
+    display: flex;
+    padding: 1em;
+    border: gray;
+    border-style: solid;
+    border-width: thin;
+    border-radius: 1em;
+    padding: 1em;
+    margin: 1em;
+}
+
+.send-to {
+    display: flex;
+    width: fit-content;
+    background-color: burlywood;
+    padding: 1em;
+    margin: 0.5em;
+    border: rgb(158, 158, 147);
+    border-style: solid;
+    border-width: thin;
+    border-radius: 1em;
+}
+
+.full-width {
+    width: -webkit-fill-available;
+}

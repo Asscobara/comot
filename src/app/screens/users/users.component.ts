@@ -3,8 +3,11 @@ import { DataService } from 'src/app/services/data.service';
 import { MatDialog } from '@angular/material/dialog';
 import { UserComponent } from 'src/app/forms/user/user.component';
 import { IUser } from 'src/shceme/IScheme';
-import { AbsScreenComponent } from '../abs-screen/abs-screen.component';
+import { InterfaceBase, IUserHelper } from 'src/shceme/shcemeHelper';
+import { AbsScreenComponent, ButtonActions } from '../abs-screen/abs-screen.component';
 import { SessionServiceService } from 'src/app/services/session-service.service';
+import { DialogComponent } from 'src/app/controls/dialog/dialog.component';
+import { SendEmailComponent } from 'src/app/forms/send-email/send-email.component';
 
 @Component({
   selector: 'app-users',
@@ -34,8 +37,9 @@ export class UsersComponent extends AbsScreenComponent<IUser> {
         {displayName: $localize`Role`, fieldName: 'role_id', fieldNameSource: (roleId) => this.sessionSrv.roles[roleId].displayName }],
       rows: [],
       buttons: [
-        { title: $localize`New`, action: 'new', icon: 'add_circle_outline' }, 
-        { title: $localize`Delete`, action: 'delete', icon: 'remove_circle_outline' }
+        { title: $localize`New`, action: ButtonActions.new, icon: 'add_circle_outline' }, 
+        { title: $localize`Send Mail`, action: ButtonActions.costume, icon: 'email', actionData: { name: 'sendEmail', selected: [] } },
+        { title: $localize`Delete`, action: ButtonActions.delete, icon: 'remove_circle_outline' }
       ],
       canEditData: this.sessionSrv.user?.role_id == 2
     }
@@ -45,22 +49,27 @@ export class UsersComponent extends AbsScreenComponent<IUser> {
     });
   }
 
-  protected getEmptyT(): IUser {
-    return {
-      id: 0,
-      first_name: '',
-      last_name: '',
-      email: '',
-      password: '',
-      is_logged_in: false, 
-      remark: '',
-      role_id: 3,
-      phone: '',
-      address_id: 0,
-      floor_number: 0,
-      apartment_number: 0,
-      registered: false
+  protected handleCostumeAction(btn: any) {
+    if (btn.actionData.name == 'sendEmail') {
+      const emails = btn.actionData.selected.map( (u: IUser) => u.email);
+      this.dialogSrv.open(DialogComponent, {
+        "minWidth": 250,
+        "data": { 
+          content: SendEmailComponent, 
+          instanceContext: { emails: emails, message: '' }, 
+          title: $localize`Send Email`
+        }
+      }).afterClosed().subscribe((sendEmailData) => {
+        debugger;
+        if (sendEmailData) {
+          this.dataSrv.sendEmail(sendEmailData)
+        }
+      });;
     }
+  }
+
+  protected getEmptyT(): IUser {
+    return InterfaceBase.getEmptyT(new IUserHelper());
   }
 
   protected async loadData() {

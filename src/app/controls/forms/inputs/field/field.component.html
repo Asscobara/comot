@@ -5,7 +5,7 @@
       <mat-checkbox [disabled]="disabled" [formControl]="control">{{title}}</mat-checkbox>
     </div>
 
-    <mat-form-field *ngIf="type != 'check'" class="example-full-width">
+    <mat-form-field *ngIf="type != 'check'" class="field-item">
         <mat-label>{{title}} <span *ngIf="isRequried" class="error">*</span></mat-label>
         
         <div [ngSwitch]="type">

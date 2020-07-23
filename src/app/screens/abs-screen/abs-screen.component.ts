@@ -13,9 +13,9 @@ export abstract class AbsScreenComponent<T> implements OnInit {
   viewState: ViewState = ViewState.view;
 
   constructor(
-    private dialogSrv: MatDialog, 
-    private changeDetect: ChangeDetectorRef, 
-    private childComponent: Type<any>, 
+    protected dialogSrv: MatDialog, 
+    protected changeDetect: ChangeDetectorRef, 
+    protected childComponent: Type<any>, 
     protected sessionSrv: SessionServiceService) {
     
   }
@@ -51,7 +51,15 @@ export abstract class AbsScreenComponent<T> implements OnInit {
           });        
         });
         break;
+        case ButtonActions.costume:
+          $event.btn.actionData.selected = $event.selected;
+          this.handleCostumeAction($event.btn);
+          break;
     }
+  }
+
+  protected handleCostumeAction(btn: any) {
+
   }
 
   public onRowSelected($event) {
@@ -149,5 +157,6 @@ export enum ViewState {
 
 export enum ButtonActions {
   new = 'new',
-  delete = 'delete'
+  delete = 'delete',
+  costume = 'costume'
 }
