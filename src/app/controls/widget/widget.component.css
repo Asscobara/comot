@@ -1,7 +1,13 @@
+
+.widget-container-wide {
+    width: 24em;
+}
+
 .widget-container {
     background-color: burlywood;
-    width: 12em;
+    width: auto;
     height: 12em;
+    min-width: 12em;
     display: flex;
     flex-direction: column;
     border-style: solid;

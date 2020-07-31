@@ -74,7 +74,6 @@ export class TransactionsComponent extends AbsScreenComponent<ITransaction>  {
   }
 
   protected create(data: ITransaction) {
-    data.user_id = this.sessionSrv.user.id; // TODO: 
     return this.dataSrv.createTransaction(data);
   }
 

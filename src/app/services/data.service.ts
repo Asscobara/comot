@@ -152,5 +152,21 @@ export class DataService {
         return this.httpSrv.post(`${this.endPoint}mail/`, sendEmailData, this.httpOptions).toPromise();
     }
     //#endregion
+
+    //#region Reports
+    async getPaymentsStatus(addressId: number, from_date: any) {
+        return this.httpSrv.get(`${this.endPoint}report/payments/${addressId}/${from_date}/`, this.httpOptions).toPromise();
+    }
+
+    async getSupliersReport(addressId: number) {
+        return this.httpSrv.get(`${this.endPoint}report/suppliers/${addressId}/`, this.httpOptions).toPromise();
+    }
+
+
+    async getTasksReport(addressId: number) {
+        return this.httpSrv.get(`${this.endPoint}report/tasks/${addressId}/`, this.httpOptions).toPromise();
+    }
+    //#endregion
+    
 }
     

@@ -105,3 +105,18 @@ export interface ISendEmail {
   emails: string[];
   message: number;
 }
+
+export interface IPaymentReport {
+  user_id: IUser;
+  total_amount: number;
+}
+
+export interface ISuppliersReport {
+  category_id: number;
+  total_suppliers: number;
+} 
+
+export interface ITaskReport {
+  status_id: number;
+  total_tasks: number;
+} 
