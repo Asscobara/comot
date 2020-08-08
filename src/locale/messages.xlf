@@ -362,6 +362,19 @@
         <source>Pending</source>
         <target>בהמתנה</target>
       </trans-unit>
+      <trans-unit id="7106374711711352292">
+        <source>Total Payments</source>
+        <target>סיכום תשלומים</target>
+      </trans-unit>
+      <trans-unit id="5340542981392929838">
+        <source>Total Suppliers</source>
+        <target>סיכום ספקים</target>
+      </trans-unit>
+      <trans-unit id="4740651410583213776">
+        <source>Tasks Summary</source>
+        <target>סיכום משימות</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>
+

@@ -40,7 +40,6 @@ export class LoginScreenComponent implements OnInit {
           const u = await this.dataSrv.login(d.user);
           this.sessionSrv.user = (u as any)?.data;
         } catch(err) {
-          debugger;
           d.errors = ServerErrors.errors[err.error.code] ? ServerErrors.errors[err.error.code] : err.statusText;          
           this.openLoginDialog(d);
         }

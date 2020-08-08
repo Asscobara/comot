@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { IAddress } from 'src/shceme/IScheme';
 import { FormBaseClass } from 'src/app/controls/forms/formBaseClass';
+import { CustomValidators, ValidatorNames } from 'src/app/validators/validators';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-address',
@@ -9,11 +11,14 @@ import { FormBaseClass } from 'src/app/controls/forms/formBaseClass';
 })
 export class AddressComponent extends FormBaseClass<IAddress> implements OnInit {
 
-  constructor() {
+  public dayInMotnControl: FormControl = new FormControl();;
+  constructor() {    
     super();
+    this.dayInMotnControl.setValidators([CustomValidators.dayInMonthValidator]);
    }
 
   ngOnInit(): void {
+    this.formGroup.addControl(ValidatorNames.dayInMonth, this.dayInMotnControl);
   }
 
 }

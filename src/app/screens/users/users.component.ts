@@ -60,7 +60,6 @@ export class UsersComponent extends AbsScreenComponent<IUser> {
           title: $localize`Send Email`
         }
       }).afterClosed().subscribe((sendEmailData) => {
-        debugger;
         if (sendEmailData) {
           this.dataSrv.sendEmail(sendEmailData)
         }

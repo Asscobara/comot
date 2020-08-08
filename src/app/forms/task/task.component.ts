@@ -28,7 +28,6 @@ export class TaskComponent extends FormBaseClass<ITask> implements OnInit, OnCha
   ngOnInit(): void {
     this.categoriesOptions = [];
     this.taskStatusesOptions = [];
-    this.suplierOptions = [];
 
     Object.keys(this.sessionSrv.categories).forEach(t => {
       this.categoriesOptions.push({ value: this.sessionSrv.categories[t].dbId , displayValue: this.sessionSrv.categories[t].displayName});
@@ -38,14 +37,23 @@ export class TaskComponent extends FormBaseClass<ITask> implements OnInit, OnCha
       this.taskStatusesOptions.push({ value: this.sessionSrv.taskStatuses[t].dbId , displayValue: this.sessionSrv.taskStatuses[t].displayName});
     });
 
-    const supliers = this.sessionSrv.supliers;
-    supliers.forEach(suplier => {      
-      this.suplierOptions.push( {value: suplier.id, displayValue: `${suplier.user_id.first_name} ${suplier.user_id.last_name}`} )
-    });
+    this.updateSuppliers();
   }
 
   public onCategoryChange($evet) {
-    console.log(`onCategoryChange, value = ${$evet}`)
+    this.updateSuppliers();
+  }
+
+  private updateSuppliers() {
+    
+    this.suplierOptions = [];
+    
+    const supliers = this.sessionSrv.supliers;
+    supliers.forEach(suplier => {     
+      if (this.context.category_id == 0 || suplier.category_id == this.context.category_id) {
+        this.suplierOptions.push( {value: suplier.id, displayValue: `${suplier.user_id.first_name} ${suplier.user_id.last_name}`} );
+      }       
+    });
   }
 
 }

@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { IUser, IAddress, ITransaction, ICategory, ISupplier, ITask, ISendEmail } from 'src/shceme/IScheme';
+import { environment } from 'src/environments/environment';
 
 @Injectable()
 export class DataService {
@@ -18,7 +19,7 @@ export class DataService {
     
     //#region  Users
     private get endPoint(): string {
-        return `http://localhost:3000/`;
+        return environment.serverurl;
     }
 
     async getUser(userId: number) {

@@ -89,13 +89,12 @@ add landing page
 
 TODO: reports
 -------
-create widget for general info
+create widget for general info                                      [DONE]
 total residents
-total suppliers - pie chat by category
+total suppliers - pie chat by category                              [DONE]
 current month transactions - pie chat - payed, not payed, 
 
-in future:
-tasks - pie chart by status by month
+tasks - pie chart by status by month                                [DONE]
 in progrees, new, done
 
 
@@ -117,6 +116,46 @@ in progrees, new, done
     - Add resident - send email                                     [DONE]
     - Enter Task - find suplier - follow task status -->
 10. Add building messages - email and notifications 
+
+
+
+
+1/8/2020 - Post milestone TODO list
+-----------------------------------
+1. New Task - set new status as default                         [DONE]
+2. Task form - select category - update supplier select         [DONE]
+3. Building form - validate day in month                        [BUG - fix], payments
+4. Building form - remove description / title ?
+5. Reports - 
+    - Building budject (payment * # residents)
+    - Current month payment status
+    - resident payed / did not payed for this month / total 
+6. Tasks - add schedule support - handle meetings / on going tasks
+7. Update missing translations.
+8. Support featrue permissions
+ - List features
+ - 
+9. Investigate Google ads 
+
+DEVOPS
+- Buy domain
+- Buy host
+- Implemet site on host (DB, NodeJS, WEB)
+ - add configuration for server, client
+
+db 
+u376266110_
+assc Bagay1bagay!
+
+sql130.main-hosting.eu
+
+31.170.166.124
+
+Technical 
+- Add landing page, help page
+- Update FB page
+-  
+
 
 
 

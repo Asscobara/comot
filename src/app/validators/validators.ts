@@ -1,4 +1,5 @@
 import { AbstractControl, ValidatorFn } from '@angular/forms';
+import { isNumber } from 'util';
 
 export  class CustomValidators {
 
@@ -13,10 +14,11 @@ export  class CustomValidators {
                 errorKey = key;
             });
             switch(errorKey) {
-                case 'required': return $localize`Missing required field`;
-                case 'email': return $localize`Email field incorrect`;
-                case 'matchWith': return $localize`Value does not match`;
-                case 'password': return $localize`Password does match rules`;
+                case ValidatorNames.required:           return $localize`Missing required field`;
+                case ValidatorNames.email:              return $localize`Email field incorrect`;
+                case ValidatorNames.matchWith:          return $localize`Value does not match`;
+                case ValidatorNames.password:           return $localize`Password does match rules`;
+                case ValidatorNames.dayInMonth:         return $localize`Value must be between 1 and 31`;
             }
             return ``;
         }
@@ -66,6 +68,17 @@ export  class CustomValidators {
             return !control.value || control.value == '' ? {[ValidatorNames.password]: true} : null;
         };
     }
+
+    public static dayInMonthValidator() : ValidatorFn {
+        return (control: AbstractControl): ICustomValidatorError | null => {
+            if (!isNumber(control.value) || control.value < 0 && control.value > 31) {
+                return {[ValidatorNames.dayInMonth]: true};
+            } else {
+                debugger;
+                return null;    
+            }
+        };
+    }
 }
 
 
@@ -75,6 +88,8 @@ export interface ICustomValidatorError {
 
 export enum ValidatorNames {
     required = 'reqired',
+    email = 'email',
     matchWith = 'matchWith',
-    password = 'password'
+    password = 'password',
+    dayInMonth = 'dayInMonth',
 }

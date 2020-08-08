@@ -74,7 +74,7 @@ export class TasksComponent extends AbsScreenComponent<ITask>  {
         apartment_number: 0,
         registered: false
       },
-      status_id: 0, 
+      status_id: 1, 
       sipplier_id: {
         id: 0,
         category_id: 0,
