@@ -24,4 +24,8 @@ export class ToolBarComponent implements OnInit {
   public setAddres() {
     this.sessionSrv.setAddres();  
   }
+
+  public showAbout() {
+    this.sessionSrv.showAbout();
+  }
 }

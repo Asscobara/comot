@@ -2,3 +2,35 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+@media (max-device-width: 1500px) { 
+    .screen-margine {
+        margin-left: 22em;
+        margin-right: 22em;
+    }    
+}
+
+
+@media all and (max-width: 2500px) {
+    .screen-margine {
+        margin-left: 22em;
+        margin-right: 22em;
+    }
+}
+
+/* tablet */
+@media all and (max-width: 1024px) {
+    .screen-margine {
+        margin-left: 4em;
+        margin-right: 4em;
+    }
+}
+
+/* mobile phone */
+@media all and (max-width: 768px) {
+    .screen-margine {
+        margin-left: 2em;
+        margin-right: 2em;
+    }
+}

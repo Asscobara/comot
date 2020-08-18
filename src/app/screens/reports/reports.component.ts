@@ -7,7 +7,7 @@ import * as Chart from 'chart.js';
 @Component({
   selector: 'app-reports',
   templateUrl: './reports.component.html',
-  styleUrls: ['./reports.component.css']
+  styleUrls: ['./reports.component.css', './../abs-screen/abs-screen.component.css']
 })
 export class ReportsComponent implements OnInit {
 

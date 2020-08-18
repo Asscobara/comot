@@ -20,6 +20,7 @@ export class MainShellComponent implements OnInit {
     this.menuItems.push({ title: $localize`Suppliers`, path: 'suppliers', icon: 'engineering' });
     this.menuItems.push({ title: $localize`Reports`, path: 'reports', icon: 'poll' });
     this.menuItems.push({ title: $localize`Tasks`, path: 'tasks', icon: 'fact_check' });
+    this.menuItems.push({ title: $localize`Help`, path: 'help', icon: 'help_center' });
 
   }
 

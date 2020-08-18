@@ -1,4 +1,5 @@
-<div class="reports-container">
+<div i18n class="screen-title screen-margine">Reports</div>
+<div class="reports-container spinner-container screen-margine">
     <app-widget i18n-title title="Total Payments">
         <div *ngFor="let payment of payments" class="report-list">
              <span class="report-list-key">{{payment.user_id.first_name}}, {{payment.user_id.last_name}}</span>   

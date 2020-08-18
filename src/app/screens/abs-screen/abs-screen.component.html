@@ -1,3 +1,7 @@
 <div class="screen">
-    <app-grid [data]="gridData" (rowSelected)="onRowSelected($event)" (buttonClicked)="onButtonClicked($event)"></app-grid>
+    <div class="screen-title screen-margine">{{gridData?.title}}</div>
+    <div class="spinner-container screen-margine" *ngIf="viewState == ViewState.loading">
+        <mat-spinner class="spinner"></mat-spinner>   
+    </div>    
+    <app-grid *ngIf="viewState != ViewState.loading" [data]="gridData" (rowSelected)="onRowSelected($event)" (buttonClicked)="onButtonClicked($event)"></app-grid>
 </div>

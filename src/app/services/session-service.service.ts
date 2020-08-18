@@ -5,14 +5,15 @@ import { DataService } from './data.service';
 import { MatDialog } from '@angular/material/dialog';
 import { AddressComponent } from '../forms/address/address.component';
 import { DialogComponent } from '../controls/dialog/dialog.component';
+import { PopupComponent } from '../popups/popup/popup.component';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SessionServiceService {
   
-  public readonly version: string = "0.0.1";
-  public readonly contactEmail: string = "comot@gmail.com";
+  public readonly version: string = "0.0.2";
+  public readonly contactEmail: string = "admin@comot.co.il";
   public readonly appName: string = `ComOt`;
     
   private _user: IUser; 
@@ -115,6 +116,17 @@ export class SessionServiceService {
     this.user = null;
     this.address = null;
     this.route.navigate(['/']);
+  }
+
+  public showAbout() {
+    const dialogRef = this.dialogSrv.open(PopupComponent,{
+      data:{
+        message: $localize`ComOt ${this.version}`,
+        buttonText: {
+          ok: $localize`OK`
+        }
+      }
+    });
   }
 
   public setAddres() {

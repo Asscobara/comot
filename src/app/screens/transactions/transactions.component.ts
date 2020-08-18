@@ -10,7 +10,7 @@ import { Format } from 'src/app/utils/format';
 @Component({
   selector: 'app-transactions',
   templateUrl: './../abs-screen/abs-screen.component.html',
-  styleUrls: ['./../abs-screen/abs-screen.component.css']
+  styleUrls: ['./../abs-screen/abs-screen.component.css', './../abs-screen/abs-screen.component.css']
 })
 export class TransactionsComponent extends AbsScreenComponent<ITransaction>  {
 
@@ -18,12 +18,14 @@ export class TransactionsComponent extends AbsScreenComponent<ITransaction>  {
     private dataSrv: DataService, 
     sessionSrv: SessionServiceService,    
     changeDetect: ChangeDetectorRef, 
-    dialogSrv: MatDialog) {
-    super(dialogSrv, changeDetect, TransactionComponent, sessionSrv); 
+    dialogSrv: MatDialog, 
+    changeDetector: ChangeDetectorRef) {
+    super(dialogSrv, changeDetect, TransactionComponent, sessionSrv, changeDetector); 
   }
 
   protected buildGridData() {
     this.gridData = {
+      title: $localize`Transactions`,
       columns: [
         {displayName: '#', fieldName: 'id'},
         {displayName: $localize`Amount`, fieldName: 'amount'},

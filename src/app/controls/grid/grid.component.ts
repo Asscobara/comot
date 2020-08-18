@@ -75,6 +75,7 @@ export interface IGridColumn {
 }
 
 export interface IGridData {
+  title: string;
   columns: IGridColumn[];
   rows: any[];
   canEditData: boolean;

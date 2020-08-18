@@ -9,7 +9,7 @@ import { MatDialog } from '@angular/material/dialog';
 @Component({
   selector: 'app-suppliers',
   templateUrl: './../abs-screen/abs-screen.component.html',
-  styleUrls: ['./../abs-screen/abs-screen.component.css']
+  styleUrls: ['./../abs-screen/abs-screen.component.css', './../abs-screen/abs-screen.component.css']
 })
 export class SuppliersComponent extends AbsScreenComponent<ISupplier> {
   
@@ -17,12 +17,14 @@ export class SuppliersComponent extends AbsScreenComponent<ISupplier> {
     private dataSrv: DataService, 
     sessionSrv: SessionServiceService,    
     changeDetect: ChangeDetectorRef, 
-    dialogSrv: MatDialog) {
-    super(dialogSrv, changeDetect, SupplierComponent, sessionSrv); 
+    dialogSrv: MatDialog, 
+    changeDetector: ChangeDetectorRef) {
+    super(dialogSrv, changeDetect, SupplierComponent, sessionSrv, changeDetector); 
   }
 
   protected buildGridData() {
     this.gridData = {
+      title: $localize`Suppliers`,
       columns: [
         {displayName: '#', fieldName: 'id'},
         {displayName: $localize`First Name`, fieldName: 'first_name' },

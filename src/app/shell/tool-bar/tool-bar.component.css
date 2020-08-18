@@ -36,3 +36,17 @@ span.toolbar-item.to-right {
     font-size: smaller;
 }
 
+.logo {
+    width: 2em;
+    height: 2em;
+}
+
+.app-name {
+    font-size: smaller;
+    align-self: center;
+}
+
+.app-info-container {
+    margin: 1.5em;
+    display: flex;
+}

@@ -11,17 +11,20 @@ export abstract class AbsScreenComponent<T> implements OnInit {
   gridData: IGridData;
 
   viewState: ViewState = ViewState.view;
+  ViewState = ViewState;
 
   constructor(
     protected dialogSrv: MatDialog, 
     protected changeDetect: ChangeDetectorRef, 
     protected childComponent: Type<any>, 
-    protected sessionSrv: SessionServiceService) {
+    protected sessionSrv: SessionServiceService, 
+    protected changeDetector: ChangeDetectorRef) {
     
   }
 
   async ngOnInit() {
-    await this.absLoadData();
+    this.changeDetector.detectChanges();
+    this.absLoadData();
   }
 
   protected abstract buildGridData();

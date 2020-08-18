@@ -11,7 +11,7 @@ import { Format } from 'src/app/utils/format';
 @Component({
   selector: 'app-tasks',
   templateUrl: './../abs-screen/abs-screen.component.html',
-  styleUrls: ['./../abs-screen/abs-screen.component.css']
+  styleUrls: ['./../abs-screen/abs-screen.component.css', './../abs-screen/abs-screen.component.css']
 })
 export class TasksComponent extends AbsScreenComponent<ITask>  {
 
@@ -19,12 +19,14 @@ export class TasksComponent extends AbsScreenComponent<ITask>  {
     private dataSrv: DataService, 
     sessionSrv: SessionServiceService,    
     changeDetect: ChangeDetectorRef, 
-    dialogSrv: MatDialog) {
-    super(dialogSrv, changeDetect, TaskComponent, sessionSrv); 
+    dialogSrv: MatDialog, 
+    changeDetector: ChangeDetectorRef) {
+    super(dialogSrv, changeDetect, TaskComponent, sessionSrv, changeDetector); 
   }
 
   protected buildGridData() {
     this.gridData = {
+      title: $localize`Tasks`,
       columns: [
         {displayName: '#', fieldName: 'id'},
         {displayName: $localize`Category`, fieldName: 'category_id', fieldNameSource: (categoryId) => this.sessionSrv.categories[categoryId].displayName},

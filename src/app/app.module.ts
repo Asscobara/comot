@@ -46,7 +46,9 @@ import { WidgetComponent } from './controls/widget/widget.component';
 import { RoleComponent } from './forms/role/role.component';
 import { TaskComponent } from './forms/task/task.component';
 import { SendEmailComponent } from './forms/send-email/send-email.component';
-
+import { HelpComponent } from './screens/help/help.component';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 registerLocaleData(localeHe, 'he-IL', localeHeExtra);
 
 @NgModule({
@@ -77,7 +79,8 @@ registerLocaleData(localeHe, 'he-IL', localeHeExtra);
     WidgetComponent,
     RoleComponent,
     TaskComponent,
-    SendEmailComponent
+    SendEmailComponent,
+    HelpComponent
   ],
   imports: [
     BrowserModule,
@@ -95,7 +98,9 @@ registerLocaleData(localeHe, 'he-IL', localeHeExtra);
     ReactiveFormsModule,
     MatSelectModule,
     MatSortModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatSidenavModule,
+    MatProgressSpinnerModule
   ],
   providers: [
     DataService,

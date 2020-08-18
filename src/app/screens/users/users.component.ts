@@ -20,12 +20,14 @@ export class UsersComponent extends AbsScreenComponent<IUser> {
     private dataSrv: DataService, 
     sessionSrv: SessionServiceService,    
     changeDetect: ChangeDetectorRef, 
-    dialogSrv: MatDialog) {
-    super(dialogSrv, changeDetect, UserComponent, sessionSrv); 
+    dialogSrv: MatDialog, 
+    changeDetector: ChangeDetectorRef) {
+    super(dialogSrv, changeDetect, UserComponent, sessionSrv, changeDetector); 
   }
 
   protected buildGridData() {
     this.gridData = {
+      title: $localize`Users`,
       columns: [
         {displayName: '#', fieldName: 'id'},
         {displayName: $localize`First Name`, fieldName: 'first_name'},

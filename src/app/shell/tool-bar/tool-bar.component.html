@@ -1,4 +1,7 @@
 <div class="toolbar-container">
+    <span class="toolbar-item" (click)="showAbout()">
+        <img src="../../../assets/images/logo.jpg" class="logo" *ngIf="sessionSrv.user != null"/>
+    </span>    
     <span class="toolbar-item" *ngIf="sessionSrv.user != null">
         <span i18n>Hello </span>
         <span class="user-name">&nbsp;,{{sessionSrv.user.first_name}}</span>

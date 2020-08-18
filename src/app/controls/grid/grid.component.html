@@ -1,38 +1,39 @@
-<div class="top-grid-actions-container">
+<div class="top-grid-actions-container screen-margine">
     <button [disabled]="!data?.canEditData" mat-button *ngFor="let btn of data?.buttons" class="action-button" (click)="onButtonClick(btn)">
         <mat-icon>{{btn.icon}}</mat-icon>
         {{btn.title}}
     </button>
 </div>
+<div class="grid-container screen-margine">
+    <mat-table [dataSource]="dataSource" class="mat-elevation-z8"  matSort>
 
-<mat-table [dataSource]="dataSource" class="grid-container mat-elevation-z8"  matSort>
+    <!-- Checkbox Column -->
+        <ng-container matColumnDef="select">
+            <mat-header-cell *matHeaderCellDef>
+            <mat-checkbox  [disabled]="!data?.canEditData"
+                            (change)="$event ? masterToggle() : null"
+                            [checked]="selection.hasValue() && isAllSelected()"
+                            [indeterminate]="selection.hasValue() && !isAllSelected()"
+                            [aria-label]="checkboxLabel()">
+            </mat-checkbox>
+            </mat-header-cell>
+            <mat-cell *matCellDef="let row">
+            <mat-checkbox  [disabled]="!data?.canEditData"
+                            (click)="$event.stopPropagation()"
+                            (change)="$event ? selection.toggle(row) : null"
+                            [checked]="selection.isSelected(row)"
+                            [aria-label]="checkboxLabel(row)">
+            </mat-checkbox>
+            </mat-cell>
+        </ng-container>
+            
+        <ng-container *ngFor="let col of data?.columns;" matColumnDef="{{col.fieldName}}">
+            <mat-header-cell *matHeaderCellDef mat-sort-header class="column">{{col.displayName}}</mat-header-cell>
+            <mat-cell class="column"  *matCellDef="let element">{{ col.fieldNameSource ? col.fieldNameSource(element[col.fieldName]) :  element[col.fieldName] }}</mat-cell>    
+        </ng-container>  
 
-  <!-- Checkbox Column -->
-    <ng-container matColumnDef="select">
-        <mat-header-cell *matHeaderCellDef>
-        <mat-checkbox  [disabled]="!data?.canEditData"
-                        (change)="$event ? masterToggle() : null"
-                        [checked]="selection.hasValue() && isAllSelected()"
-                        [indeterminate]="selection.hasValue() && !isAllSelected()"
-                        [aria-label]="checkboxLabel()">
-        </mat-checkbox>
-        </mat-header-cell>
-        <mat-cell *matCellDef="let row">
-        <mat-checkbox  [disabled]="!data?.canEditData"
-                        (click)="$event.stopPropagation()"
-                        (change)="$event ? selection.toggle(row) : null"
-                        [checked]="selection.isSelected(row)"
-                        [aria-label]="checkboxLabel(row)">
-        </mat-checkbox>
-        </mat-cell>
-    </ng-container>
+        <mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></mat-header-row>
+        <mat-row  *matRowDef="let row; columns: displayedColumns;" (click)="rowSelected.emit(row)"></mat-row>
         
-    <ng-container *ngFor="let col of data?.columns;" matColumnDef="{{col.fieldName}}">
-        <mat-header-cell *matHeaderCellDef mat-sort-header class="column">{{col.displayName}}</mat-header-cell>
-        <mat-cell class="column"  *matCellDef="let element">{{ col.fieldNameSource ? col.fieldNameSource(element[col.fieldName]) :  element[col.fieldName] }}</mat-cell>    
-    </ng-container>  
-
-    <mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></mat-header-row>
-    <mat-row  *matRowDef="let row; columns: displayedColumns;" (click)="rowSelected.emit(row)"></mat-row>
-    
-</mat-table>
+    </mat-table>
+</div>

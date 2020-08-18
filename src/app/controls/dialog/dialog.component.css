@@ -1,6 +1,7 @@
 .dialog-header {
     display: flex;
     justify-content: space-between;
+    margin: -22px 0px 0px -15px;
 }
 
 .dialog-header-title {
@@ -14,6 +15,5 @@
 
 .close-button {
     float: right;
-    top:-24px;
-    right:-24px;
+    align-self: self-end;
 }

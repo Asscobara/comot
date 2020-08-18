@@ -374,7 +374,70 @@
         <source>Tasks Summary</source>
         <target>סיכום משימות</target>
       </trans-unit>
+      <trans-unit id="4427658365831398928">
+        <source>Value must be between 1 and 31</source>
+        <target>הערך חייב להיות בן 1 ל 31</target>
+      </trans-unit>
+      <trans-unit id="8066608938393600549">
+        <source>Message</source>
+        <target>הודעה</target>
+      </trans-unit>
+      <trans-unit id="2226625262738940373">
+        <source>Send Email</source>
+        <target>שלח מייל</target>
+      </trans-unit>
+      <trans-unit id="7292464726641005207">
+        <source>Suppliers Summary</source>
+        <target>ספקים - סיכום</target>
+      </trans-unit>
+      <trans-unit id="7911416166208830577">
+        <source>Help</source>
+        <target>עזרה</target>
+      </trans-unit>
+      <trans-unit id="2868400123184998941">
+        <source>Thank you for chosing ComOt allpication</source>
+        <target>תודה על בחירתכם בתוכנת קומות.</target>
+      </trans-unit>
+      <trans-unit id="6912602486945353488">
+        <source>On application start you will see the following dialog</source>
+        <target>בעליית התוכנה יופיע החלון הבא</target>
+      </trans-unit>
+      <trans-unit id="1008287903980936736">
+        <source>Click on the 'Register' button</source>
+        <target>לחץ על כפתור ההרשמה</target>
+      </trans-unit>
+      <trans-unit id="5650792972998769467">
+        <source>Register dialog will be opend</source>
+        <target>חלון ההרשמה יפתח</target>
+      </trans-unit>
+      <trans-unit id="2332520834948492849">
+        <source>Fill in your details</source>
+        <target>הכנס את הפרטים ושמור את הטופס</target>
+      </trans-unit>
+      <trans-unit id="5240580611830644131">
+        <source>After Save a Verification Email will be sent to the mail entered in the Register dialog</source>
+        <target>לאחר השמירה ישלח לך מייל עם קישור</target>
+      </trans-unit>
+      <trans-unit id="5973857073287880976">
+        <source>Verify your account by entering your Email inbox and click on the link sent to you</source>
+        <target>לחיצה על הקישור תאשר את החשבון שנוצר</target>
+      </trans-unit>
+      <trans-unit id="8299782025458599032">
+        <source>Cool Now you realy to login...</source>
+        <target>מצויין! עכשיו ניתן להתחבר למערכת</target>
+      </trans-unit>
+      <trans-unit id="2040209927411501088">
+        <source>Enter your Email and password</source>
+        <target>התחברות למערכת היא עם כתובת המייל והסיסמה שהגדרת</target>
+      </trans-unit>
+      <trans-unit id="8214679484663721131">
+        <source>After the first login</source>
+        <target>לאחר התחברות ראשונה</target>
+      </trans-unit>
+      <trans-unit id="8689257037016456439">
+        <source>ComOt Help</source>
+        <target>הסבר על השימוש בקומות</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>
-
