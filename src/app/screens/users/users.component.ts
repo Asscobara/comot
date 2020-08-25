@@ -8,6 +8,7 @@ import { AbsScreenComponent, ButtonActions } from '../abs-screen/abs-screen.comp
 import { SessionServiceService } from 'src/app/services/session-service.service';
 import { DialogComponent } from 'src/app/controls/dialog/dialog.component';
 import { SendEmailComponent } from 'src/app/forms/send-email/send-email.component';
+import { DeviceDetectorService } from 'ngx-device-detector';
 
 @Component({
   selector: 'app-users',
@@ -21,8 +22,9 @@ export class UsersComponent extends AbsScreenComponent<IUser> {
     sessionSrv: SessionServiceService,    
     changeDetect: ChangeDetectorRef, 
     dialogSrv: MatDialog, 
-    changeDetector: ChangeDetectorRef) {
-    super(dialogSrv, changeDetect, UserComponent, sessionSrv, changeDetector); 
+    changeDetector: ChangeDetectorRef, 
+    deviceDetectorService: DeviceDetectorService) {
+    super(dialogSrv, changeDetect, UserComponent, sessionSrv, changeDetector, deviceDetectorService); 
   }
 
   protected buildGridData() {
@@ -40,7 +42,7 @@ export class UsersComponent extends AbsScreenComponent<IUser> {
       rows: [],
       buttons: [
         { title: $localize`New`, action: ButtonActions.new, icon: 'add_circle_outline' }, 
-        { title: $localize`Send Mail`, action: ButtonActions.costume, icon: 'email', actionData: { name: 'sendEmail', selected: [] } },
+        { title: $localize`Send Mail`, action: ButtonActions.custome, icon: 'email', actionData: { name: 'sendEmail', selected: [] } },
         { title: $localize`Delete`, action: ButtonActions.delete, icon: 'remove_circle_outline' }
       ],
       canEditData: this.sessionSrv.user?.role_id == 2
@@ -51,7 +53,7 @@ export class UsersComponent extends AbsScreenComponent<IUser> {
     });
   }
 
-  protected handleCostumeAction(btn: any) {
+  protected handleCustomeAction(btn: any) {
     if (btn.actionData.name == 'sendEmail') {
       const emails = btn.actionData.selected.map( (u: IUser) => u.email);
       this.dialogSrv.open(DialogComponent, {

@@ -7,6 +7,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { TaskComponent } from 'src/app/forms/task/task.component';
 import { NodeWithI18n } from '@angular/compiler';
 import { Format } from 'src/app/utils/format';
+import { DeviceDetectorService } from 'ngx-device-detector';
 
 @Component({
   selector: 'app-tasks',
@@ -20,8 +21,9 @@ export class TasksComponent extends AbsScreenComponent<ITask>  {
     sessionSrv: SessionServiceService,    
     changeDetect: ChangeDetectorRef, 
     dialogSrv: MatDialog, 
-    changeDetector: ChangeDetectorRef) {
-    super(dialogSrv, changeDetect, TaskComponent, sessionSrv, changeDetector); 
+    changeDetector: ChangeDetectorRef,
+    deviceDetectorService: DeviceDetectorService) {
+    super(dialogSrv, changeDetect, TaskComponent, sessionSrv, changeDetector, deviceDetectorService); 
   }
 
   protected buildGridData() {

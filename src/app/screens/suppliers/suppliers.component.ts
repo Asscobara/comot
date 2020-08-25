@@ -5,6 +5,8 @@ import { AbsScreenComponent, ButtonActions } from '../abs-screen/abs-screen.comp
 import { DataService } from 'src/app/services/data.service';
 import { SessionServiceService } from 'src/app/services/session-service.service';
 import { MatDialog } from '@angular/material/dialog';
+import { DeviceDetectorService } from 'ngx-device-detector';
+import { InterfaceBase, ISuplierHelper } from 'src/shceme/shcemeHelper';
 
 @Component({
   selector: 'app-suppliers',
@@ -18,8 +20,9 @@ export class SuppliersComponent extends AbsScreenComponent<ISupplier> {
     sessionSrv: SessionServiceService,    
     changeDetect: ChangeDetectorRef, 
     dialogSrv: MatDialog, 
-    changeDetector: ChangeDetectorRef) {
-    super(dialogSrv, changeDetect, SupplierComponent, sessionSrv, changeDetector); 
+    changeDetector: ChangeDetectorRef,
+    deviceDetectorService: DeviceDetectorService) {
+    super(dialogSrv, changeDetect, SupplierComponent, sessionSrv, changeDetector, deviceDetectorService); 
   }
 
   protected buildGridData() {
@@ -52,27 +55,7 @@ export class SuppliersComponent extends AbsScreenComponent<ISupplier> {
 
 
   protected getEmptyT(): ISupplier {
-    return {
-      id: 0,
-      category_id: 0,
-      sub_categories_id: '',
-      remark: '',
-      user_id: {
-        first_name: '',
-        last_name: '',
-        email: '',
-        phone: '',
-        id: 0,
-        is_logged_in: false,
-        password: '',
-        role_id: 5,
-        remark: '',
-        address_id: this.sessionSrv.address.id,
-        apartment_number: 0,
-        floor_number: 0,
-        registered: false
-      }
-    }
+    return InterfaceBase.getEmptyT(new ISuplierHelper());
   }
 
   protected async loadData() {

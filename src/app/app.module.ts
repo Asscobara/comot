@@ -41,7 +41,6 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { SuppliersComponent } from './screens/suppliers/suppliers.component';
 import { SupplierComponent } from './forms/supplier/supplier.component';
-import { PriceListComponent } from './forms/price-list/price-list.component';
 import { WidgetComponent } from './controls/widget/widget.component';
 import { RoleComponent } from './forms/role/role.component';
 import { TaskComponent } from './forms/task/task.component';
@@ -49,6 +48,10 @@ import { SendEmailComponent } from './forms/send-email/send-email.component';
 import { HelpComponent } from './screens/help/help.component';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { DeviceDetectorModule } from 'ngx-device-detector';
+import { PriceComponent } from './forms/price/price.component';
+import { PriceListComponent } from './screens/price-list/price-list.component';
+
 registerLocaleData(localeHe, 'he-IL', localeHeExtra);
 
 @NgModule({
@@ -80,7 +83,8 @@ registerLocaleData(localeHe, 'he-IL', localeHeExtra);
     RoleComponent,
     TaskComponent,
     SendEmailComponent,
-    HelpComponent
+    HelpComponent,
+    PriceComponent
   ],
   imports: [
     BrowserModule,
@@ -100,7 +104,8 @@ registerLocaleData(localeHe, 'he-IL', localeHeExtra);
     MatSortModule,
     MatFormFieldModule,
     MatSidenavModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    DeviceDetectorModule
   ],
   providers: [
     DataService,

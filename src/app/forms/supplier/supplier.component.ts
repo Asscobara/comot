@@ -6,8 +6,8 @@ import { FormControl, Validators } from '@angular/forms';
 import { ValidatorNames } from 'src/app/validators/validators';
 import { MatDialog } from '@angular/material/dialog';
 import { DataService } from 'src/app/services/data.service';
-import { PriceListComponent } from '../price-list/price-list.component';
 import { DialogComponent } from 'src/app/controls/dialog/dialog.component';
+import { PriceListComponent } from 'src/app/screens/price-list/price-list.component';
 
 @Component({
   selector: 'app-supplier',
@@ -42,8 +42,8 @@ export class SupplierComponent extends FormBaseClass<any> implements OnInit {
       "minWidth": 250,
       "data": { 
         content: PriceListComponent, 
-        instanceContext: this.context.user, 
-        title: $localize`Register`
+        instanceContext: this.context, 
+        title: $localize`Price List`
       }
     }).afterClosed().subscribe( async (d: any) =>  {     
       if (d) {

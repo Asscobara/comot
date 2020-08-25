@@ -16,6 +16,10 @@
     border-style: solid;
 }
 
+.grid-container-height { 
+    height: 33vh;
+}
+
 .action-button {
     font-size: medium;
 }

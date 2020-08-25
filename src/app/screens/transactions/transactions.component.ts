@@ -6,6 +6,7 @@ import { SessionServiceService } from 'src/app/services/session-service.service'
 import { MatDialog } from '@angular/material/dialog';
 import { TransactionComponent } from 'src/app/forms/transaction/transaction.component';
 import { Format } from 'src/app/utils/format';
+import { DeviceDetectorService } from 'ngx-device-detector';
 
 @Component({
   selector: 'app-transactions',
@@ -19,8 +20,9 @@ export class TransactionsComponent extends AbsScreenComponent<ITransaction>  {
     sessionSrv: SessionServiceService,    
     changeDetect: ChangeDetectorRef, 
     dialogSrv: MatDialog, 
-    changeDetector: ChangeDetectorRef) {
-    super(dialogSrv, changeDetect, TransactionComponent, sessionSrv, changeDetector); 
+    changeDetector: ChangeDetectorRef,
+    deviceDetectorService: DeviceDetectorService) {
+    super(dialogSrv, changeDetect, TransactionComponent, sessionSrv, changeDetector, deviceDetectorService); 
   }
 
   protected buildGridData() {

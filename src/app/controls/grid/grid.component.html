@@ -1,10 +1,10 @@
-<div class="top-grid-actions-container screen-margine">
+<div class="top-grid-actions-container" [ngClass]="{'screen-margine': useScreenMargin}">
     <button [disabled]="!data?.canEditData" mat-button *ngFor="let btn of data?.buttons" class="action-button" (click)="onButtonClick(btn)">
         <mat-icon>{{btn.icon}}</mat-icon>
         {{btn.title}}
     </button>
 </div>
-<div class="grid-container screen-margine">
+<div class="grid-container" [ngClass]="{'screen-margine': useScreenMargin, 'grid-container-height': !useScreenMargin}">
     <mat-table [dataSource]="dataSource" class="mat-elevation-z8"  matSort>
 
     <!-- Checkbox Column -->

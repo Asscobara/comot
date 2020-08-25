@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { IUser, IAddress, ITransaction, ICategory, ISupplier, ITask, ISendEmail } from 'src/shceme/IScheme';
+import { IUser, IAddress, ITransaction, ICategory, ISupplier, ITask, ISendEmail, IPrice } from 'src/shceme/IScheme';
 import { environment } from 'src/environments/environment';
 
 @Injectable()
@@ -166,6 +166,24 @@ export class DataService {
 
     async getTasksReport(addressId: number) {
         return this.httpSrv.get(`${this.endPoint}report/tasks/${addressId}/`, this.httpOptions).toPromise();
+    }
+    //#endregion
+
+     //#region PriceList
+     async getSuplierPriceList(supplierId: number) {
+        return this.httpSrv.get(`${this.endPoint}priceList/${supplierId}/`, this.httpOptions).toPromise();
+    }
+
+    async createSuplierPrice(price: IPrice) {
+        return this.httpSrv.post(`${this.endPoint}priceList/`, price, this.httpOptions).toPromise();
+    }
+
+    async updateSuplierPrice(price: IPrice) {
+        return this.httpSrv.put(`${this.endPoint}priceList/${price.id}/`, price, this.httpOptions).toPromise();
+    }
+
+    async deleteSuplierPrice(priceId: number) {
+        return this.httpSrv.delete(`${this.endPoint}priceList/${priceId}/`, this.httpOptions).toPromise();
     }
     //#endregion
     

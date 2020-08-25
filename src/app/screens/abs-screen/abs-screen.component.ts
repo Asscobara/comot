@@ -4,6 +4,7 @@ import { DialogComponent } from 'src/app/controls/dialog/dialog.component';
 import { MatDialog } from '@angular/material/dialog';
 import { PopupComponent } from 'src/app/popups/popup/popup.component';
 import { SessionServiceService } from 'src/app/services/session-service.service';
+import { DeviceDetectorService } from 'ngx-device-detector';
 
 export abstract class AbsScreenComponent<T> implements OnInit {
 
@@ -13,12 +14,15 @@ export abstract class AbsScreenComponent<T> implements OnInit {
   viewState: ViewState = ViewState.view;
   ViewState = ViewState;
 
+  useScreenMargin = true;
+
   constructor(
     protected dialogSrv: MatDialog, 
     protected changeDetect: ChangeDetectorRef, 
     protected childComponent: Type<any>, 
     protected sessionSrv: SessionServiceService, 
-    protected changeDetector: ChangeDetectorRef) {
+    protected changeDetector: ChangeDetectorRef, 
+    protected deviceDetectorService: DeviceDetectorService) {
     
   }
 
@@ -54,14 +58,14 @@ export abstract class AbsScreenComponent<T> implements OnInit {
           });        
         });
         break;
-        case ButtonActions.costume:
+        case ButtonActions.custome:
           $event.btn.actionData.selected = $event.selected;
-          this.handleCostumeAction($event.btn);
+          this.handleCustomeAction($event.btn);
           break;
     }
   }
 
-  protected handleCostumeAction(btn: any) {
+  protected handleCustomeAction(btn: any) {
 
   }
 
@@ -72,7 +76,20 @@ export abstract class AbsScreenComponent<T> implements OnInit {
   }
 
   private openDataDialog(data: T) {
+
+    const mobileDialogInfo =  this.deviceDetectorService.isMobile() ? {
+      position: {
+        top: '0px',
+        right: '0px'
+      },
+      height: '100%',
+      width: '100vw',
+      panelClass: 'full-screen-modal',
+    } : {};
+
     this.dialogSrv.open(DialogComponent, {
+      ...mobileDialogInfo,
+      maxWidth: '100vw',
         "minWidth": 250,
         "data": { 
           content: this.childComponent, 
@@ -161,5 +178,5 @@ export enum ViewState {
 export enum ButtonActions {
   new = 'new',
   delete = 'delete',
-  costume = 'costume'
+  custome = 'custome'
 }

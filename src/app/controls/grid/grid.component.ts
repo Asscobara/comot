@@ -11,7 +11,8 @@ import { MatSort } from '@angular/material/sort';
 export class GridComponent implements OnInit, OnChanges {
 
   @Input() public data: IGridData;
-  
+  @Input() public useScreenMargin: boolean = false;
+
   @Output() public rowSelected: EventEmitter<any> = new EventEmitter();
   @Output() public buttonClicked: EventEmitter<any> = new EventEmitter();
 
@@ -32,7 +33,7 @@ export class GridComponent implements OnInit, OnChanges {
   }
 
   ngOnInit(): void {
-    
+    console.log(`useScreenMargin = ${this.useScreenMargin}`);
   }
 
   public onButtonClick($event) {
