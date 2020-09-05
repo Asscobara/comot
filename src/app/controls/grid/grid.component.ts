@@ -32,8 +32,7 @@ export class GridComponent implements OnInit, OnChanges {
    }
   }
 
-  ngOnInit(): void {
-    console.log(`useScreenMargin = ${this.useScreenMargin}`);
+  ngOnInit(): void {    
   }
 
   public onButtonClick($event) {

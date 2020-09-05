@@ -80,6 +80,10 @@ export class DataService {
 
 
     //#region Transaction
+    async deleteTransaction(transactionId: number) {
+        return this.httpSrv.delete(`${this.endPoint}transactions/${transactionId}/`, this.httpOptions).toPromise();
+    }
+
     async createTransaction(transaction: ITransaction) {
         return this.httpSrv.post(`${this.endPoint}transactions/`, transaction, this.httpOptions).toPromise();
     }

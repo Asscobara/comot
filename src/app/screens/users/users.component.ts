@@ -80,12 +80,16 @@ export class UsersComponent extends AbsScreenComponent<IUser> {
   }
 
   protected update(data: IUser) {
-    return this.dataSrv.updateUser(data);
+    return this.dataSrv.updateUser(data).then(() => {
+      this.sessionSrv.updateUsers();
+    });
   }
 
   protected create(data: IUser) {
     data.address_id = this.sessionSrv.user.address_id;
-    return this.dataSrv.createUser(data);
+    return this.dataSrv.createUser(data).then(() => {
+      this.sessionSrv.updateUsers();
+    });
   }
 
   protected delete(id: number) {

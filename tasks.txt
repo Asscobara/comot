@@ -168,7 +168,7 @@ scp -r /Users/hagaylevy/personal/server/comotserver/src/ root@45.80.152.140:/usr
 
 
 
-
+ng build -c production,he 
 
 Technical 
 - Add landing page, help page

@@ -15,6 +15,8 @@ export class ReportsComponent implements OnInit {
   public suppliers: ISuppliersReport[];
   public tasks: ITaskReport[];
 
+  public paymentFromDate: any;
+
   private canvas: HTMLCanvasElement;
   private ctx;
 
@@ -51,6 +53,12 @@ export class ReportsComponent implements OnInit {
     );
   }
   
+  public updatePaymentReport() {
+    this.dataSrv.getPaymentsStatus(this.sessionSrv.address.id, this.paymentFromDate).then(res => {
+      this.payments = (res as any).data;
+    });
+  }
+
   private setSuppliersChart() {
     this.setChart(
       'suppliers_chart', 

@@ -12,7 +12,7 @@ import { PopupComponent } from '../popups/popup/popup.component';
 })
 export class SessionServiceService {
   
-  public readonly version: string = "0.0.2";
+  public readonly version: string = "0.0.3";
   public readonly contactEmail: string = "admin@comot.co.il";
   public readonly appName: string = `ComOt`;
     
@@ -57,16 +57,13 @@ export class SessionServiceService {
         this.address = a.data;
       });
 
-      this.dataSrv.getCategories().then( (a: any) => {
-        this.categories = {};
-        a.data.forEach( (category: ICategory) => {
-          this.categories[category.id] = { dbId: category.id, dbName: category.name, displayName: category.name };  
-        });        
-      });
-
       this.dataSrv.getSuppliers(this.user.id).then((s: any) => {
         this.supliers = s.data;
       });      
+    } else {
+      if (this.user && !this.user.address_id) { 
+        this.setAddres()
+      }
     }
   }
 
@@ -76,6 +73,10 @@ export class SessionServiceService {
   
   public set address(value: IAddress) {
     this._address = value;
+    this.updateUsers();
+  }
+
+  public updateUsers() {
     if (this.address) {
       this.dataSrv.getUsers(this.user).then( (a: any) => {
         this.users = a.data;
@@ -110,6 +111,13 @@ export class SessionServiceService {
     private route: Router, 
     private dialogSrv: MatDialog, 
     private dataSrv: DataService) { 
+
+      this.dataSrv.getCategories().then( (a: any) => {
+        this.categories = {};
+        a.data.forEach( (category: ICategory) => {
+          this.categories[category.id] = { dbId: category.id, dbName: category.name, displayName: category.name };  
+        });        
+      });
   }
 
   public logOut() {

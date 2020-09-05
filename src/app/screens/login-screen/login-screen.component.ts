@@ -28,6 +28,7 @@ export class LoginScreenComponent implements OnInit {
 
   openLoginDialog(context: ILogin) {
     this.dialogSrv.open(DialogComponent, {
+      disableClose: true,
       "minWidth": 250,
       "data": { 
         content: LoginComponent, 

@@ -82,7 +82,7 @@ export class TransactionsComponent extends AbsScreenComponent<ITransaction>  {
   }
 
   protected delete(id: number) {
-    return  {}; // this.dataSrv.tra(id);
+    return  this.dataSrv.deleteTransaction(id);
   }
 
 }
