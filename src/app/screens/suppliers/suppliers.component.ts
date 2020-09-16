@@ -55,7 +55,10 @@ export class SuppliersComponent extends AbsScreenComponent<ISupplier> {
 
 
   protected getEmptyT(): ISupplier {
-    return InterfaceBase.getEmptyT(new ISuplierHelper());
+    const supplier = InterfaceBase.getEmptyT(new ISuplierHelper());
+    supplier.user_id.address_id = this.sessionSrv.address.id;
+    supplier.user_id.role_id = this.sessionSrv.getRoleId('supplier');
+    return supplier;
   }
 
   protected async loadData() {
@@ -69,7 +72,9 @@ export class SuppliersComponent extends AbsScreenComponent<ISupplier> {
   }
 
   protected create(data: ISupplier) {
-    return this.dataSrv.createSupplier(data);
+    return this.dataSrv.createSupplier(data).then(() => {
+      this.sessionSrv.updateSuppliers();
+    });
   }
 
   protected delete(id: number) {

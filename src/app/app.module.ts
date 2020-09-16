@@ -23,7 +23,7 @@ import { DataService } from './services/data.service';
 import { UserComponent } from './forms/user/user.component';
 import { FieldComponent } from './controls/forms/inputs/field/field.component';
 import { GridComponent } from './controls/grid/grid.component';
-import { registerLocaleData } from '@angular/common';
+import { registerLocaleData, CommonModule } from '@angular/common';
 import { CdkColumnDef } from '@angular/cdk/table';
 import localeHe from '@angular/common/locales/he';
 import localeHeExtra from '@angular/common/locales/extra/en';
@@ -51,6 +51,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { DeviceDetectorModule } from 'ngx-device-detector';
 import { PriceComponent } from './forms/price/price.component';
 import { PriceListComponent } from './screens/price-list/price-list.component';
+import { FormContainerComponent } from './controls/forms/form-container/form-container.component';
 
 registerLocaleData(localeHe, 'he-IL', localeHeExtra);
 
@@ -84,10 +85,12 @@ registerLocaleData(localeHe, 'he-IL', localeHeExtra);
     TaskComponent,
     SendEmailComponent,
     HelpComponent,
-    PriceComponent
+    PriceComponent,
+    FormContainerComponent
   ],
   imports: [
     BrowserModule,
+    CommonModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatButtonModule,

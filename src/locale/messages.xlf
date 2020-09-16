@@ -438,6 +438,18 @@
         <source>ComOt Help</source>
         <target>הסבר על השימוש בקומות</target>
       </trans-unit>
+      <trans-unit id="6473615168401338233">
+        <source>From Date</source>
+        <target>מתאריך</target>
+      </trans-unit>
+      <trans-unit id="1819209654629726930">
+        <source>From Date {$TAG_INPUT}</source>
+        <target>מתאריך</target>
+      </trans-unit>
+      <trans-unit id="1012962246099121737">
+        <source>Define building information</source>
+        <target>הכנס את נתוני הבניין</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

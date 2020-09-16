@@ -56,15 +56,17 @@ export class SessionServiceService {
       this.dataSrv.getUserAddress(this.user.id).then( (a: any) => {
         this.address = a.data;
       });
-
-      this.dataSrv.getSuppliers(this.user.id).then((s: any) => {
-        this.supliers = s.data;
-      });      
+      this.updateSuppliers();      
     } else {
       if (this.user && !this.user.address_id) { 
         this.setAddres()
       }
     }
+  }
+
+  public async updateSuppliers() {
+    const s = await this.dataSrv.getSuppliers(this.user.id);
+    this.supliers = (s as any).data;    
   }
 
   public get address(): IAddress {
@@ -135,6 +137,20 @@ export class SessionServiceService {
         }
       }
     });
+  }
+
+  public getRoleId(roleName: string): number {
+
+    let id = 0; // DB will failin case not exists
+    Object.keys(this.roles).forEach(key => {
+      if ( this.roles[key].dbName == roleName ) {
+        id = this.roles[key].dbId;
+      }
+    });
+    if (id == 0) {
+      console.error(`role name ${roleName} does not exists.`);
+    }
+    return id; 
   }
 
   public setAddres() {

@@ -1,8 +1,8 @@
-<div class="register-form-container">     
+<app-form-container [cols]=2 [rows]=1>     
     <app-field i18n-title title="First Name" [(value)]="context.first_name"></app-field>
     <app-field i18n-title title="Last Name" [(value)]="context.last_name"></app-field>
     <app-field i18n-title title="Email" [(value)]="context.email" [control]="emailControl"></app-field>
     <app-field i18n-title title="Phone" [(value)]="context.phone"></app-field>
     <app-field i18n-title title="Password" type="password" [(value)]="context.password" [control]="passwordControl"></app-field>
     <app-field i18n-title title="Confirm Password" type="password" [(value)]="passwordMatch" [control]="passwordMatchControl"></app-field>
-</div>
+</app-form-container>

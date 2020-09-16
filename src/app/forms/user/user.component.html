@@ -1,4 +1,4 @@
-<div class="user-form-container">     
+<app-form-container [cols]=2 [rows]=1>    
     <app-field i18n-title title="First Name" [(value)]="context.first_name" [disabled]="disabled"></app-field>
     <app-field i18n-title title="Last Name" [(value)]="context.last_name" [disabled]="disabled"></app-field>
     <app-field i18n-title title="Email" [(value)]="context.email" [control]="emailControl" [disabled]="disabled"></app-field>
@@ -9,4 +9,4 @@
         <button mat-button i18n [disabled]="disabled" (click)="updatePassword()">Update password</button>
         <button mat-button i18n [disabled]="disabled" (click)="updateRole()">Update Role</button>        
     </div>
-</div>
+</app-form-container>

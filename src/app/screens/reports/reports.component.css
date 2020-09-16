@@ -21,3 +21,11 @@
 .chart-container {
     margin: auto;
 }
+
+.report-input {
+    background: antiquewhite;
+}
+
+.report-input-container {
+    padding: 8px;
+}

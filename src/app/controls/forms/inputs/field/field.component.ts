@@ -1,7 +1,8 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, OnDestroy } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { CustomValidators } from 'src/app/validators/validators';
 import { MatFormFieldControl } from '@angular/material/form-field';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-field',
@@ -11,7 +12,7 @@ import { MatFormFieldControl } from '@angular/material/form-field';
     { provide: MatFormFieldControl, useExisting: FieldComponent }   
   ]
 })
-export class FieldComponent implements OnInit, IFieldComponent  {
+export class FieldComponent implements OnInit, OnDestroy, IFieldComponent  {
   
   @Input() public title: string;
   @Input() public placeholder: string;
@@ -24,6 +25,8 @@ export class FieldComponent implements OnInit, IFieldComponent  {
 
   @Output()
   public valueChange = new EventEmitter();
+
+  private valueListener: Subscription;
 
   constructor() { }
   
@@ -57,10 +60,16 @@ export class FieldComponent implements OnInit, IFieldComponent  {
     }
 
     this.control.setValue(this.value);    
-    this.control.valueChanges.subscribe(v => {
+    this.valueListener = this.control.valueChanges.subscribe(v => {
       this.value = v;
       this.valueChange.emit(this.value);
     });
+  }
+
+  ngOnDestroy(): void {
+    if (this.valueListener) {
+      this.valueListener.unsubscribe();
+    }
   }
 
 }

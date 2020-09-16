@@ -3,6 +3,7 @@ import { DataService } from 'src/app/services/data.service';
 import { SessionServiceService } from 'src/app/services/session-service.service';
 import { IPaymentReport, ISuppliersReport, ITaskReport } from 'src/shceme/IScheme';
 import * as Chart from 'chart.js';
+import { Format } from 'src/app/utils/format';
 
 @Component({
   selector: 'app-reports',

@@ -20,7 +20,7 @@ export class TransactionComponent extends FormBaseClass<ITransaction> implements
   }
 
   public get date_time(): string {
-    return Format.formatDate(new Date(this.context.date_time));
+    return Format.formatDate(new Date(this.context.date_time), '-', true);
   }
 
   public set date_time(value: string) {

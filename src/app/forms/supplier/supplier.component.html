@@ -1,10 +1,10 @@
-<div class="supplier-form-container">     
+<app-form-container [cols]=2 [rows]=1>
     <app-field i18n-title title="Category" [type]="'select'" [options]="categoriesOptions" [(value)]="context.category_id"></app-field>
     <app-field i18n-title title="First Name" [(value)]="context.user_id.first_name"></app-field>
     <app-field i18n-title title="Last Name" [(value)]="context.user_id.last_name"></app-field>
     <app-field i18n-title title="Email" [(value)]="context.user_id.email" [control]="emailControl"></app-field>
     <app-field i18n-title title="Phone" [(value)]="context.user_id.phone"></app-field>
-</div>
+</app-form-container>
 <div>
     <button mat-button i18n (click)="openPriceList()">Price List</button>
 </div>
