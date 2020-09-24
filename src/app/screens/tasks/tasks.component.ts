@@ -8,6 +8,7 @@ import { TaskComponent } from 'src/app/forms/task/task.component';
 import { NodeWithI18n } from '@angular/compiler';
 import { Format } from 'src/app/utils/format';
 import { DeviceDetectorService } from 'ngx-device-detector';
+import { ITaskHelper, InterfaceBase } from 'src/shceme/shcemeHelper';
 
 @Component({
   selector: 'app-tasks',
@@ -60,60 +61,7 @@ export class TasksComponent extends AbsScreenComponent<ITask>  {
   }
 
   protected getEmptyT(): ITask {
-    return {
-      id: 0,
-      category_id: 0,
-      user_id: {
-        id: 0,
-        first_name: '',
-        last_name: '',
-        email: '',
-        password: '',
-        is_logged_in: false, 
-        remark: '',
-        role_id: 3,
-        phone: '',
-        address_id: 0,
-        floor_number: 0,
-        apartment_number: 0,
-        registered: false
-      },
-      status_id: 1, 
-      sipplier_id: {
-        id: 0,
-        category_id: 0,
-        sub_categories_id: '',
-        remark: '',
-        user_id: {
-          first_name: '',
-          last_name: '',
-          email: '',
-          phone: '',
-          id: 0,
-          is_logged_in: false,
-          password: '',
-          role_id: 5,
-          remark: '',
-          address_id: this.sessionSrv.address.id,
-          apartment_number: 0,
-          floor_number: 0,
-          registered: false
-        }
-      }, 
-      create_date: new Date(),
-      update_date: new Date(),
-      schedule_id: {
-        id: 0,
-        start_date: new Date(),
-        end_date: new Date(),
-        recuring: false,
-        recuring_every_in_days: 0  
-      },
-      grade: 0,
-      price: 0,
-      address_id: 0,
-      description: ''
-    }
+    return InterfaceBase.getEmptyT(new ITaskHelper());   
   }
 
   protected async loadData() {

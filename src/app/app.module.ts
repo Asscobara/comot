@@ -52,6 +52,9 @@ import { DeviceDetectorModule } from 'ngx-device-detector';
 import { PriceComponent } from './forms/price/price.component';
 import { PriceListComponent } from './screens/price-list/price-list.component';
 import { FormContainerComponent } from './controls/forms/form-container/form-container.component';
+import { AlertsComponent } from './controls/alerts/alerts.component';
+import { MatBadgeModule } from '@angular/material/badge';
+import { AlertsDialogComponent } from './controls/alerts/alerts-dialog/alerts-dialog.component';
 
 registerLocaleData(localeHe, 'he-IL', localeHeExtra);
 
@@ -86,7 +89,9 @@ registerLocaleData(localeHe, 'he-IL', localeHeExtra);
     SendEmailComponent,
     HelpComponent,
     PriceComponent,
-    FormContainerComponent
+    FormContainerComponent,
+    AlertsComponent,
+    AlertsDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -108,7 +113,8 @@ registerLocaleData(localeHe, 'he-IL', localeHeExtra);
     MatFormFieldModule,
     MatSidenavModule,
     MatProgressSpinnerModule,
-    DeviceDetectorModule
+    DeviceDetectorModule,
+    MatBadgeModule
   ],
   providers: [
     DataService,

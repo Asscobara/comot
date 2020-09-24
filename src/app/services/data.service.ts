@@ -190,6 +190,12 @@ export class DataService {
         return this.httpSrv.delete(`${this.endPoint}priceList/${priceId}/`, this.httpOptions).toPromise();
     }
     //#endregion
+
+     //#region Alerts
+     async getAlerts(userId: number) {
+        return this.httpSrv.get(`${this.endPoint}alerts/${userId}/`, this.httpOptions).toPromise();
+    }
+     //#endregion
     
 }
     

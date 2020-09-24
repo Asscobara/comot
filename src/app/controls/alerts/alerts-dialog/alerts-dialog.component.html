@@ -1,0 +1,6 @@
+<div class="alert-container">
+    <div *ngFor="let alert of data.alerts" class="alert-item">
+        <mat-icon aria-hidden="false" aria-label="Example home icon">{{getAlertIcon(alert)}}</mat-icon>
+        <span>{{getAlertText(alert)}}</span>
+    </div>
+</div>

@@ -7,6 +7,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { TransactionComponent } from 'src/app/forms/transaction/transaction.component';
 import { Format } from 'src/app/utils/format';
 import { DeviceDetectorService } from 'ngx-device-detector';
+import { ITransactionHelper, InterfaceBase } from 'src/shceme/shcemeHelper';
 
 @Component({
   selector: 'app-transactions',
@@ -54,17 +55,8 @@ export class TransactionsComponent extends AbsScreenComponent<ITransaction>  {
     });
   }
 
-
   protected getEmptyT(): ITransaction {
-    return {
-      id: 0,
-      amount: 0,
-      transaction_type: 0,
-      date_time: Date.now(),
-      user_id: 0,
-      remark: '',
-      send_recipt: false
-    }
+    return InterfaceBase.getEmptyT(new ITransactionHelper());
   }
 
   protected async loadData() {

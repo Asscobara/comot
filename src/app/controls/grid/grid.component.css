@@ -49,3 +49,12 @@ mat-row:hover{
 th.mat-sort-header-sorted {
     color: black;
 }
+
+.empty-state {
+    font-size: x-large;
+    text-align: center;
+    vertical-align: middle;
+    color: burlywood;
+    font-weight: bold;
+    line-height: 66vh;
+}

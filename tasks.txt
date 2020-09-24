@@ -173,7 +173,7 @@ ng build -c production,he
 Technical 
 - Add landing page, help page
 - Update FB page
-- loading indication on screen load - check  
+- loading indication on screen load - check [Done]
 
 
 

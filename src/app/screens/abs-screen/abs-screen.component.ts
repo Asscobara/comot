@@ -108,9 +108,9 @@ export abstract class AbsScreenComponent<T> implements OnInit {
   private async absLoadData() {
     this.viewState = ViewState.loading;
     this.data = (await this.loadData()).data;
-    this.buildGridData();
+    this.buildGridData();   
     this.viewState = ViewState.view;
-    this.changeDetect.detectChanges();
+    this.changeDetect.detectChanges();  
   }
 
   private async handleViewState(data: T) {

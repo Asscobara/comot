@@ -3,9 +3,8 @@
     
     <app-widget i18n-title title="Total Payments">
         <div class="report-input-container">
-            <label i18n>From Date
-                <input class="report-input" type="date" [(ngModel)]="paymentFromDate" (change)="updatePaymentReport()"/>
-            </label>
+            <label i18n>From Date</label>
+            <input class="report-input" type="date" [(ngModel)]="paymentFromDate" (change)="updatePaymentReport()"/>            
         </div>
         
         <div *ngFor="let payment of payments" class="report-list">

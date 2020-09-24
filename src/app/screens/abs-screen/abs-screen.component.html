@@ -3,5 +3,10 @@
     <div class="spinner-container screen-margine" *ngIf="viewState == ViewState.loading">
         <mat-spinner class="spinner"></mat-spinner>   
     </div>    
-    <app-grid *ngIf="viewState != ViewState.loading" [useScreenMargin]="useScreenMargin" [data]="gridData" (rowSelected)="onRowSelected($event)" (buttonClicked)="onButtonClicked($event)"></app-grid>
+    <app-grid *ngIf="viewState != ViewState.loading" 
+            [useScreenMargin]="useScreenMargin" 
+            [data]="gridData" 
+            (rowSelected)="onRowSelected($event)" 
+            (buttonClicked)="onButtonClicked($event)">
+    </app-grid>
 </div>

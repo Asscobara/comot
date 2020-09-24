@@ -450,6 +450,14 @@
         <source>Define building information</source>
         <target>הכנס את נתוני הבניין</target>
       </trans-unit>
+      <trans-unit id="743865520877991358">
+        <source>Resident {$INTERPOLATION} {$INTERPOLATION1} missed payment for {$INTERPOLATION2} month.</source>
+        <target>הדייר <x id='INTERPOLATION' equiv-text='{{ user.first_name }}'/> <x id='INTERPOLATION1' equiv-text='{{ user.last_name }}'/>  לא שילם עבור חודש <x id='INTERPOLATION2' equiv-text='{{ user.first_name }}'/></target>
+      </trans-unit>
+      <trans-unit id="8785530321057536116">
+        <source>No Data</source>
+        <target>אין נתונים</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

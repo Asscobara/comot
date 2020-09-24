@@ -5,7 +5,10 @@
     </button>
 </div>
 <div class="grid-container" [ngClass]="{'screen-margine': useScreenMargin, 'grid-container-height': !useScreenMargin}">
-    <mat-table [dataSource]="dataSource" class="mat-elevation-z8"  matSort>
+    <div *ngIf="dataSource?.data?.length == 0" class="empty-state" i18n>
+        No Data
+    </div>
+    <mat-table *ngIf="dataSource?.data?.length != 0" [dataSource]="dataSource" class="mat-elevation-z8"  matSort>
 
     <!-- Checkbox Column -->
         <ng-container matColumnDef="select">
