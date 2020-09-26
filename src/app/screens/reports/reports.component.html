@@ -1,5 +1,5 @@
 <div i18n class="screen-title screen-margine">Reports</div>
-<div class="reports-container spinner-container screen-margine">
+<div class="spinner-container reports-container screen-margine">
     
     <app-widget i18n-title title="Total Payments">
         <div class="report-input-container">
@@ -9,7 +9,7 @@
         
         <div *ngFor="let payment of payments" class="report-list">
              <span class="report-list-key">{{payment.user_id.first_name}}, {{payment.user_id.last_name}}</span>   
-             <span class="report-list-value">{{payment.total_payment | currency}}</span>   
+             <span class="report-list-value">{{payment.total_payment | currency:'ILS':'symbol'}}</span>   
         </div>
     </app-widget>
     
@@ -19,6 +19,10 @@
 
     <app-widget i18n-title title="Tasks Summary">
         <canvas class="chart-container" id="tasks_chart"></canvas>
+    </app-widget>
+
+    <app-widget i18n-title title="Total buliding summary">
+        <span class="total-summary">{{paymentsSummary | currency:'ILS':'symbol'}}</span>
     </app-widget>
 
 </div>

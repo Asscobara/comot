@@ -1,3 +1,12 @@
-<button #mainButton mat-mini-fab class="alert-main-button" (click)="openAlerts()" [matBadge]="alerts?.length" [matBadgeColor]="'warn'">
-    <mat-icon>error_outline</mat-icon>
+<button 
+    #mainButton 
+    mat-mini-fab 
+    class="alert-main-button" 
+    (click)="openAlerts()" 
+    [disabled]="!alerts?.length"
+    [matBadgeSize]="'small'" 
+    [matBadge]="newAlertsCount" 
+    [matBadgeHidden]="newAlertsCount < 1"
+    [matBadgeColor]="'warn'">
+        <mat-icon>error_outline</mat-icon>
 </button>    

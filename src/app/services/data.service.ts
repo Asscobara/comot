@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { IUser, IAddress, ITransaction, ICategory, ISupplier, ITask, ISendEmail, IPrice } from 'src/shceme/IScheme';
+import { IUser, IAddress, ITransaction, ICategory, ISupplier, ITask, ISendEmail, IPrice, IAlert } from 'src/shceme/IScheme';
 import { environment } from 'src/environments/environment';
 
 @Injectable()
@@ -133,7 +132,6 @@ export class DataService {
     }
     //#endregion
 
-
     //#region Task
     async getTasks(address: IAddress) {
         return this.httpSrv.get(`${this.endPoint}tasks/${address.id}/`, this.httpOptions).toPromise();
@@ -159,6 +157,10 @@ export class DataService {
     //#endregion
 
     //#region Reports
+    async getTotalPaymentSummary(addressId: number, from_date: any) {
+        return this.httpSrv.get(`${this.endPoint}report/payments_summary/${addressId}/${from_date}/`, this.httpOptions).toPromise();
+    }
+
     async getPaymentsStatus(addressId: number, from_date: any) {
         return this.httpSrv.get(`${this.endPoint}report/payments/${addressId}/${from_date}/`, this.httpOptions).toPromise();
     }
@@ -191,11 +193,19 @@ export class DataService {
     }
     //#endregion
 
-     //#region Alerts
-     async getAlerts(userId: number) {
+    //#region Alerts
+    async getAlerts(userId: number) {
         return this.httpSrv.get(`${this.endPoint}alerts/${userId}/`, this.httpOptions).toPromise();
     }
-     //#endregion
+
+    async deleteAlert(alertId: number) {
+        return this.httpSrv.delete(`${this.endPoint}alerts/${alertId}/`, this.httpOptions).toPromise();
+    }
+
+    async updateAlert(alert: IAlert) {
+        return this.httpSrv.put(`${this.endPoint}alerts/${alert.id}/`, alert, this.httpOptions).toPromise();
+    }
+    //#endregion
     
 }
     

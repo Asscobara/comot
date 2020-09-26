@@ -458,6 +458,10 @@
         <source>No Data</source>
         <target>אין נתונים</target>
       </trans-unit>
+      <trans-unit id="6867092423605455372">
+        <source>Total buliding summary</source>
+        <target>סך כל הכסף</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

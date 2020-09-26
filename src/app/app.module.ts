@@ -55,6 +55,8 @@ import { FormContainerComponent } from './controls/forms/form-container/form-con
 import { AlertsComponent } from './controls/alerts/alerts.component';
 import { MatBadgeModule } from '@angular/material/badge';
 import { AlertsDialogComponent } from './controls/alerts/alerts-dialog/alerts-dialog.component';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 registerLocaleData(localeHe, 'he-IL', localeHeExtra);
 
@@ -114,7 +116,9 @@ registerLocaleData(localeHe, 'he-IL', localeHeExtra);
     MatSidenavModule,
     MatProgressSpinnerModule,
     DeviceDetectorModule,
-    MatBadgeModule
+    MatBadgeModule,
+    MatTooltipModule,
+    MatSnackBarModule
   ],
   providers: [
     DataService,

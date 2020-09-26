@@ -2,6 +2,7 @@ import { Component, OnInit, Inject, ElementRef } from '@angular/core';
 import { IAlert } from 'src/shceme/IScheme';
 import { MAT_DIALOG_DATA, MatDialogConfig, MatDialogRef } from '@angular/material/dialog';
 import { SessionServiceService } from 'src/app/services/session-service.service';
+import { DataService } from 'src/app/services/data.service';
 
 @Component({
   selector: 'app-alerts-dialog',
@@ -10,11 +11,14 @@ import { SessionServiceService } from 'src/app/services/session-service.service'
 })
 export class AlertsDialogComponent implements OnInit {
 
+  public onDeleteAlert: () => void;
+
   constructor(
     public hostElement: ElementRef,
     public dialogRef: MatDialogRef<AlertsDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
-    private sessionSrv: SessionServiceService) { 
+    private sessionSrv: SessionServiceService, 
+    private dataSrv: DataService) { 
 
   }
 
@@ -28,22 +32,20 @@ export class AlertsDialogComponent implements OnInit {
   }
 
   public getAlertIcon(alert: IAlert) {
-    switch (alert.code_id) {
-      case 1: return 'payment';
-    }
-    return '';
+    return this.data.getAlertIcon(alert);
   }
 
   public getAlertText(alert: IAlert) {
-    switch (alert.code_id) {
-      case 1: {
-        const alertInfo = JSON.parse(alert.message);
-        const user = this.sessionSrv.users.find(u => u.id == alertInfo.userId);
-        return $localize`Resident ${user.first_name}:INTERPOLATION: ${user.last_name}:INTERPOLATION1: missed payment for ${alertInfo.month}:INTERPOLATION2: month.`;
+    return this.data.getAlertText(alert);
+  }
+
+  public deleteAlert(alert: IAlert) {
+    this.dataSrv.deleteAlert(alert.id).then( () => {      
+      this.data.alerts = this.data.alerts.filter(a => a.id != alert.id);
+      if (this.onDeleteAlert) {
+        this.onDeleteAlert();
       }
-      
-    }
-    return '';
+    });
   }
 
 }

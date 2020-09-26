@@ -1,5 +1,6 @@
 .reports-container {
-    display: flex;
+    display: grid !important;
+    grid-template-columns: 1fr 1fr 1fr;
     justify-content: space-around;
 }
 
@@ -28,4 +29,11 @@
 
 .report-input-container {
     padding: 8px;
+}
+
+.total-summary {
+    font-size: xx-large;
+    align-self: center;
+    text-align: initial;
+    line-height: 13vh;
 }

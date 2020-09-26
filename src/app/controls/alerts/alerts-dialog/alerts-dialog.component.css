@@ -19,4 +19,12 @@
     border-style: solid;
     border-width: thin;
     border-radius: 1em;
+    align-items: center;
+}
+
+.new-indication {
+    background-color: green;
+    border-radius: 0.5em;
+    padding: 0.5em;
+    margin: 0.5em;
 }

@@ -15,6 +15,7 @@ export class ReportsComponent implements OnInit {
   public payments: IPaymentReport[];
   public suppliers: ISuppliersReport[];
   public tasks: ITaskReport[];
+  public paymentsSummary: any;
 
   public paymentFromDate: any;
 
@@ -28,6 +29,11 @@ export class ReportsComponent implements OnInit {
   }
 
   ngOnInit(): void {
+
+    this.dataSrv.getTotalPaymentSummary(this.sessionSrv.address.id, '1-1-2001').then(res => {
+      this.paymentsSummary = (res as any).data?.total_payment_summary;
+    });
+
     this.dataSrv.getPaymentsStatus(this.sessionSrv.address.id, '1-1-2001').then(res => {
       this.payments = (res as any).data;
     });
@@ -41,7 +47,6 @@ export class ReportsComponent implements OnInit {
       this.tasks = (res as any).data;
       this.setTasksChart();
     });
-  
   }
 
   private setTasksChart() {

@@ -85,12 +85,12 @@ Handle: You're email aaa@aaa.com already exists
 
 
 
-add landing page
+add landing page                                                    [DONE]
 
 TODO: reports
 -------
 create widget for general info                                      [DONE]
-total residents
+total residents?
 total suppliers - pie chat by category                              [DONE]
 current month transactions - pie chat - payed, not payed, 
 
@@ -115,7 +115,7 @@ in progrees, new, done
     - Register building                                             [DONE]
     - Add resident - send email                                     [DONE]
     - Enter Task - find suplier - follow task status -->
-10. Add building messages - email and notifications 
+10. Add building messages - email and notifications                 [DONE -> NOTIFICATIONS]
 
 
 
@@ -128,7 +128,7 @@ in progrees, new, done
 4. Building form - remove description / title ?
 5. Reports - 
     - Building budject (payment * # residents)
-    - Current month payment status
+    - Current month payment status                              [DONE]
     - resident payed / did not payed for this month / total 
 6. Tasks - add schedule support - handle meetings / on going tasks
 7. Update missing translations.
@@ -171,7 +171,7 @@ scp -r /Users/hagaylevy/personal/server/comotserver/src/ root@45.80.152.140:/usr
 ng build -c production,he 
 
 Technical 
-- Add landing page, help page
+- Add landing page [DONE], help page [InProggress]
 - Update FB page
 - loading indication on screen load - check [Done]
 

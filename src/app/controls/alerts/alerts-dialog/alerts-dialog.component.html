@@ -1,6 +1,15 @@
 <div class="alert-container">
     <div *ngFor="let alert of data.alerts" class="alert-item">
-        <mat-icon aria-hidden="false" aria-label="Example home icon">{{getAlertIcon(alert)}}</mat-icon>
+        <span class="cdk-visually-hidden" #NewTooltipMessage i18n>New</span>
+        <span class="alert-container new-indication" *ngIf="alert?.status_id==1" [matTooltip]="NewTooltipMessage.innerHTML"></span>
+        &nbsp;
+        <mat-icon aria-hidden="false">{{getAlertIcon(alert)}}</mat-icon>
+        &nbsp;
         <span>{{getAlertText(alert)}}</span>
+        &nbsp;&nbsp;
+        <span class="cdk-visually-hidden" #DeleteTooltipMessage i18n>Delete</span>
+        <button (click)="deleteAlert(alert)" [matTooltip]="DeleteTooltipMessage.innerHTML">
+            <mat-icon aria-hidden="false">delete_forever</mat-icon>
+        </button>
     </div>
 </div>
