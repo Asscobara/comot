@@ -462,6 +462,58 @@
         <source>Total buliding summary</source>
         <target>סך כל הכסף</target>
       </trans-unit>
+      <trans-unit id="4381944803872489731">
+        <source>Canceled</source>
+        <target>מבוטל</target>
+      </trans-unit>
+      <trans-unit id="6381490568322624964">
+        <source>Deleted</source>
+        <target>נמחק</target>
+      </trans-unit>
+      <trans-unit id="8204176479746810612">
+        <source>Active</source>
+        <target>פעיל</target>
+      </trans-unit>
+      <trans-unit id="7346264946775486465">
+        <source>ComOt {$PH}</source>
+        <target>קומות</target>
+      </trans-unit>
+      <trans-unit id="8953033926734869941">
+        <source>Name</source>
+        <target>שם</target>
+      </trans-unit>
+      <trans-unit id="5729418620241283277">
+        <source>Events</source>
+        <target>אירועים</target>
+      </trans-unit>
+      <trans-unit id="3171757018633852836">
+        <source>Set Schedule</source>
+        <target> קביעת לוח זמנים</target>
+      </trans-unit>
+      <trans-unit id="5433782699501161466">
+        <source>Schedule</source>
+        <target>לוח זמנים</target>
+      </trans-unit>
+      <trans-unit id="3604386807230411192">
+        <source>Start Date</source>
+        <target>מתאריך</target>
+      </trans-unit>
+      <trans-unit id="7379726829888309084">
+        <source>End Date</source>
+        <target>עד תאריך</target>
+      </trans-unit>
+      <trans-unit id="4384842543718139601">
+        <source>Recuring</source>
+        <target>אירוע חוזר</target>
+      </trans-unit>
+      <trans-unit id="8142079527719261771">
+        <source>Every (In days)</source>
+        <target>כל (בימים)</target>
+      </trans-unit>
+      <trans-unit id="4311500824534477698">
+        <source>Value is not in range</source>
+        <target>הערך אינו מספר בטווח</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

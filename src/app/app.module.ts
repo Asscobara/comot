@@ -57,6 +57,9 @@ import { MatBadgeModule } from '@angular/material/badge';
 import { AlertsDialogComponent } from './controls/alerts/alerts-dialog/alerts-dialog.component';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { EventsComponent } from './screens/events/events.component';
+import { EventComponent } from './forms/event/event.component';
+import { ScheduleComponent } from './forms/schedule/schedule.component';
 
 registerLocaleData(localeHe, 'he-IL', localeHeExtra);
 
@@ -93,7 +96,10 @@ registerLocaleData(localeHe, 'he-IL', localeHeExtra);
     PriceComponent,
     FormContainerComponent,
     AlertsComponent,
-    AlertsDialogComponent
+    AlertsDialogComponent,
+    EventsComponent,
+    EventComponent,
+    ScheduleComponent
   ],
   imports: [
     BrowserModule,

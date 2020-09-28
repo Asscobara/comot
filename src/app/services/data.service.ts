@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { IUser, IAddress, ITransaction, ICategory, ISupplier, ITask, ISendEmail, IPrice, IAlert } from 'src/shceme/IScheme';
+import { IUser, IAddress, ITransaction, ICategory, ISupplier, ITask, ISendEmail, IPrice, IAlert, IEvent } from 'src/shceme/IScheme';
 import { environment } from 'src/environments/environment';
 
 @Injectable()
@@ -204,6 +204,24 @@ export class DataService {
 
     async updateAlert(alert: IAlert) {
         return this.httpSrv.put(`${this.endPoint}alerts/${alert.id}/`, alert, this.httpOptions).toPromise();
+    }
+    //#endregion
+
+    //#region Events
+    async getEvents(addressId: number) {
+        return this.httpSrv.get(`${this.endPoint}events/${addressId}/`, this.httpOptions).toPromise();
+    }
+
+    async createEvent(event: IEvent) {
+        return this.httpSrv.post(`${this.endPoint}events/`, event, this.httpOptions).toPromise();
+    }
+
+    async updateEvent(event: IEvent) {
+        return this.httpSrv.put(`${this.endPoint}events/${event.id}/`, event, this.httpOptions).toPromise();
+    }
+
+    async deleteEvent(eventId: number) {
+        return this.httpSrv.delete(`${this.endPoint}events/${eventId}/`, this.httpOptions).toPromise();
     }
     //#endregion
     

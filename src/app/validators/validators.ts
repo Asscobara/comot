@@ -19,6 +19,7 @@ export  class CustomValidators {
                 case ValidatorNames.matchWith:          return $localize`Value does not match`;
                 case ValidatorNames.password:           return $localize`Password does match rules`;
                 case ValidatorNames.dayInMonth:         return $localize`Value must be between 1 and 31`;
+                case ValidatorNames.range:              return $localize`Value is not in range`;
             }
             return ``;
         }
@@ -92,4 +93,5 @@ export enum ValidatorNames {
     matchWith = 'matchWith',
     password = 'password',
     dayInMonth = 'dayInMonth',
+    range = 'range'
 }

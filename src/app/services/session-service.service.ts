@@ -87,7 +87,14 @@ export class SessionServiceService {
   }
 
   public register: boolean = false;
-  
+
+  public readonly eventStatuses: IDBDefaultMap = {  
+    1: {dbId: 1, dbName: 'new', displayName: $localize`New`},
+    2: {dbId: 2, dbName: 'canceled', displayName: $localize`Canceled`},
+    3: {dbId: 3, dbName: 'deleted', displayName: $localize`Deleted`},
+    4: {dbId: 3, dbName: 'active', displayName: $localize`Active`}
+  }
+
   public readonly roles: IDBDefaultMap = {
     // 1: { dbName: 'admin', displayName: $localize`Admin` },
     2: {dbId: 2, dbName: 'manager', displayName: $localize`Manager` },

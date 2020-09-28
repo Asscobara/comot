@@ -8,6 +8,7 @@ import { IsLoggedInGuard } from './guards/is-logged-in.guard';
 import { TransactionsComponent } from './screens/transactions/transactions.component';
 import { SuppliersComponent } from './screens/suppliers/suppliers.component';
 import { HelpComponent } from './screens/help/help.component';
+import { EventsComponent } from './screens/events/events.component';
 
 
 const routes: Routes = [{
@@ -34,6 +35,9 @@ const routes: Routes = [{
     path: 'help',
     component: HelpComponent, 
     canActivate: [IsLoggedInGuard]         
+  }, {
+    path: 'events',
+    component: EventsComponent,        
   }, {
     path: '',
     component: LoginScreenComponent,        

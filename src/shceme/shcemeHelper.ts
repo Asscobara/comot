@@ -1,5 +1,5 @@
 
-import {IUser, ISupplier, IPrice, ISchedule, ITask, ITransaction} from './IScheme';
+import {IUser, ISupplier, IPrice, ISchedule, ITask, ITransaction, IEvent} from './IScheme';
 
 export abstract class InterfaceBase<T> {
     abstract getEmpty(): T;
@@ -98,7 +98,7 @@ export class ITaskHelper extends InterfaceBase<ITask> {
             sipplier_id: InterfaceBase.getEmptyT(new ISuplierHelper()),
             create_date: new Date(),
             update_date: new Date(),
-            schedule_id:InterfaceBase.getEmptyT(new IScheduleHelper()),
+            schedule_id: InterfaceBase.getEmptyT(new IScheduleHelper()),
             grade: 0,
             price: 0,
             address_id: 0,
@@ -123,6 +123,24 @@ export class ITransactionHelper extends InterfaceBase<ITransaction> {
             user_id: 0,
             remark: '',
             send_recipt: false              
+        }
+    }
+}
+
+export class IEventHelper extends InterfaceBase<IEvent> {
+    constructor() {
+        super();
+    }
+
+    getEmpty(): IEvent { 
+        return {
+            id: 0,
+            name: '',
+            create_date: Date.now(),
+            schedule_id: InterfaceBase.getEmptyT(new IScheduleHelper()),
+            remark: '',
+            status_id: 1,
+            address_id: 0          
         }
     }
 }
