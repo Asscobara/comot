@@ -4,7 +4,7 @@ import { SessionServiceService } from 'src/app/services/session-service.service'
 import { MatDialog } from '@angular/material/dialog';
 import { DeviceDetectorService } from 'ngx-device-detector';
 import { AbsScreenComponent } from '../abs-screen/abs-screen.component';
-import { IEvent } from 'src/shceme/IScheme';
+import { IEvent, IUser } from 'src/shceme/IScheme';
 import { InterfaceBase, IEventHelper } from 'src/shceme/shcemeHelper';
 import { Format } from 'src/app/utils/format';
 import { EventComponent } from 'src/app/forms/event/event.component';
@@ -35,6 +35,7 @@ export class EventsComponent extends AbsScreenComponent<IEvent> {
         {displayName: $localize`Created Date`, fieldName: 'create_date', fieldNameSource: (date) => Format.formatDate(new Date(date))},
         {displayName: $localize`Remark`, fieldName: 'remark'},
         {displayName: $localize`Status`, fieldName: 'status_id', fieldNameSource: (statusId) => this.sessionSrv.eventStatuses[statusId].displayName},
+        {displayName: $localize`Invite`, fieldName: 'user_ids', fieldNameSource: (users: IUser[]) => users.map( (user: IUser) => `${user.last_name} ${user.first_name}`).join(',') }
       ],
       rows: [],
       buttons: [
@@ -55,7 +56,14 @@ export class EventsComponent extends AbsScreenComponent<IEvent> {
 
   protected async loadData() {
     if (this.sessionSrv.address) {
-      return this.dataSrv.getEvents(this.sessionSrv.address.id);
+      const data = await this.dataSrv.getEvents(this.sessionSrv.address.id)
+       if (data) {
+        (data as any).data.forEach(d => {
+          const user_ids = d.user_ids.split(',');
+          d.user_ids = this.sessionSrv.users.map(u => u ).filter(f => user_ids.findIndex(id => f.id == +id) > -1);
+        })
+      }
+      return data;
     }
     return null;
   }

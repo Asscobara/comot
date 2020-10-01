@@ -177,6 +177,11 @@ Technical
 
 
 
+- Add building configuration / default configuration
+- Config CRUD
+- Config update UI
+- Add jobs for events
+
 
  
 -----------------RELEASE 1.0-------------------------

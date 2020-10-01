@@ -140,7 +140,8 @@ export class IEventHelper extends InterfaceBase<IEvent> {
             schedule_id: InterfaceBase.getEmptyT(new IScheduleHelper()),
             remark: '',
             status_id: 1,
-            address_id: 0          
+            address_id: 0,
+            user_ids: []          
         }
     }
 }

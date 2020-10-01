@@ -2,6 +2,7 @@
     <app-field i18n-title title="Name" [(value)]="context.name"></app-field>
     <app-field i18n-title title="Remark" [type]="'textarea'" [(value)]="context.remark"></app-field>    
     <app-field i18n-title title="Status" [type]="'select'" [options]="eventStatusesOptions" [(value)]="context.status_id"></app-field>
+    <app-field i18n-title title="Invite" [type]="'select'" [multiple]="true" [options]="inviteOptions" [(value)]="user_ids"></app-field>
 </app-form-container>
 <div>
     <button mat-button i18n (click)="openSchedule()">Set Schedule</button>

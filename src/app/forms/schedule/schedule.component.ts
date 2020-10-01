@@ -5,6 +5,7 @@ import { IOption } from 'src/app/controls/forms/inputs/field/field.component';
 import { SessionServiceService } from 'src/app/services/session-service.service';
 import { FormControl, Validators } from '@angular/forms';
 import { ValidatorNames } from 'src/app/validators/validators';
+import { Format } from 'src/app/utils/format';
 
 @Component({
   selector: 'app-schedule',
@@ -22,5 +23,21 @@ export class ScheduleComponent extends FormBaseClass<ISchedule> implements OnIni
 
   ngOnInit(): void {
     this.formGroup.addControl(ValidatorNames.range, this.recoringEveryControl);
+  }
+
+  public get start_date(): string {
+    return Format.formatDate(new Date(this.context.start_date), '-', true);
+  }
+
+  public set start_date(value: string) {
+    this.context.start_date = new Date(value);
+  }
+
+  public get end_date(): string {
+    return Format.formatDate(new Date(this.context.end_date), '-', true);
+  }
+
+  public set end_date(value: string) {
+    this.context.end_date = new Date(value);
   }
 }

@@ -1,6 +1,6 @@
 <app-form-container [cols]=2 [rows]=2>     
-    <app-field i18n-title title="Start Date" [type]="'date'" [(value)]="context.start_date"></app-field>
-    <app-field i18n-title title="End Date" [type]="'date'" [(value)]="context.end_date"></app-field>
+    <app-field i18n-title title="Start Date" [type]="'date'" [(value)]="start_date"></app-field>
+    <app-field i18n-title title="End Date" [type]="'date'" [(value)]="end_date"></app-field>
     <app-field i18n-title title="Recuring" [type]="'check'" [(value)]="context.recuring"></app-field>
     <app-field *ngIf="context.recuring" i18n-title title="Every (In days)" [(value)]="context.recuring_every_in_days" [control]="recoringEveryControl"></app-field>
 </app-form-container>

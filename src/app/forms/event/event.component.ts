@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SessionServiceService } from 'src/app/services/session-service.service';
 import { FormBaseClass } from 'src/app/controls/forms/formBaseClass';
-import { IEvent } from 'src/shceme/IScheme';
+import { IEvent, IUser } from 'src/shceme/IScheme';
 import { IOption } from 'src/app/controls/forms/inputs/field/field.component';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogComponent } from 'src/app/controls/dialog/dialog.component';
@@ -15,6 +15,15 @@ import { ScheduleComponent } from '../schedule/schedule.component';
 export class EventComponent extends FormBaseClass<IEvent> implements OnInit {
   
   public eventStatusesOptions: IOption[];
+  public inviteOptions: IOption[];
+
+  public get user_ids(): IUser[] {
+    return this.context.user_ids.map((user: IUser) =>  user );    
+  }
+  //{ return { value: user, displayValue: `${user.last_name} ${user.first_name}`} }
+  public set user_ids(value: IUser[]) {
+    this.context.user_ids = this.sessionSrv.users.filter(u => value.findIndex(v => v.id == u.id) >=0 );    
+  }
 
   constructor(
     private dialogSrv: MatDialog,
@@ -25,10 +34,13 @@ export class EventComponent extends FormBaseClass<IEvent> implements OnInit {
   ngOnInit(): void {
 
     this.eventStatusesOptions = [];
+    this.inviteOptions = [];
 
     Object.keys(this.sessionSrv.eventStatuses).forEach(t => {
       this.eventStatusesOptions.push({ value: this.sessionSrv.eventStatuses[t].dbId , displayValue: this.sessionSrv.eventStatuses[t].displayName});
     });
+
+    this.sessionSrv.users.forEach((user: IUser) => this.inviteOptions.push({value: user, displayValue: `${user.last_name} ${user.first_name}`}));
 
   }
 

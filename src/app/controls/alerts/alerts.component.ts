@@ -120,18 +120,24 @@ export class AlertsComponent implements OnInit, OnDestroy {
   public getAlertIcon(alert: IAlert) {
     switch (alert.code_id) {
       case 1: return 'payment';
+      case 2: return 'event';
     }
     return '';
   }
 
   public getAlertText(alert: IAlert) {
+    
+    const alertInfo = JSON.parse(alert.message);
+
     switch (alert.code_id) {
       case 1: {
-        const alertInfo = JSON.parse(alert.message);
-        const user = this.sessionSrv.users.find(u => u.id == alertInfo.userId);
-        return $localize`Resident ${user.first_name}:INTERPOLATION: ${user.last_name}:INTERPOLATION1: missed payment for ${+alertInfo.month+1}:INTERPOLATION2: month.`;
+        const user = this.sessionSrv.users?.find(u => u.id == alertInfo.userId);
+        return $localize`Resident ${user?.first_name}:INTERPOLATION: ${user?.last_name}:INTERPOLATION1: missed payment for ${+alertInfo?.month+1}:INTERPOLATION2: month.`;
       }
-      
+      case 2: {
+        const user = this.sessionSrv.users?.find(u => u.id == alert.sendto_user_id);
+        return $localize`Resident ${user?.first_name}:INTERPOLATION: ${user?.last_name}:INTERPOLATION1: was notify about '${alertInfo?.remark}:INTERPOLATION2:' event.`;
+      }      
     }
     return '';
   }

@@ -22,6 +22,7 @@ export class FieldComponent implements OnInit, OnDestroy, IFieldComponent  {
   @Input() public type: string = 'text';
   @Input() public disabled: boolean;
   @Input() public options: IOption[];
+  @Input() public multiple: boolean;
 
   @Output()
   public valueChange = new EventEmitter();
