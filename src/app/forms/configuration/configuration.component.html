@@ -1,0 +1,7 @@
+<app-form-container [cols]=2 [rows]=2>     
+    <app-field *ngFor="let configItem of context.data"
+        [title]="keyDisplayName(configItem.key)" 
+        [type]="keyFieldType(configItem.key)"
+        [(value)]="configItem.value">
+    </app-field>
+</app-form-container>

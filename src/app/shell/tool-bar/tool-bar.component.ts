@@ -28,4 +28,8 @@ export class ToolBarComponent implements OnInit {
   public showAbout() {
     this.sessionSrv.showAbout();
   }
+  
+  public setConfiguration() {
+    this.sessionSrv.setConfiguration();
+  }
 }

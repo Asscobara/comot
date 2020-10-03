@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
-import { IUser, IAddress, ICategory, ISupplier } from 'src/shceme/IScheme';
+import { IUser, IAddress, ICategory, ISupplier, IConfiguration } from 'src/shceme/IScheme';
 import { Router } from '@angular/router';
 import { DataService } from './data.service';
 import { MatDialog } from '@angular/material/dialog';
 import { AddressComponent } from '../forms/address/address.component';
 import { DialogComponent } from '../controls/dialog/dialog.component';
 import { PopupComponent } from '../popups/popup/popup.component';
+import { ConfigurationComponent } from '../forms/configuration/configuration.component';
 
 @Injectable({
   providedIn: 'root'
@@ -21,6 +22,15 @@ export class SessionServiceService {
   private _users: IUser[];
   private _categories: IDBDefaultMap;
   private _supliers: ISupplier[];
+  private _configuration: IConfiguration;
+
+  public get configuration(): IConfiguration {
+    return this._configuration;
+  }
+
+  public set configuration(value: IConfiguration) { 
+    this._configuration = value;
+  }
 
   public get supliers(): ISupplier[] {
     return this._supliers;
@@ -55,6 +65,9 @@ export class SessionServiceService {
     if (this.user && this.user.address_id) {
       this.dataSrv.getUserAddress(this.user.id).then( (a: any) => {
         this.address = a.data;
+        this.dataSrv.getConfiguration(this.address.id).then((b: any) => {
+            this.configuration = b.data;
+        });
       });
       this.updateSuppliers();      
     } else {
@@ -158,6 +171,22 @@ export class SessionServiceService {
       console.error(`role name ${roleName} does not exists.`);
     }
     return id; 
+  }
+
+  public setConfiguration() {
+    this.dialogSrv.open(DialogComponent, {
+      "minWidth": 250,
+      "data": { 
+        content: ConfigurationComponent, 
+        instanceContext: this.configuration, 
+        title: $localize`Configuration` 
+      }
+    }).afterClosed().subscribe( async (d: IConfiguration) =>  {     
+      if (d) {
+        this.configuration = d;
+        await this.dataSrv.updateConfiguration(this.configuration);
+      }
+    });
   }
 
   public setAddres() {

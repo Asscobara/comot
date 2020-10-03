@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { IUser, IAddress, ITransaction, ICategory, ISupplier, ITask, ISendEmail, IPrice, IAlert, IEvent } from 'src/shceme/IScheme';
+import { IUser, IAddress, ITransaction, ICategory, ISupplier, ITask, ISendEmail, IPrice, IAlert, IEvent, IConfiguration } from 'src/shceme/IScheme';
 import { environment } from 'src/environments/environment';
 
 @Injectable()
@@ -224,6 +224,15 @@ export class DataService {
         return this.httpSrv.delete(`${this.endPoint}events/${eventId}/`, this.httpOptions).toPromise();
     }
     //#endregion
-    
+
+    //#region Configuration
+    async getConfiguration(addressId: number) {
+        return this.httpSrv.get(`${this.endPoint}configuration/${addressId}/`, this.httpOptions).toPromise();
+    }
+
+    async updateConfiguration(configuration: IConfiguration) {
+        return this.httpSrv.put(`${this.endPoint}configuration/666`, configuration, this.httpOptions).toPromise();
+    }
+    //#endregion
 }
     

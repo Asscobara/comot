@@ -522,6 +522,26 @@
         <source>Resident {$INTERPOLATION} {$INTERPOLATION1} was notify about '{$PH_2}' event.</source>
         <target>הדייר <x id='INTERPOLATION' equiv-text='{{ user.first_name }}'/> <x id='INTERPOLATION1' equiv-text='{{ user.last_name }}'/>  קיבל הודעה עבור אירוע <x id='INTERPOLATION2' equiv-text='{{ user.first_name }}'/></target>
       </trans-unit>
+      <trans-unit id="3008420115644088420">
+        <source>Configuration</source>
+        <target>הגדרות</target>
+      </trans-unit>
+      <trans-unit id="4639406462682584145">
+        <source>Send email alerts</source>
+        <target>שלח מייל כשיש התראה</target>
+      </trans-unit>
+      <trans-unit id="3025797198835996829">
+        <source>Event alert active</source>
+        <target>הפעל התרעות על אירועים</target>
+      </trans-unit>
+      <trans-unit id="1315644683230409872">
+        <source>Days before event to alert</source>
+        <target>מספר ימים לפני הארוע לשליחת התראה</target>
+      </trans-unit>
+      <trans-unit id="6811901802533648897">
+        <source>N/A</source>
+        <target>לא זמין</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

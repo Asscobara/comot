@@ -60,6 +60,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { EventsComponent } from './screens/events/events.component';
 import { EventComponent } from './forms/event/event.component';
 import { ScheduleComponent } from './forms/schedule/schedule.component';
+import { ConfigurationComponent } from './forms/configuration/configuration.component';
 
 registerLocaleData(localeHe, 'he-IL', localeHeExtra);
 
@@ -99,7 +100,8 @@ registerLocaleData(localeHe, 'he-IL', localeHeExtra);
     AlertsDialogComponent,
     EventsComponent,
     EventComponent,
-    ScheduleComponent
+    ScheduleComponent,
+    ConfigurationComponent
   ],
   imports: [
     BrowserModule,

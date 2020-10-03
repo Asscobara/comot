@@ -59,7 +59,14 @@ export class FieldComponent implements OnInit, OnDestroy, IFieldComponent  {
     if (!this.control) {
       this.control = new FormControl();
     }
-
+    if (this.type == 'check') {
+      if (this.value == 'false') {
+        this.value = false;
+      }
+      if (this.value == 'true') {
+        this.value = true;
+      }
+    }
     this.control.setValue(this.value);    
     this.valueListener = this.control.valueChanges.subscribe(v => {
       this.value = v;
