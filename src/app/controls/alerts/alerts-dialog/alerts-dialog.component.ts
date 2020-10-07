@@ -48,4 +48,18 @@ export class AlertsDialogComponent implements OnInit {
     });
   }
 
+  public deleteAll() {
+    const delteRequests = [];
+    this.data.alerts.forEach(alert => {
+      delteRequests.push(this.dataSrv.deleteAlert(alert.id));
+    });
+
+    Promise.all(delteRequests).then(() => {
+      this.data.alerts = [];
+      if (this.onDeleteAlert) {
+        this.onDeleteAlert();
+      }
+    });
+  }
+
 }

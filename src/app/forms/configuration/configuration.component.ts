@@ -18,20 +18,26 @@ export class ConfigurationComponent extends FormBaseClass<IConfiguration> implem
 
   public keyDisplayName(key: string): string {
     switch(key) {
-      case 'send_email_alerts': return $localize`Send email alerts`;
-      case 'event_alert': return $localize`Event alert active`;
-      case 'event_alert_days': return $localize`Days before event to alert`;
-      case 'payment_alert': return $localize`Payment alert active`;
+      case 'send_email_alerts':         return $localize`Send email alerts`;
+      case 'event_alert':               return $localize`Event alert active`;
+      case 'event_alert_days':          return $localize`Days before event to alert`;
+      case 'payment_alert':             return $localize`Payment alert active`;
+      case 'task_alert':                return $localize`Task alert active`;
+      case 'task_max_pending_days':     return $localize`Task maximum status Pending in days`;
+      case 'task_max_new_days':         return $localize`Task maximum status New in days`;
     }
     return $localize`N/A`;
   }
 
   public keyFieldType(key: string): string {
     switch(key) {
-      case 'send_email_alerts': return 'check';
-      case 'event_alert':       return 'check';
-      case 'event_alert_days':  return 'text';
-      case 'payment_alert':     return 'check';
+      case 'send_email_alerts':       return 'check';
+      case 'event_alert':             return 'check';
+      case 'event_alert_days':        return 'text';
+      case 'payment_alert':           return 'check';
+      case 'task_alert':              return 'check';
+      case 'task_max_pending_days':   return 'text';
+      case 'task_max_new_days':       return 'text';
     }
     return 'text';
   }

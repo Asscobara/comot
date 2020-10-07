@@ -1,4 +1,7 @@
 <div class="alert-container">
+    
+    <button *ngIf="data.alerts?.length > 2" mat-button i18n (click)="deleteAll()">Clear All</button>
+
     <div *ngFor="let alert of data.alerts" class="alert-item">
         <span class="cdk-visually-hidden" #NewTooltipMessage i18n>New</span>
         <span class="alert-container new-indication" *ngIf="alert?.status_id==1" [matTooltip]="NewTooltipMessage.innerHTML"></span>

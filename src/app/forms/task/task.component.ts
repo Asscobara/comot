@@ -2,9 +2,10 @@ import { Component, OnInit, OnChanges } from '@angular/core';
 import { FormBaseClass } from 'src/app/controls/forms/formBaseClass';
 import { ITask } from 'src/shceme/IScheme';
 import { MatDialog } from '@angular/material/dialog';
-import { DataService } from 'src/app/services/data.service';
 import { SessionServiceService } from 'src/app/services/session-service.service';
 import { IOption } from 'src/app/controls/forms/inputs/field/field.component';
+import { ScheduleComponent } from '../schedule/schedule.component';
+import { DialogComponent } from 'src/app/controls/dialog/dialog.component';
 
 @Component({
   selector: 'app-task',
@@ -17,7 +18,9 @@ export class TaskComponent extends FormBaseClass<ITask> implements OnInit, OnCha
   public taskStatusesOptions: IOption[];
   public suplierOptions: IOption[]; 
 
-  constructor(private sessionSrv: SessionServiceService) { 
+  constructor(
+    private dialogSrv: MatDialog,
+    private sessionSrv: SessionServiceService) { 
       super();
   }
 
@@ -56,4 +59,27 @@ export class TaskComponent extends FormBaseClass<ITask> implements OnInit, OnCha
     });
   }
 
+  public openSchedule() {
+    this.dialogSrv.open(DialogComponent, {
+      "minWidth": 250,
+      "data": { 
+        content: ScheduleComponent, 
+        instanceContext: this.context.schedule_id, 
+        title: $localize`Schedule`
+      }
+    }).afterClosed().subscribe( async (d: any) =>  {     
+      if (d) {
+        try {
+            // const u = await this.dataSrv.register(d);
+           // TODO: Show message
+          } catch(err) {
+          // d= err.statusText;          
+          // this.openLoginDialog(d);
+          }
+        }
+      });    
+  }
 }
+
+
+

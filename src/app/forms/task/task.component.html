@@ -1,4 +1,4 @@
-<app-form-container [cols]=3 [rows]=1>     
+<app-form-container [cols]=2 [rows]=2>     
     <app-field i18n-title title="Category" (valueChange)="onCategoryChange($event)" [type]="'select'" [options]="categoriesOptions" [(value)]="context.category_id"></app-field>
     <app-field i18n-title title="Description" [type]="'textarea'" [(value)]="context.description"></app-field>
     <app-field i18n-title title="Status" [type]="'select'" [options]="taskStatusesOptions" [(value)]="context.status_id"></app-field>
@@ -6,3 +6,6 @@
     <app-field i18n-title title="Grade" [(value)]="context.grade"></app-field>
     <app-field i18n-title title="Price" [(value)]="context.price"></app-field>
 </app-form-container>
+<div>
+    <button mat-button i18n (click)="openSchedule()">Set Schedule</button>
+</div>

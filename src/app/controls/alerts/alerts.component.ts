@@ -5,6 +5,9 @@ import { IAlert } from 'src/shceme/IScheme';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { AlertsDialogComponent } from './alerts-dialog/alerts-dialog.component';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { ITaskHelper } from 'src/shceme/shcemeHelper';
+import { formatDate } from '@angular/common';
+import { Format } from 'src/app/utils/format';
 
 @Component({
   selector: 'app-alerts',
@@ -38,9 +41,9 @@ export class AlertsComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this.dataSrv.getAlerts(this.sessionSrv?.user?.id).then( (alerts) => this.setAlerts((alerts as any).data));
+    this.dataSrv.getAlerts(this.sessionSrv?.user?.id).then( (alerts) => this.setAlerts((alerts as any).data, false));
     this.requestAlertsInterval = setInterval(() => {
-        this.dataSrv.getAlerts(this.sessionSrv?.user?.id).then( (alerts) => this.setAlerts((alerts as any).data));
+        this.dataSrv.getAlerts(this.sessionSrv?.user?.id).then( (alerts) => this.setAlerts((alerts as any).data, true));
       }, this.requestAlertsIntervalImMin
     );    
   }
@@ -64,8 +67,11 @@ export class AlertsComponent implements OnInit, OnDestroy {
     });
     
     this.dialogRef.componentInstance.onDeleteAlert = () => {
-      this.dataSrv.getAlerts(this.sessionSrv?.user?.id).then((alerts) => this.alerts = (alerts as any).data);
-      this.dialogRef.close();
+      this.dataSrv.getAlerts(this.sessionSrv?.user?.id).then((alerts) => {
+        this.alerts = (alerts as any).data;
+        this.newAlertsCount = this.alerts.filter(a => a.status_id == 1).length;
+        this.dialogRef.close();
+      });
     };
 
     this.dialogRef.afterClosed().subscribe( () =>  {                
@@ -91,24 +97,26 @@ export class AlertsComponent implements OnInit, OnDestroy {
     }
   }
 
-  setAlerts(alerts: IAlert[]) {
+  setAlerts(alerts: IAlert[], openSnackbar: boolean) {
     
     this.alerts = alerts;
     this.newAlertsCount = this.alerts.filter(a => a.status_id == 1).length;
 
-    let snackBarMessage = '';
-    alerts.forEach((alert: IAlert) => {
-      if (alert.status_id == 1) {
-        snackBarMessage = `* ${this.getAlertText(alert)} * ${snackBarMessage}`;
-      }        
-    });
-    if (snackBarMessage != '') {
-      this.snackBar.open(snackBarMessage, '', {
-        duration: 5000,
-        horizontalPosition: 'center',
-        verticalPosition: 'top',
-        panelClass: ['snackbar-style']
-      });      
+    if (openSnackbar) {
+      let snackBarMessage = '';
+      alerts.forEach((alert: IAlert) => {
+        if (alert.status_id == 1) {
+          snackBarMessage = `* ${this.getAlertText(alert)} * ${snackBarMessage}`;
+        }        
+      });
+      if (snackBarMessage != '') {
+        this.snackBar.open(snackBarMessage, '', {
+          duration: 5000,
+          horizontalPosition: 'center',
+          verticalPosition: 'top',
+          panelClass: ['snackbar-style']
+        });      
+      }
     }
 
     if (this.dialogRef && this.dialogRef.componentInstance) {
@@ -121,6 +129,8 @@ export class AlertsComponent implements OnInit, OnDestroy {
     switch (alert.code_id) {
       case 1: return 'payment';
       case 2: return 'event';
+      case 3: 
+      case 4: return 'fact_check';
     }
     return '';
   }
@@ -137,7 +147,10 @@ export class AlertsComponent implements OnInit, OnDestroy {
       case 2: {
         const user = this.sessionSrv.users?.find(u => u.id == alert.sendto_user_id);
         return $localize`Resident ${user?.first_name}:INTERPOLATION: ${user?.last_name}:INTERPOLATION1: was notify about '${alertInfo?.remark}:INTERPOLATION2:' event.`;
-      }      
+      }
+      case 3: 
+      case 4: 
+        return $localize`Task #${alertInfo?.id}:INTERPOLATION: ${alertInfo?.description}:INTERPOLATION1: status has not changed since ${Format.formatDate(new Date(alertInfo?.create_date))}:INTERPOLATION2:`;
     }
     return '';
   }

@@ -538,13 +538,34 @@
         <source>Days before event to alert</source>
         <target>מספר ימים לפני הארוע לשליחת התראה</target>
       </trans-unit>
+      <trans-unit id="3331861960763036535">
+        <source>Payment alert active</source>
+        <target>הפעל התרעות על תשלומים</target>
+      </trans-unit>
+      <trans-unit id="1912002977799665317">
+        <source>Task alert active</source>
+        <target>הפעל התרעות על משימות</target>
+      </trans-unit>
+      <trans-unit id="7431582094027659531">
+        <source>Task maximum status Pending in days</source>
+        <target>מספר ימים מקסימאלי לסטאטוס משימה בהמתנה</target>
+      </trans-unit>
+      <trans-unit id="8292656628890983988">
+        <source>Task maximum status New in days</source>
+        <target>מספר ימים מקסימאלי לסטאטוס משימה חדש</target>
+      </trans-unit>
       <trans-unit id="6811901802533648897">
         <source>N/A</source>
         <target>לא זמין</target>
       </trans-unit>
+      <trans-unit id="5110068890737588013">
+        <source>Task #{$INTERPOLATION} {$INTERPOLATION1} status has not changed since {$INTERPOLATION2}</source>
+        <target>המשימה <x id='INTERPOLATION'/> <x id='INTERPOLATION1'/>  לא עודכנה מתאריך <x id='INTERPOLATION2'/></target>
+      </trans-unit>
+      <trans-unit id="8193912662253833654">
+        <source>Clear All</source>
+        <target>מחק הכל</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>
-
-
-
