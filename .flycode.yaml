@@ -1,4 +1,4 @@
-version: "0.2"
+version: "0.1"
 environments:
   - name: master
     branch: master
@@ -7,5 +7,5 @@ apps:
   - name: comot
     path: ""
     text-resources:
-      - path: src/locale/*.xlf
-        format: angular-hardcoded
+      - path: src/locale/*.json
+        format: nested-key-value
